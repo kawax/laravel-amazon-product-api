@@ -1,0 +1,45 @@
+{
+    "name": "revolution/laravel-amazon-product-api",
+    "description": "Amazon Product Advertising API for Laravel",
+    "keywords": [
+        "amazon",
+        "laravel"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.0.0",
+        "guzzlehttp/guzzle": "^6.2",
+        "illuminate/support": "5.*",
+        "exeu/apai-io": "^2.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "6.*",
+        "mockery/mockery": "0.9.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Revolution\\Amazon\\ProductAdvertising\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Revolution\\Amazon\\ProductAdvertising\\tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "kawax",
+            "email": "kawaxbiz@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Revolution\\Amazon\\ProductAdvertising\\Providers\\AmazonProductServiceProvider"
+            ],
+            "aliases": {
+                "AmazonProduct": "Revolution\\Amazon\\ProductAdvertising\\Facades\\AmazonProduct"
+            }
+        }
+    }
+}

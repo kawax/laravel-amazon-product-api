@@ -1,0 +1,273 @@
+<?xml version="1.0" ?>
+<ItemLookupResponse xmlns="http://webservices.amazon.com/AWSECommerceService/2013-08-01">
+  <OperationRequest>
+    <HTTPHeaders>
+      <Header Name="UserAgent" Value="ApaiIO [2.1.0]"></Header>
+    </HTTPHeaders>
+    <RequestId></RequestId>
+    <Arguments>
+      <Argument Name="AWSAccessKeyId" Value=""></Argument>
+      <Argument Name="AssociateTag" Value=""></Argument>
+      <Argument Name="ItemId" Value="B004N3APGO"></Argument>
+      <Argument Name="Operation" Value="ItemLookup"></Argument>
+      <Argument Name="ResponseGroup" Value="Large"></Argument>
+      <Argument Name="Service" Value="AWSECommerceService"></Argument>
+      <Argument Name="Timestamp" Value="2017-09-15T08:11:53Z"></Argument>
+      <Argument Name="Version" Value="2013-08-01"></Argument>
+      <Argument Name="Signature" Value=""></Argument>
+    </Arguments>
+    <RequestProcessingTime>0.0327790240000000</RequestProcessingTime>
+  </OperationRequest>
+  <Items>
+    <Request>
+      <IsValid>True</IsValid>
+      <ItemLookupRequest>
+        <IdType>ASIN</IdType>
+        <ItemId>B004N3APGO</ItemId>
+        <ResponseGroup>Large</ResponseGroup>
+        <VariationPage>All</VariationPage>
+      </ItemLookupRequest>
+    </Request>
+    <Item>
+      <ASIN>B004N3APGO</ASIN>
+      <ParentASIN>BT00DHI8G4</ParentASIN>
+      <DetailPageURL>
+        https://www.amazon.co.jp/Amazon%E3%82%AE%E3%83%95%E3%83%88%E5%88%B8-1_JP_Email-Amazon%E3%82%AE%E3%83%95%E3%83%88%E5%88%B8-E%E3%83%A1%E3%83%BC%E3%83%AB%E3%82%BF%E3%82%A4%E3%83%97-Amazon%E3%83%99%E3%83%BC%E3%82%B7%E3%83%83%E3%82%AF/dp/B004N3APGO?psc=1&amp;SubscriptionId=AKIAITR3MPOOPUHV6H6A&amp;tag=&amp;linkCode=xm2&amp;camp=2025&amp;creative=165953&amp;creativeASIN=B004N3APGO
+      </DetailPageURL>
+      <ItemLinks>
+        <ItemLink>
+          <Description>Add To Wishlist</Description>
+          <URL>https://www.amazon.co.jp/gp/registry/wishlist/add-item.html?asin.0=B004N3APGO&amp;SubscriptionId=AKIAITR3MPOOPUHV6H6A&amp;tag=&amp;linkCode=xm2&amp;camp=2025&amp;creative=5143&amp;creativeASIN=B004N3APGO</URL>
+        </ItemLink>
+        <ItemLink>
+          <Description>Tell A Friend</Description>
+          <URL>https://www.amazon.co.jp/gp/pdp/taf/B004N3APGO?SubscriptionId=AKIAITR3MPOOPUHV6H6A&amp;tag=&amp;linkCode=xm2&amp;camp=2025&amp;creative=5143&amp;creativeASIN=B004N3APGO</URL>
+        </ItemLink>
+        <ItemLink>
+          <Description>All Customer Reviews</Description>
+          <URL>https://www.amazon.co.jp/review/product/B004N3APGO?SubscriptionId=AKIAITR3MPOOPUHV6H6A&amp;tag=&amp;linkCode=xm2&amp;camp=2025&amp;creative=5143&amp;creativeASIN=B004N3APGO</URL>
+        </ItemLink>
+        <ItemLink>
+          <Description>All Offers</Description>
+          <URL>https://www.amazon.co.jp/gp/offer-listing/B004N3APGO?SubscriptionId=AKIAITR3MPOOPUHV6H6A&amp;tag=&amp;linkCode=xm2&amp;camp=2025&amp;creative=5143&amp;creativeASIN=B004N3APGO</URL>
+        </ItemLink>
+      </ItemLinks>
+      <SalesRank>2</SalesRank>
+      <SmallImage>
+        <URL>https://images-fe.ssl-images-amazon.com/images/I/41-4Hj2o%2BqL._SL75_.jpg</URL>
+        <Height Units="pixels">75</Height>
+        <Width Units="pixels">75</Width>
+      </SmallImage>
+      <MediumImage>
+        <URL>https://images-fe.ssl-images-amazon.com/images/I/41-4Hj2o%2BqL._SL160_.jpg</URL>
+        <Height Units="pixels">160</Height>
+        <Width Units="pixels">160</Width>
+      </MediumImage>
+      <LargeImage>
+        <URL>https://images-fe.ssl-images-amazon.com/images/I/41-4Hj2o%2BqL.jpg</URL>
+        <Height Units="pixels">500</Height>
+        <Width Units="pixels">500</Width>
+      </LargeImage>
+      <ImageSets>
+        <ImageSet Category="swatch">
+          <SwatchImage>
+            <URL>https://images-fe.ssl-images-amazon.com/images/I/31cvqMhdG2L._SL30_.jpg</URL>
+            <Height Units="pixels">22</Height>
+            <Width Units="pixels">30</Width>
+          </SwatchImage>
+          <SmallImage>
+            <URL>https://images-fe.ssl-images-amazon.com/images/I/31cvqMhdG2L._SL75_.jpg</URL>
+            <Height Units="pixels">56</Height>
+            <Width Units="pixels">75</Width>
+          </SmallImage>
+          <ThumbnailImage>
+            <URL>https://images-fe.ssl-images-amazon.com/images/I/31cvqMhdG2L._SL75_.jpg</URL>
+            <Height Units="pixels">56</Height>
+            <Width Units="pixels">75</Width>
+          </ThumbnailImage>
+          <TinyImage>
+            <URL>https://images-fe.ssl-images-amazon.com/images/I/31cvqMhdG2L._SL110_.jpg</URL>
+            <Height Units="pixels">82</Height>
+            <Width Units="pixels">110</Width>
+          </TinyImage>
+          <MediumImage>
+            <URL>https://images-fe.ssl-images-amazon.com/images/I/31cvqMhdG2L._SL160_.jpg</URL>
+            <Height Units="pixels">120</Height>
+            <Width Units="pixels">160</Width>
+          </MediumImage>
+          <LargeImage>
+            <URL>https://images-fe.ssl-images-amazon.com/images/I/31cvqMhdG2L.jpg</URL>
+            <Height Units="pixels">375</Height>
+            <Width Units="pixels">500</Width>
+          </LargeImage>
+        </ImageSet>
+        <ImageSet Category="primary">
+          <SwatchImage>
+            <URL>https://images-fe.ssl-images-amazon.com/images/I/41-4Hj2o%2BqL._SL30_.jpg</URL>
+            <Height Units="pixels">30</Height>
+            <Width Units="pixels">30</Width>
+          </SwatchImage>
+          <SmallImage>
+            <URL>https://images-fe.ssl-images-amazon.com/images/I/41-4Hj2o%2BqL._SL75_.jpg</URL>
+            <Height Units="pixels">75</Height>
+            <Width Units="pixels">75</Width>
+          </SmallImage>
+          <ThumbnailImage>
+            <URL>https://images-fe.ssl-images-amazon.com/images/I/41-4Hj2o%2BqL._SL75_.jpg</URL>
+            <Height Units="pixels">75</Height>
+            <Width Units="pixels">75</Width>
+          </ThumbnailImage>
+          <TinyImage>
+            <URL>https://images-fe.ssl-images-amazon.com/images/I/41-4Hj2o%2BqL._SL110_.jpg</URL>
+            <Height Units="pixels">110</Height>
+            <Width Units="pixels">110</Width>
+          </TinyImage>
+          <MediumImage>
+            <URL>https://images-fe.ssl-images-amazon.com/images/I/41-4Hj2o%2BqL._SL160_.jpg</URL>
+            <Height Units="pixels">160</Height>
+            <Width Units="pixels">160</Width>
+          </MediumImage>
+          <LargeImage>
+            <URL>https://images-fe.ssl-images-amazon.com/images/I/41-4Hj2o%2BqL.jpg</URL>
+            <Height Units="pixels">500</Height>
+            <Width Units="pixels">500</Width>
+          </LargeImage>
+        </ImageSet>
+      </ImageSets>
+      <ItemAttributes>
+        <Binding>Ecard Gift Certificate</Binding>
+        <Brand>Amazonギフト券</Brand>
+        <Feature>Eメールでお届けするタイプ</Feature>
+        <Feature>Amazon.co.jpで1億種以上の商品が買える</Feature>
+        <Feature>金額は自由設定(15円~50万円で1円単位)</Feature>
+        <Feature>有効期限は発行から10年 ※Amazonギフト券細則をご確認ください</Feature>
+        <Feature>1年先まで予約可能</Feature>
+        <Feature>Amazonギフト券はAmazon.co.jpでのお買い物にのみ使用可能です。他の用途・理由にてAmazonギフト券の送付を要求された場合は十分ご注意ください。</Feature>
+        <Genre>Amazonギフト券</Genre>
+        <Label>Amazonギフト券</Label>
+        <Languages>
+          <Language>
+            <Name>英語</Name>
+            <Type>Unknown</Type>
+          </Language>
+          <Language>
+            <Name>日本語</Name>
+            <Type>Unknown</Type>
+          </Language>
+        </Languages>
+        <Manufacturer>Amazonギフト券</Manufacturer>
+        <Model>1_JP_Email</Model>
+        <MPN>a_basic_noto_email_v2016_jp</MPN>
+        <PartNumber>a_basic_noto_email_v2016_jp</PartNumber>
+        <ProductGroup>Electronic Gift Card</ProductGroup>
+        <ProductTypeName>ABIS_GIFT_CARD</ProductTypeName>
+        <Publisher>Amazonギフト券</Publisher>
+        <ReleaseDate>2010-07-15</ReleaseDate>
+        <Studio>Amazonギフト券</Studio>
+        <Title>Amazonギフト券- Eメールタイプ - Amazonベーシック</Title>
+      </ItemAttributes>
+      <OfferSummary>
+        <LowestNewPrice>
+          <Amount>5000</Amount>
+          <CurrencyCode>JPY</CurrencyCode>
+          <FormattedPrice>￥ 5,000</FormattedPrice>
+        </LowestNewPrice>
+        <TotalNew>1</TotalNew>
+        <TotalUsed>0</TotalUsed>
+        <TotalCollectible>0</TotalCollectible>
+        <TotalRefurbished>0</TotalRefurbished>
+      </OfferSummary>
+      <Offers>
+        <TotalOffers>1</TotalOffers>
+        <TotalOfferPages>1</TotalOfferPages>
+        <MoreOffersUrl>https://www.amazon.co.jp/gp/offer-listing/B004N3APGO?SubscriptionId=AKIAITR3MPOOPUHV6H6A&amp;tag=&amp;linkCode=xm2&amp;camp=2025&amp;creative=5143&amp;creativeASIN=B004N3APGO</MoreOffersUrl>
+        <Offer>
+          <OfferAttributes>
+            <Condition>New</Condition>
+          </OfferAttributes>
+          <OfferListing>
+            <OfferListingId>
+              u2ntOj9d4%2F4%2FUieMpJzbuOV8YvXGgyzcrqSMxkSfzSFzJclEY6jaelRKmL7e9i20tdhD5DW29vuyj4dxemnOtk29Q7fAQ0U%2B33Ip%2Fmy0Yt4%3D
+            </OfferListingId>
+            <Price>
+              <Amount>5000</Amount>
+              <CurrencyCode>JPY</CurrencyCode>
+              <FormattedPrice>￥ 5,000</FormattedPrice>
+            </Price>
+            <Availability>在庫あり。</Availability>
+            <AvailabilityAttributes>
+              <AvailabilityType>now</AvailabilityType>
+              <MinimumHours>0</MinimumHours>
+              <MaximumHours>0</MaximumHours>
+            </AvailabilityAttributes>
+            <IsEligibleForSuperSaverShipping>0</IsEligibleForSuperSaverShipping>
+            <IsEligibleForPrime>0</IsEligibleForPrime>
+          </OfferListing>
+        </Offer>
+      </Offers>
+      <CustomerReviews>
+        <IFrameURL>https://www.amazon.jp/reviews/iframe?akid=AKIAITR3MPOOPUHV6H6A&amp;alinkCode=xm2&amp;asin=B004N3APGO&amp;atag=&amp;exp=2017-09-16T08%3A11%3A54Z&amp;v=2&amp;sig=MFYXJWb%252FzVwN6KWy8QNTC4%252B1mZc4Hmpsfzl3%252F%252F9ke5Q%253D</IFrameURL>
+        <HasReviews>true</HasReviews>
+      </CustomerReviews>
+      <SimilarProducts>
+        <SimilarProduct>
+          <ASIN>BT00DHI8HS</ASIN>
+          <Title>Amazonギフト券(印刷タイプ)</Title>
+        </SimilarProduct>
+        <SimilarProduct>
+          <ASIN>B06ZYCSTBK</ASIN>
+          <Title>MINGCHANG スポーツカメラ アクションカメラ　1080P フルHD 1200万画素 145度広角レンズ 30M防水 バイク/自転車/車などに取り付け可能 多言語対応 900mAH電池
+            (ブラック)
+          </Title>
+        </SimilarProduct>
+        <SimilarProduct>
+          <ASIN>B01N1IG40Z</ASIN>
+          <Title>フジッコ 麻婆豆腐の素 甘口 195g</Title>
+        </SimilarProduct>
+        <SimilarProduct>
+          <ASIN>B01N66WMWQ</ASIN>
+          <Title>フジッコ ふっくらあずき水煮 200g</Title>
+        </SimilarProduct>
+        <SimilarProduct>
+          <ASIN>B01MSP80YO</ASIN>
+          <Title>フジッコ ふっくらひじき水煮 120g</Title>
+        </SimilarProduct>
+        <SimilarProduct>
+          <ASIN>B01N2JY8R0</ASIN>
+          <Title>フジッコ カレーうどんの素 かつおだし 300g</Title>
+        </SimilarProduct>
+        <SimilarProduct>
+          <ASIN>B06X3TTC1M</ASIN>
+          <Title>タイガー 水筒 600ml 直飲み コップ 付 2WAY ステンレス ボトル ポーチ付き サハラ コロボックル ライオン MBR-B06G-RL Tiger</Title>
+        </SimilarProduct>
+        <SimilarProduct>
+          <ASIN>B019DFS4FK</ASIN>
+          <Title>DLAND LEDライト　防水　超明るい　ヘッドランプ　充電式電池付き　1000Lm ルーメン ヘッドランプ　3点灯モード　ヘッドライト　懐中電灯　ハンズフリー式</Title>
+        </SimilarProduct>
+        <SimilarProduct>
+          <ASIN>B01KHQZ9D4</ASIN>
+          <Title>SQ8 超小型カメラ 高解像度1280*720ｐ＆1920*1080ｐ可選択 暗視機能 動体検知機能あり</Title>
+        </SimilarProduct>
+      </SimilarProducts>
+      <BrowseNodes>
+        <BrowseNode>
+          <BrowseNodeId>3128323051</BrowseNodeId>
+          <Name>ギフト券</Name>
+          <Ancestors>
+            <BrowseNode>
+              <BrowseNodeId>2351653051</BrowseNodeId>
+              <Name>商品</Name>
+              <IsCategoryRoot>1</IsCategoryRoot>
+              <Ancestors>
+                <BrowseNode>
+                  <BrowseNodeId>2351652051</BrowseNodeId>
+                  <Name>ギフト券</Name>
+                </BrowseNode>
+              </Ancestors>
+            </BrowseNode>
+          </Ancestors>
+        </BrowseNode>
+      </BrowseNodes>
+    </Item>
+  </Items>
+</ItemLookupResponse>

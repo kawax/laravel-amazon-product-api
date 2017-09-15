@@ -1,0 +1,13 @@
+sudo: false
+language: php
+
+php:
+  - 7.0
+  - nightly
+
+before_script:
+  - travis_retry composer self-update
+  - travis_retry composer install --no-interaction --prefer-source -q
+
+script:
+  - vendor/bin/phpunit

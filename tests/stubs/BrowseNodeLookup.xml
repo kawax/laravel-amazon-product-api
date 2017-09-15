@@ -1,0 +1,161 @@
+<?xml version="1.0" ?>
+<BrowseNodeLookupResponse xmlns="http://webservices.amazon.com/AWSECommerceService/2013-08-01">
+  <OperationRequest>
+    <HTTPHeaders>
+      <Header Name="UserAgent" Value="ApaiIO [2.1.0]"/>
+    </HTTPHeaders>
+    <RequestId></RequestId>
+    <Arguments>
+      <Argument Name="AWSAccessKeyId" Value="A"/>
+      <Argument Name="AssociateTag" Value=""/>
+      <Argument Name="BrowseNodeId" Value="637872"/>
+      <Argument Name="Operation" Value="BrowseNodeLookup"/>
+      <Argument Name="ResponseGroup" Value="TopSellers"/>
+      <Argument Name="Service" Value="AWSECommerceService"/>
+      <Argument Name="Timestamp" Value="2017-09-15T07:50:34Z"/>
+      <Argument Name="Version" Value="2013-08-01"/>
+      <Argument Name="Signature" Value=""/>
+    </Arguments>
+    <RequestProcessingTime>0.012552776</RequestProcessingTime>
+  </OperationRequest>
+  <BrowseNodes>
+    <Request>
+      <IsValid>True</IsValid>
+      <BrowseNodeLookupRequest>
+        <BrowseNodeId>637872</BrowseNodeId>
+        <ResponseGroup>TopSellers</ResponseGroup>
+      </BrowseNodeLookupRequest>
+    </Request>
+    <BrowseNode>
+      <BrowseNodeId>637872</BrowseNodeId>
+      <Name>機種別</Name>
+      <TopSellers>
+        <TopSeller>
+          <ASIN>B075LFCKFY</ASIN>
+          <Title>スーパーマリオ オデッセイ 【Amazon.co.jp限定】オリジナルラゲッジタグ 付</Title>
+        </TopSeller>
+        <TopSeller>
+          <ASIN>B075LC6179</ASIN>
+          <Title>Xenoblade2 Collector's Edition</Title>
+        </TopSeller>
+        <TopSeller>
+          <ASIN>B075LC617B</ASIN>
+          <Title>スーパーマリオ オデッセイ</Title>
+        </TopSeller>
+        <TopSeller>
+          <ASIN>B075LC4LK3</ASIN>
+          <Title>Nintendo Switch スーパーマリオ オデッセイセット</Title>
+        </TopSeller>
+        <TopSeller>
+          <ASIN>B075LC4LK4</ASIN>
+          <Title>Nintendo Switch スーパーマリオ オデッセイセット 【Amazon.co.jp限定】オリジナルラゲッジタグ 付</Title>
+        </TopSeller>
+        <TopSeller>
+          <ASIN>B075LNDM8N</ASIN>
+          <Title>【Amazon.co.jp限定】スーパーマリオ オデッセイ+amiibo マリオ・ピーチ・クッパ【ウェディングスタイル】 (スーパーマリオシリーズ) +オリジナルラゲッジタグ</Title>
+        </TopSeller>
+        <TopSeller>
+          <ASIN>B075LFHQCV</ASIN>
+          <Title>Nintendo Switch Proコントローラー Xenoblade2エディション</Title>
+        </TopSeller>
+        <TopSeller>
+          <ASIN>B071F9BGZX</ASIN>
+          <Title>ウイニングイレブン2018</Title>
+        </TopSeller>
+        <TopSeller>
+          <ASIN>B0758ZJ6Q4</ASIN>
+          <Title>ポケットモンスター 銀 専用ダウンロードカード特別版 【Amazon.co.jp&amp;マイニンテンドー ギフト限定】「『ポケットモンスター 金・銀』 人物 のテーマ」のダウンロード番号配信
+          </Title>
+        </TopSeller>
+        <TopSeller>
+          <ASIN>B00S90D8A2</ASIN>
+          <Title>ファークライ4 ゴールドエディション (日本語版) [ダウンロード]</Title>
+        </TopSeller>
+      </TopSellers>
+      <TopItemSet>
+        <Type>TopSellers</Type>
+        <TopItem>
+          <ASIN>B075LFCKFY</ASIN>
+          <Title>スーパーマリオ オデッセイ 【Amazon.co.jp限定】オリジナルラゲッジタグ 付</Title>
+          <DetailPageURL>
+            https://www.amazon.jp/%E4%BB%BB%E5%A4%A9%E5%A0%82-%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E3%83%9E%E3%83%AA%E3%82%AA-%E3%82%AA%E3%83%87%E3%83%83%E3%82%BB%E3%82%A4-%E3%80%90Amazon-co-jp%E9%99%90%E5%AE%9A%E3%80%91%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%8A%E3%83%AB%E3%83%A9%E3%82%B2%E3%83%83%E3%82%B8%E3%82%BF%E3%82%B0-%E4%BB%98/dp/B075LFCKFY?SubscriptionId=AKIAITR3MPOOPUHV6H6A&amp;tag=&amp;linkCode=xm2&amp;camp=2025&amp;creative=165953&amp;creativeASIN=B075LFCKFY
+          </DetailPageURL>
+          <ProductGroup>Video Games</ProductGroup>
+        </TopItem>
+        <TopItem>
+          <ASIN>B075LC6179</ASIN>
+          <Title>Xenoblade2 Collector's Edition</Title>
+          <DetailPageURL>
+            https://www.amazon.jp/%E4%BB%BB%E5%A4%A9%E5%A0%82-Xenoblade2-Collectors-Edition/dp/B075LC6179?SubscriptionId=AKIAITR3MPOOPUHV6H6A&amp;tag=&amp;linkCode=xm2&amp;camp=2025&amp;creative=165953&amp;creativeASIN=B075LC6179
+          </DetailPageURL>
+          <ProductGroup>Video Games</ProductGroup>
+        </TopItem>
+        <TopItem>
+          <ASIN>B075LC617B</ASIN>
+          <Title>スーパーマリオ オデッセイ</Title>
+          <DetailPageURL>
+            https://www.amazon.jp/%E4%BB%BB%E5%A4%A9%E5%A0%82-%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E3%83%9E%E3%83%AA%E3%82%AA-%E3%82%AA%E3%83%87%E3%83%83%E3%82%BB%E3%82%A4/dp/B075LC617B?SubscriptionId=AKIAITR3MPOOPUHV6H6A&amp;tag=&amp;linkCode=xm2&amp;camp=2025&amp;creative=165953&amp;creativeASIN=B075LC617B
+          </DetailPageURL>
+          <ProductGroup>Video Games</ProductGroup>
+        </TopItem>
+        <TopItem>
+          <ASIN>B075LC4LK3</ASIN>
+          <Title>Nintendo Switch スーパーマリオ オデッセイセット</Title>
+          <DetailPageURL>
+            https://www.amazon.jp/%E4%BB%BB%E5%A4%A9%E5%A0%82-HAC-S-KADEE-Nintendo-%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E3%83%9E%E3%83%AA%E3%82%AA-%E3%82%AA%E3%83%87%E3%83%83%E3%82%BB%E3%82%A4%E3%82%BB%E3%83%83%E3%83%88/dp/B075LC4LK3?SubscriptionId=AKIAITR3MPOOPUHV6H6A&amp;tag=&amp;linkCode=xm2&amp;camp=2025&amp;creative=165953&amp;creativeASIN=B075LC4LK3
+          </DetailPageURL>
+          <ProductGroup>Video Games</ProductGroup>
+        </TopItem>
+        <TopItem>
+          <ASIN>B075LC4LK4</ASIN>
+          <Title>Nintendo Switch スーパーマリオ オデッセイセット 【Amazon.co.jp限定】オリジナルラゲッジタグ 付</Title>
+          <DetailPageURL>
+            https://www.amazon.jp/Nintendo-Switch-%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E3%83%9E%E3%83%AA%E3%82%AA-%E3%82%AA%E3%83%87%E3%83%83%E3%82%BB%E3%82%A4%E3%82%BB%E3%83%83%E3%83%88-%E3%80%90Amazon-co-jp%E9%99%90%E5%AE%9A%E3%80%91%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%8A%E3%83%AB%E3%83%A9%E3%82%B2%E3%83%83%E3%82%B8%E3%82%BF%E3%82%B0/dp/B075LC4LK4?SubscriptionId=AKIAITR3MPOOPUHV6H6A&amp;tag=&amp;linkCode=xm2&amp;camp=2025&amp;creative=165953&amp;creativeASIN=B075LC4LK4
+          </DetailPageURL>
+          <ProductGroup>Video Games</ProductGroup>
+        </TopItem>
+        <TopItem>
+          <ASIN>B075LNDM8N</ASIN>
+          <Title>【Amazon.co.jp限定】スーパーマリオ オデッセイ+amiibo マリオ・ピーチ・クッパ【ウェディングスタイル】 (スーパーマリオシリーズ) +オリジナルラゲッジタグ</Title>
+          <DetailPageURL>
+            https://www.amazon.jp/%E3%80%90Amazon-co-jp%E9%99%90%E5%AE%9A%E3%80%91%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E3%83%9E%E3%83%AA%E3%82%AA-amiibo-%E3%83%9E%E3%83%AA%E3%82%AA%E3%83%BB%E3%83%94%E3%83%BC%E3%83%81%E3%83%BB%E3%82%AF%E3%83%83%E3%83%91%E3%80%90%E3%82%A6%E3%82%A7%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB%E3%80%91-%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E3%83%9E%E3%83%AA%E3%82%AA%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA-%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%8A%E3%83%AB%E3%83%A9%E3%82%B2%E3%83%83%E3%82%B8%E3%82%BF%E3%82%B0/dp/B075LNDM8N?SubscriptionId=AKIAITR3MPOOPUHV6H6A&amp;tag=&amp;linkCode=xm2&amp;camp=2025&amp;creative=165953&amp;creativeASIN=B075LNDM8N
+          </DetailPageURL>
+          <ProductGroup>Video Games</ProductGroup>
+        </TopItem>
+        <TopItem>
+          <ASIN>B075LFHQCV</ASIN>
+          <Title>Nintendo Switch Proコントローラー Xenoblade2エディション</Title>
+          <DetailPageURL>
+            https://www.amazon.jp/%E4%BB%BB%E5%A4%A9%E5%A0%82-Nintendo-Switch-Pro%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AD%E3%83%BC%E3%83%A9%E3%83%BC-Xenoblade2%E3%82%A8%E3%83%87%E3%82%A3%E3%82%B7%E3%83%A7%E3%83%B3/dp/B075LFHQCV?SubscriptionId=AKIAITR3MPOOPUHV6H6A&amp;tag=&amp;linkCode=xm2&amp;camp=2025&amp;creative=165953&amp;creativeASIN=B075LFHQCV
+          </DetailPageURL>
+          <ProductGroup>Video Games</ProductGroup>
+        </TopItem>
+        <TopItem>
+          <ASIN>B071F9BGZX</ASIN>
+          <Title>ウイニングイレブン2018</Title>
+          <DetailPageURL>
+            https://www.amazon.jp/%E3%82%B3%E3%83%8A%E3%83%9F%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%82%A8%E3%83%B3%E3%82%BF%E3%83%86%E3%82%A4%E3%83%B3%E3%83%A1%E3%83%B3%E3%83%88-%E3%82%A6%E3%82%A4%E3%83%8B%E3%83%B3%E3%82%B0%E3%82%A4%E3%83%AC%E3%83%96%E3%83%B32018/dp/B071F9BGZX?SubscriptionId=AKIAITR3MPOOPUHV6H6A&amp;tag=&amp;linkCode=xm2&amp;camp=2025&amp;creative=165953&amp;creativeASIN=B071F9BGZX
+          </DetailPageURL>
+          <ProductGroup>Video Games</ProductGroup>
+        </TopItem>
+        <TopItem>
+          <ASIN>B0758ZJ6Q4</ASIN>
+          <Title>ポケットモンスター 銀 専用ダウンロードカード特別版 【Amazon.co.jp&amp;マイニンテンドー ギフト限定】「『ポケットモンスター 金・銀』 人物 のテーマ」のダウンロード番号配信
+          </Title>
+          <DetailPageURL>
+            https://www.amazon.jp/%E3%83%9D%E3%82%B1%E3%83%83%E3%83%88%E3%83%A2%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%BC-%E5%B0%82%E7%94%A8%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89%E3%82%AB%E3%83%BC%E3%83%89%E7%89%B9%E5%88%A5%E7%89%88-%E3%80%90Amazon-co-jp-%E3%82%AE%E3%83%95%E3%83%88%E9%99%90%E5%AE%9A%E3%80%91%E3%80%8C%E3%80%8E%E3%83%9D%E3%82%B1%E3%83%83%E3%83%88%E3%83%A2%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%BC-%E3%81%AE%E3%83%86%E3%83%BC%E3%83%9E%E3%80%8D%E3%81%AE%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89%E7%95%AA%E5%8F%B7%E9%85%8D%E4%BF%A1/dp/B0758ZJ6Q4?SubscriptionId=AKIAITR3MPOOPUHV6H6A&amp;tag=&amp;linkCode=xm2&amp;camp=2025&amp;creative=165953&amp;creativeASIN=B0758ZJ6Q4
+          </DetailPageURL>
+          <ProductGroup>Video Games</ProductGroup>
+        </TopItem>
+        <TopItem>
+          <ASIN>B00S90D8A2</ASIN>
+          <Title>ファークライ4 ゴールドエディション (日本語版) [ダウンロード]</Title>
+          <DetailPageURL>
+            https://www.amazon.jp/%E3%83%A6%E3%83%BC%E3%83%93%E3%83%BC%E3%82%A2%E3%82%A4%E3%82%BD%E3%83%95%E3%83%88-%E3%83%95%E3%82%A1%E3%83%BC%E3%82%AF%E3%83%A9%E3%82%A44-%E3%82%B4%E3%83%BC%E3%83%AB%E3%83%89%E3%82%A8%E3%83%87%E3%82%A3%E3%82%B7%E3%83%A7%E3%83%B3-%E6%97%A5%E6%9C%AC%E8%AA%9E%E7%89%88-%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89/dp/B00S90D8A2?SubscriptionId=AKIAITR3MPOOPUHV6H6A&amp;tag=&amp;linkCode=xm2&amp;camp=2025&amp;creative=165953&amp;creativeASIN=B00S90D8A2
+          </DetailPageURL>
+          <ProductGroup>Digital Software</ProductGroup>
+        </TopItem>
+      </TopItemSet>
+    </BrowseNode>
+  </BrowseNodes>
+</BrowseNodeLookupResponse>
