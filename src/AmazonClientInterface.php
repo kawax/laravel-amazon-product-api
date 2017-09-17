@@ -2,10 +2,18 @@
 
 namespace Revolution\Amazon\ProductAdvertising;
 
+use ApaiIO\ApaiIO;
 use ApaiIO\Operations\OperationInterface;
 
 interface AmazonClientInterface
 {
+    /**
+     * @param ApaiIO $api
+     *
+     * @return AmazonClientInterface
+     */
+    public function config(ApaiIO $api): AmazonClientInterface;
+
     /**
      * @param OperationInterface $operation
      *

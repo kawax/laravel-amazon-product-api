@@ -82,6 +82,35 @@ $items = collect($items)->pluck('ASIN');
 $results = AmazonProduct::items($items->toArray());
 ```
 
+### reconfig
+
+```php
+<?php
+use ApaiIO\ApaiIO;
+use ApaiIO\Configuration\GenericConfiguration;
+use ApaiIO\Request\GuzzleRequest;
+use ApaiIO\ResponseTransformer\XmlToArray;
+use GuzzleHttp\Client;
+
+$client = new Client();
+$request = new GuzzleRequest($client);
+
+$config = config('amazon-product');
+
+$conf = new GenericConfiguration();
+
+$conf->setCountry($config['country'])
+     ->setAccessKey($config['api_key'])
+     ->setSecretKey($config['api_secret_key'])
+     ->setAssociateTag($config['associate_tag'])
+     ->setResponseTransformer(new XmlToArray())
+     ->setRequest($request);
+
+$apaiio = new ApaiIO($conf);
+
+AmazonProduct::config($apaiio);
+```
+
 ## LICENSE
 MIT  
 Copyright kawax
