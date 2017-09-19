@@ -31,11 +31,9 @@ class AmazonClient implements AmazonClientInterface
     /**
      * {@inheritdoc}
      */
-    public function config(ApaiIO $api): AmazonClientInterface
+    public function config(ApaiIO $api)
     {
         $this->api = $api;
-
-        return $this;
     }
 
     /**

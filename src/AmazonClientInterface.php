@@ -10,9 +10,9 @@ interface AmazonClientInterface
     /**
      * @param ApaiIO $api
      *
-     * @return AmazonClientInterface
+     * @return void
      */
-    public function config(ApaiIO $api): AmazonClientInterface;
+    public function config(ApaiIO $api);
 
     /**
      * @param OperationInterface $operation

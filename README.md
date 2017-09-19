@@ -30,26 +30,6 @@ AMAZON_COUNTRY=
 
 This package depends on https://github.com/Exeu/apai-io
 
-### Run operation
-
-```php
-<?php
-use AmazonProduct;
-use ApaiIO\Operations\Search;
-
-$search = new Search();
-
-$search->setCategory('All');
-$search->setKeywords('amazon');
-$search->setResponseGroup(['Large']);
-
-$response = AmazonProduct::run($search);
-dd($response);
-# returns normal array
-```
-
-### Convenient method
-
 ```php
 <?php
 use AmazonProduct;
@@ -57,6 +37,7 @@ use AmazonProduct;
 # string $category, string $keyword = null, int $page = 1
 $response = AmazonProduct::search('All', 'amazon' , 1);
 dd($response);
+# returns normal array
 
 # string $browse Browse node
 $response = AmazonProduct::browse('1');
@@ -78,8 +59,26 @@ dd($response);
 $response = AmazonProduct::browse('1');
 $nodes = array_get($response, 'BrowseNodes');
 $items = array_get($nodes, 'BrowseNode.TopSellers.TopSeller');
-$items = collect($items)->pluck('ASIN');
-$results = AmazonProduct::items($items->toArray());
+$asins = array_pluck($items, 'ASIN');
+$results = AmazonProduct::items($asins);
+```
+
+### Run operation
+
+```php
+<?php
+use AmazonProduct;
+use ApaiIO\Operations\Search;
+
+$search = new Search();
+
+$search->setCategory('All');
+$search->setKeywords('amazon');
+$search->setResponseGroup(['Large']);
+
+$response = AmazonProduct::run($search);
+dd($response);
+# returns normal array
 ```
 
 ### reconfig
