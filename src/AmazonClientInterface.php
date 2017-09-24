@@ -32,10 +32,11 @@ interface AmazonClientInterface
 
     /**
      * @param string $node
+     * @param string $response
      *
      * @return array
      */
-    public function browse(string $node): array;
+    public function browse(string $node, string $response = 'TopSellers'): array;
 
     /**
      * @param string $asin

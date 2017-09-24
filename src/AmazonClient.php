@@ -70,12 +70,12 @@ class AmazonClient implements AmazonClientInterface
     /**
      * {@inheritdoc}
      */
-    public function browse(string $node): array
+    public function browse(string $node, string $response = 'TopSellers'): array
     {
         $browse = new BrowseNodeLookup();
 
         $browse->setNodeId($node);
-        $browse->setResponseGroup(['TopSellers']);
+        $browse->setResponseGroup([$response]);
 
         return $this->run($browse);
     }
