@@ -41,11 +41,7 @@ class AmazonClient implements AmazonClientInterface
      */
     public function run(OperationInterface $operation): array
     {
-        try {
-            $result = $this->api->runOperation($operation);
-        } catch (\Exception $e) {
-            $result = [];
-        }
+        $result = $this->api->runOperation($operation);
 
         return $result;
     }
