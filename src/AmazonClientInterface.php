@@ -51,4 +51,13 @@ interface AmazonClientInterface
      * @return array
      */
     public function items(array $asin): array;
+
+    /**
+     * ASIN (Default), SKU, UPC, EAN, and ISBN
+     *
+     * @param string $idType
+     *
+     * @return AmazonClientInterface
+     */
+    public function setIdType(string $idType): AmazonClientInterface;
 }

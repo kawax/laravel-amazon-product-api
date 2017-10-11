@@ -46,11 +46,13 @@ dd($response);
 
 # string $asin ASIN
 $response = AmazonProduct::item('ASIN1');
-dd($response);
 
 # array $asin ASIN
 $response = AmazonProduct::items(['ASIN1', 'ASIN2']);
-dd($response);
+
+# setIdType: support only item() and items()
+$response = AmazonProduct::setIdType('EAN')->item('EAN');
+
 ```
 
 `browse()` is not contains detail data.

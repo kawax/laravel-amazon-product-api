@@ -18,6 +18,11 @@ class AmazonClient implements AmazonClientInterface
     protected $api;
 
     /**
+     * @var string
+     */
+    protected $idType = 'ASIN';
+
+    /**
      * constructor.
      *
      * @param ApaiIO $api
@@ -85,6 +90,7 @@ class AmazonClient implements AmazonClientInterface
 
         $lookup->setItemId($asin);
         $lookup->setResponseGroup(['Large']);
+        $lookup->setIdType($this->idType);
 
         return $this->run($lookup);
     }
@@ -98,7 +104,18 @@ class AmazonClient implements AmazonClientInterface
 
         $lookup->setItemIds($asin);
         $lookup->setResponseGroup(['Large']);
+        $lookup->setIdType($this->idType);
 
         return $this->run($lookup);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function setIdType(string $idType): AmazonClientInterface
+    {
+        $this->idType = $idType;
+
+        return $this;
     }
 }
