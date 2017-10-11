@@ -48,7 +48,9 @@ class AmazonProductServiceProvider extends ServiceProvider
         $this->app->singleton(AmazonClient::class, function ($app) {
             $conf = new GenericConfiguration();
             $client = new Client();
+
             $request = new GuzzleRequest($client);
+            $request->setScheme('https');
 
             $config = $app['config']['amazon-product'];
 

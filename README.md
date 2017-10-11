@@ -63,6 +63,20 @@ $asins = array_pluck($items, 'ASIN');
 $results = AmazonProduct::items($asins);
 ```
 
+Probably, you need try-catch or Laravel's `rescue()` helper.
+
+```php
+try {
+    $response = AmazonProduct::browse('1');
+} catch() {
+
+}
+
+$response = rescue(function () use ($browse_id) {
+                return AmazonProduct::browse($browse_id);
+            }, []);
+```
+
 ### Run operation
 
 ```php
@@ -92,7 +106,9 @@ use ApaiIO\ResponseTransformer\XmlToArray;
 use GuzzleHttp\Client;
 
 $client = new Client();
+
 $request = new GuzzleRequest($client);
+$request->setScheme('https');
 
 $config = config('amazon-product');
 
