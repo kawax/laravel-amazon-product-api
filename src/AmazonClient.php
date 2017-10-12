@@ -44,7 +44,7 @@ class AmazonClient implements AmazonClientInterface
     /**
      * {@inheritdoc}
      */
-    public function run(OperationInterface $operation): array
+    public function run(OperationInterface $operation)
     {
         $result = $this->api->runOperation($operation);
 
@@ -54,7 +54,7 @@ class AmazonClient implements AmazonClientInterface
     /**
      * {@inheritdoc}
      */
-    public function search(string $category, string $keyword = null, int $page = 1): array
+    public function search(string $category, string $keyword = null, int $page = 1)
     {
         $search = new Search();
 
@@ -71,7 +71,7 @@ class AmazonClient implements AmazonClientInterface
     /**
      * {@inheritdoc}
      */
-    public function browse(string $node, string $response = 'TopSellers'): array
+    public function browse(string $node, string $response = 'TopSellers')
     {
         $browse = new BrowseNodeLookup();
 
@@ -84,7 +84,7 @@ class AmazonClient implements AmazonClientInterface
     /**
      * {@inheritdoc}
      */
-    public function item(string $asin): array
+    public function item(string $asin)
     {
         $lookup = new Lookup();
 
@@ -98,7 +98,7 @@ class AmazonClient implements AmazonClientInterface
     /**
      * {@inheritdoc}
      */
-    public function items(array $asin): array
+    public function items(array $asin)
     {
         $lookup = new Lookup();
 
@@ -117,5 +117,13 @@ class AmazonClient implements AmazonClientInterface
         $this->idType = $idType;
 
         return $this;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getIdType(): string
+    {
+        return $this->idType;
     }
 }

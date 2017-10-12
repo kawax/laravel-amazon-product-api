@@ -109,4 +109,11 @@ class AmazonTest extends TestCase
 
         $this->assertArrayHasKey('Items', $response);
     }
+
+    public function testIdType()
+    {
+        $this->amazon->setIdType('EAN');
+
+        $this->assertEquals($this->amazon->getIdType(), 'EAN');
+    }
 }
