@@ -52,6 +52,8 @@ $response = AmazonProduct::items(['ASIN1', 'ASIN2']);
 
 # setIdType: support only item() and items()
 $response = AmazonProduct::setIdType('EAN')->item('EAN');
+# reset to ASIN
+AmazonProduct::setIdType('ASIN');
 
 ```
 
