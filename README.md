@@ -41,8 +41,10 @@ dd($response);
 
 # string $browse Browse node
 $response = AmazonProduct::browse('1');
-dd($response);
 # sort by TopSeller
+
+# Response Group: NewReleases
+$response = AmazonProduct::browse('1', 'NewReleases');
 
 # string $asin ASIN
 $response = AmazonProduct::item('ASIN1');
