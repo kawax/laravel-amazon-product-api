@@ -2,6 +2,8 @@
 
 namespace Revolution\Amazon\ProductAdvertising;
 
+use Illuminate\Support\Traits\Macroable;
+
 use ApaiIO\ApaiIO;
 
 use ApaiIO\Operations\OperationInterface;
@@ -12,6 +14,8 @@ use ApaiIO\Operations\BrowseNodeLookup;
 
 class AmazonClient implements AmazonClientInterface
 {
+    use Macroable;
+
     /**
      * @var ApaiIO
      */

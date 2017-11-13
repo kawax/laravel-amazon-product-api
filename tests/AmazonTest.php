@@ -116,4 +116,14 @@ class AmazonTest extends TestCase
 
         $this->assertEquals($this->amazon->getIdType(), 'EAN');
     }
+
+    public function testMacro()
+    {
+        AmazonClient::macro('test', function () {
+            return 'test';
+        });
+
+        $this->assertTrue(AmazonClient::hasMacro('test'));
+        $this->assertTrue(is_callable(AmazonClient::class, 'test'));
+    }
 }
