@@ -145,7 +145,7 @@ use GuzzleHttp\Client;
 
 //...
 
-    public function register()
+    public function boot()
     {
         \AmazonProduct::macro('reconfig', function (array $config) {
             $client = new Client();
