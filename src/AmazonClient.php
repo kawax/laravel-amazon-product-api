@@ -15,6 +15,7 @@ use ApaiIO\Operations\BrowseNodeLookup;
 class AmazonClient implements AmazonClientInterface
 {
     use Macroable;
+    use Hookable;
 
     /**
      * @var ApaiIO
@@ -50,7 +51,7 @@ class AmazonClient implements AmazonClientInterface
      */
     public function run(OperationInterface $operation)
     {
-        $result = $this->api->runOperation($operation);
+        $result = $this->api->runOperation(self::callHook('run', $operation));
 
         return $result;
     }
@@ -69,6 +70,8 @@ class AmazonClient implements AmazonClientInterface
             $search->setPage($page);
         }
 
+        $search = self::callHook('search', $search);
+
         return $this->run($search);
     }
 
@@ -82,6 +85,8 @@ class AmazonClient implements AmazonClientInterface
         $browse->setNodeId($node);
         $browse->setResponseGroup([$response]);
 
+        $browse = self::callHook('browse', $browse);
+
         return $this->run($browse);
     }
 
@@ -94,7 +99,9 @@ class AmazonClient implements AmazonClientInterface
 
         $lookup->setItemId($asin);
         $lookup->setResponseGroup(['Large']);
-        $lookup->setIdType($this->idType);
+        $lookup->setIdType($this->getIdType());
+
+        $lookup = self::callHook('item', $lookup);
 
         return $this->run($lookup);
     }
@@ -108,7 +115,9 @@ class AmazonClient implements AmazonClientInterface
 
         $lookup->setItemIds($asin);
         $lookup->setResponseGroup(['Large']);
-        $lookup->setIdType($this->idType);
+        $lookup->setIdType($this->getIdType());
+
+        $lookup = self::callHook('items', $lookup);
 
         return $this->run($lookup);
     }

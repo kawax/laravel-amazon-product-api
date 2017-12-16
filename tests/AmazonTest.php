@@ -10,6 +10,7 @@ use ApaiIO\Request\GuzzleRequest;
 use ApaiIO\ResponseTransformer\XmlToArray;
 
 use ApaiIO\Operations\Search;
+use ApaiIO\Operations\Lookup;
 
 use Revolution\Amazon\ProductAdvertising\AmazonClient;
 
@@ -125,5 +126,14 @@ class AmazonTest extends TestCase
 
         $this->assertTrue(AmazonClient::hasMacro('test'));
         $this->assertTrue(is_callable(AmazonClient::class, 'test'));
+    }
+
+    public function testHookable()
+    {
+        $this->amazon->hook('item', function (Lookup $lookup) {
+            return $lookup->setMerchantId('Amazon');
+        });
+
+        $this->assertTrue($this->amazon->hasHook('item'));
     }
 }
