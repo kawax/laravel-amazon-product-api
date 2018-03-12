@@ -23,8 +23,15 @@ php artisan vendor:publish --provider="Revolution\Amazon\ProductAdvertising\Prov
 AMAZON_API_KEY=
 AMAZON_API_SECRET_KEY=
 AMAZON_ASSOCIATE_TAG=
-AMAZON_COUNTRY=
+AMAZON_COUNTRY=com
 ```
+
+### Country lists
+https://docs.aws.amazon.com/AWSECommerceService/latest/DG/Locales.html
+
+e.g.
+- US=com
+- UK=co.uk
 
 ## Usage
 
