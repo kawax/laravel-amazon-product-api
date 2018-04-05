@@ -33,6 +33,14 @@ e.g.
 - US=com
 - UK=co.uk
 
+## Note
+- API Rate limit https://docs.aws.amazon.com/AWSECommerceService/latest/DG/TroubleshootingApplications.html
+- entity decode https://forums.aws.amazon.com/ann.jspa?annID=5543
+
+```php
+html_entity_decode($txt, ENT_HTML401, "UTF-8");
+```
+
 ## Usage
 
 This package depends on https://github.com/Exeu/apai-io
