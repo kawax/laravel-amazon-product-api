@@ -1,11 +1,11 @@
 <?php
 
-namespace Revolution\Amazon\ProductAdvertising;
+namespace Revolution\Amazon\ProductAdvertising\Contracts;
 
 use ApaiIO\ApaiIO;
 use ApaiIO\Operations\OperationInterface;
 
-interface AmazonClientInterface
+interface Factory
 {
     /**
      * @param ApaiIO $api
@@ -57,9 +57,9 @@ interface AmazonClientInterface
      *
      * @param string $idType
      *
-     * @return AmazonClientInterface
+     * @return Factory
      */
-    public function setIdType(string $idType): AmazonClientInterface;
+    public function setIdType(string $idType): Factory;
 
     /**
      * @return string

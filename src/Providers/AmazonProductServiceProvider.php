@@ -10,6 +10,8 @@ use ApaiIO\Request\GuzzleRequest;
 use ApaiIO\ResponseTransformer\XmlToArray;
 use GuzzleHttp\Client;
 
+use Revolution\Amazon\ProductAdvertising\Contracts\Factory;
+
 use Revolution\Amazon\ProductAdvertising\AmazonClient;
 use Revolution\Amazon\ProductAdvertising\ResponseTransformer\XmlToCollection;
 
@@ -45,7 +47,7 @@ class AmazonProductServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(AmazonClient::class, function ($app) {
+        $this->app->singleton(Factory::class, function ($app) {
             $conf = new GenericConfiguration();
             $client = new Client();
 
@@ -74,6 +76,6 @@ class AmazonProductServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return [AmazonClient::class];
+        return [Factory::class];
     }
 }

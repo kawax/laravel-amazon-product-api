@@ -4,6 +4,8 @@ namespace Revolution\Amazon\ProductAdvertising;
 
 use Illuminate\Support\Traits\Macroable;
 
+use Revolution\Amazon\ProductAdvertising\Contracts\Factory;
+
 use ApaiIO\ApaiIO;
 
 use ApaiIO\Operations\OperationInterface;
@@ -12,7 +14,7 @@ use ApaiIO\Operations\Search;
 use ApaiIO\Operations\Lookup;
 use ApaiIO\Operations\BrowseNodeLookup;
 
-class AmazonClient implements AmazonClientInterface
+class AmazonClient implements Factory
 {
     use Macroable;
     use Hookable;
@@ -125,7 +127,7 @@ class AmazonClient implements AmazonClientInterface
     /**
      * @inheritDoc
      */
-    public function setIdType(string $idType): AmazonClientInterface
+    public function setIdType(string $idType): Factory
     {
         $this->idType = $idType;
 
