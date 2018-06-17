@@ -49,6 +49,8 @@ interface Factory
      * @param array $asin
      *
      * @return mixed
+     *
+     * @throws \Exception
      */
     public function items(array $asin);
 
@@ -64,5 +66,5 @@ interface Factory
     /**
      * @return string
      */
-    public function getIdType(): string ;
+    public function getIdType(): string;
 }
