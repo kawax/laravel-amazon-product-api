@@ -1,8 +1,6 @@
 <?php
 
-namespace Revolution\Amazon\ProductAdvertising\tests;
-
-use PHPUnit\Framework\TestCase;
+namespace Tests;
 
 use ApaiIO\ApaiIO;
 use ApaiIO\Configuration\GenericConfiguration;
@@ -13,6 +11,7 @@ use ApaiIO\Operations\Search;
 use ApaiIO\Operations\Lookup;
 
 use Revolution\Amazon\ProductAdvertising\AmazonClient;
+use Revolution\Amazon\ProductAdvertising\Contracts\Factory;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
@@ -58,7 +57,7 @@ class AmazonTest extends TestCase
 
     public function testAmazonInstance()
     {
-        $this->assertInstanceOf('Revolution\Amazon\ProductAdvertising\AmazonClient', $this->amazon);
+        $this->assertInstanceOf(AmazonClient::class, $this->amazon);
     }
 
     public function testRun()
@@ -73,8 +72,6 @@ class AmazonTest extends TestCase
 
         $response = $this->amazon->run($search);
 
-        //        dd($response);
-
         $this->assertArrayHasKey('Items', $response);
     }
 
@@ -83,8 +80,6 @@ class AmazonTest extends TestCase
         $this->setClientHandler(file_get_contents(__DIR__ . '/stubs/BrowseNodeLookup.xml'));
 
         $response = $this->amazon->browse('1');
-
-        //        dd($response);
 
         $this->assertArrayHasKey('BrowseNodes', $response);
     }
@@ -95,8 +90,6 @@ class AmazonTest extends TestCase
 
         $response = $this->amazon->item('1');
 
-        //        dd($response);
-
         $this->assertArrayHasKey('Items', $response);
     }
 
@@ -105,8 +98,6 @@ class AmazonTest extends TestCase
         $this->setClientHandler(file_get_contents(__DIR__ . '/stubs/ItemSearch.xml'));
 
         $response = $this->amazon->search('All', 'keyword', 1);
-
-        //        dd($response);
 
         $this->assertArrayHasKey('Items', $response);
     }
@@ -125,7 +116,7 @@ class AmazonTest extends TestCase
         });
 
         $this->assertTrue(AmazonClient::hasMacro('test'));
-        $this->assertTrue(is_callable(AmazonClient::class, 'test'));
+        $this->assertTrue(is_callable([AmazonClient::class, 'test']));
     }
 
     public function testHookable()
@@ -135,5 +126,26 @@ class AmazonTest extends TestCase
         });
 
         $this->assertTrue($this->amazon->hasHook('item'));
+    }
+
+    public function testClient()
+    {
+        $amazon = resolve(AmazonClient::class);
+
+        $this->assertInstanceOf(AmazonClient::class, $amazon);
+    }
+
+    public function testFactory()
+    {
+        $amazon = resolve(Factory::class);
+
+        $this->assertInstanceOf(AmazonClient::class, $amazon);
+    }
+
+    public function testApai()
+    {
+        $apai = resolve(ApaiIO::class);
+
+        $this->assertInstanceOf(ApaiIO::class, $apai);
     }
 }

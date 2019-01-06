@@ -3,8 +3,8 @@
 [![Build Status](https://travis-ci.org/kawax/laravel-amazon-product-api.svg?branch=master)](https://travis-ci.org/kawax/laravel-amazon-product-api)
 
 ## Requirements
-- PHP >= 7.0
-- Laravel >= 5.5
+- PHP >= 7.1
+- Laravel >= 5.6
 
 ## Installation
 
