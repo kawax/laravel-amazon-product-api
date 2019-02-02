@@ -78,9 +78,9 @@ AmazonProduct::setIdType('ASIN');
 
 ```php
 $response = AmazonProduct::browse('1');
-$nodes = array_get($response, 'BrowseNodes');
-$items = array_get($nodes, 'BrowseNode.TopSellers.TopSeller');
-$asins = array_pluck($items, 'ASIN');
+$nodes = data_get($response, 'BrowseNodes');
+$items = data_get($nodes, 'BrowseNode.TopSellers.TopSeller');
+$asins = data_get($items, '*.ASIN');
 $results = AmazonProduct::items($asins);
 ```
 
