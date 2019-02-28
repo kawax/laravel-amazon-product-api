@@ -3,6 +3,7 @@
 namespace Revolution\Amazon\ProductAdvertising\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Contracts\Support\DeferrableProvider;
 
 use ApaiIO\ApaiIO;
 use ApaiIO\Configuration\GenericConfiguration;
@@ -16,15 +17,8 @@ use GuzzleHttp\Client;
 use Revolution\Amazon\ProductAdvertising\Contracts\Factory;
 use Revolution\Amazon\ProductAdvertising\AmazonClient;
 
-class AmazonProductServiceProvider extends ServiceProvider
+class AmazonProductServiceProvider extends ServiceProvider implements DeferrableProvider
 {
-    /**
-     * Indicates if loading of the provider is deferred.
-     *
-     * @var bool
-     */
-    protected $defer = true;
-
     /**
      * Bootstrap the application services.
      *
