@@ -25,7 +25,7 @@ class AmazonTest extends TestCase
      */
     protected $amazon;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
