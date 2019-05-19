@@ -1,6 +1,8 @@
 # Amazon Product Advertising API for Laravel
 
 [![Build Status](https://travis-ci.org/kawax/laravel-amazon-product-api.svg?branch=master)](https://travis-ci.org/kawax/laravel-amazon-product-api)
+[![Maintainability](https://api.codeclimate.com/v1/badges/d835c616dc9f95faf516/maintainability)](https://codeclimate.com/github/kawax/laravel-amazon-product-api/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/d835c616dc9f95faf516/test_coverage)](https://codeclimate.com/github/kawax/laravel-amazon-product-api/test_coverage)
 
 ## Requirements
 - PHP >= 7.1
