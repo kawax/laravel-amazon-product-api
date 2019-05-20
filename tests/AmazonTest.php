@@ -10,8 +10,10 @@ use ApaiIO\ResponseTransformer\XmlToArray;
 use ApaiIO\Operations\Search;
 use ApaiIO\Operations\Lookup;
 
+use Illuminate\Support\Collection;
 use Revolution\Amazon\ProductAdvertising\AmazonClient;
 use Revolution\Amazon\ProductAdvertising\Contracts\Factory;
+use Revolution\Amazon\ProductAdvertising\ResponseTransformer\XmlToCollection;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
@@ -33,7 +35,7 @@ class AmazonTest extends TestCase
     }
 
     /**
-     * @param string $body
+     * @param  string  $body
      */
     public function setClientHandler(string $body)
     {
@@ -62,7 +64,7 @@ class AmazonTest extends TestCase
 
     public function testRun()
     {
-        $this->setClientHandler(file_get_contents(__DIR__ . '/stubs/ItemSearch.xml'));
+        $this->setClientHandler(file_get_contents(__DIR__.'/stubs/ItemSearch.xml'));
 
         $search = new Search();
 
@@ -77,7 +79,7 @@ class AmazonTest extends TestCase
 
     public function testBrowse()
     {
-        $this->setClientHandler(file_get_contents(__DIR__ . '/stubs/BrowseNodeLookup.xml'));
+        $this->setClientHandler(file_get_contents(__DIR__.'/stubs/BrowseNodeLookup.xml'));
 
         $response = $this->amazon->browse('1');
 
@@ -86,7 +88,7 @@ class AmazonTest extends TestCase
 
     public function testItem()
     {
-        $this->setClientHandler(file_get_contents(__DIR__ . '/stubs/ItemLookup.xml'));
+        $this->setClientHandler(file_get_contents(__DIR__.'/stubs/ItemLookup.xml'));
 
         $response = $this->amazon->item('1');
 
@@ -95,7 +97,7 @@ class AmazonTest extends TestCase
 
     public function testSearch()
     {
-        $this->setClientHandler(file_get_contents(__DIR__ . '/stubs/ItemSearch.xml'));
+        $this->setClientHandler(file_get_contents(__DIR__.'/stubs/ItemSearch.xml'));
 
         $response = $this->amazon->search('All', 'keyword', 1);
 
@@ -147,5 +149,14 @@ class AmazonTest extends TestCase
         $apai = resolve(ApaiIO::class);
 
         $this->assertInstanceOf(ApaiIO::class, $apai);
+    }
+
+    public function testXmlToCollection()
+    {
+        $xml = new XmlToCollection();
+        $collect = $xml->transform(file_get_contents(__DIR__.'/stubs/ItemLookup.xml'));
+
+        $this->assertInstanceOf(Collection::class, $collect);
+        $this->assertTrue($collect->has('Items'));
     }
 }
