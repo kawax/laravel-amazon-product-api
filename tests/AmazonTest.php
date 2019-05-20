@@ -123,9 +123,13 @@ class AmazonTest extends TestCase
 
     public function testHookable()
     {
+        $this->setClientHandler(file_get_contents(__DIR__.'/stubs/ItemLookup.xml'));
+
         $this->amazon->hook('item', function (Lookup $lookup) {
             return $lookup->setMerchantId('Amazon');
         });
+
+        $response = $this->amazon->item('1');
 
         $this->assertTrue($this->amazon->hasHook('item'));
     }
