@@ -8,45 +8,45 @@ use ApaiIO\Operations\OperationInterface;
 interface Factory
 {
     /**
-     * @param ApaiIO $api
+     * @param  ApaiIO  $api
      *
-     * @return void
+     * @return $this
      */
     public function config(ApaiIO $api);
 
     /**
-     * @param OperationInterface $operation
+     * @param  OperationInterface  $operation
      *
      * @return mixed
      */
     public function run(OperationInterface $operation);
 
     /**
-     * @param string $category
-     * @param string $keyword
-     * @param int    $page
+     * @param  string  $category
+     * @param  string  $keyword
+     * @param  int  $page
      *
      * @return mixed
      */
     public function search(string $category, string $keyword = null, int $page = 1);
 
     /**
-     * @param string $node
-     * @param string $response
+     * @param  string  $node
+     * @param  string  $response
      *
      * @return mixed
      */
     public function browse(string $node, string $response = 'TopSellers');
 
     /**
-     * @param string $asin
+     * @param  string  $asin
      *
      * @return mixed
      */
     public function item(string $asin);
 
     /**
-     * @param array $asin
+     * @param  array  $asin
      *
      * @return mixed
      *
@@ -57,7 +57,7 @@ interface Factory
     /**
      * ASIN (Default), SKU, UPC, EAN, and ISBN
      *
-     * @param string $idType
+     * @param  string  $idType
      *
      * @return Factory
      */

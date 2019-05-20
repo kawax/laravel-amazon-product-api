@@ -95,6 +95,15 @@ class AmazonTest extends TestCase
         $this->assertArrayHasKey('Items', $response);
     }
 
+    public function testItems()
+    {
+        $this->setClientHandler(file_get_contents(__DIR__.'/stubs/ItemLookup.xml'));
+
+        $response = $this->amazon->items(['1']);
+
+        $this->assertArrayHasKey('Items', $response);
+    }
+
     public function testSearch()
     {
         $this->setClientHandler(file_get_contents(__DIR__.'/stubs/ItemSearch.xml'));
@@ -162,5 +171,14 @@ class AmazonTest extends TestCase
 
         $this->assertInstanceOf(Collection::class, $collect);
         $this->assertTrue($collect->has('Items'));
+    }
+
+    public function testConfig()
+    {
+        $apai = resolve(ApaiIO::class);
+
+        $amazon = $this->amazon->config($apai);
+
+        $this->assertInstanceOf(AmazonClient::class, $amazon);
     }
 }

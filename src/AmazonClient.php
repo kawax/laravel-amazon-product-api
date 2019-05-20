@@ -32,7 +32,7 @@ class AmazonClient implements Factory
     /**
      * constructor.
      *
-     * @param ApaiIO $api
+     * @param  ApaiIO  $api
      *
      */
     public function __construct(ApaiIO $api)
@@ -46,6 +46,8 @@ class AmazonClient implements Factory
     public function config(ApaiIO $api)
     {
         $this->api = $api;
+
+        return $this;
     }
 
     /**
