@@ -55,7 +55,7 @@ class AmazonClient implements Factory
      */
     public function run(OperationInterface $operation)
     {
-        $result = $this->api->runOperation(self::callHook('run', $operation));
+        $result = $this->api->runOperation($this->callHook('run', $operation));
 
         return $result;
     }
@@ -74,7 +74,7 @@ class AmazonClient implements Factory
             $search->setPage($page);
         }
 
-        $search = self::callHook('search', $search);
+        $search = $this->callHook('search', $search);
 
         return $this->run($search);
     }
@@ -89,7 +89,7 @@ class AmazonClient implements Factory
         $browse->setNodeId($node);
         $browse->setResponseGroup([$response]);
 
-        $browse = self::callHook('browse', $browse);
+        $browse = $this->callHook('browse', $browse);
 
         return $this->run($browse);
     }
@@ -105,7 +105,7 @@ class AmazonClient implements Factory
         $lookup->setResponseGroup(['Large']);
         $lookup->setIdType($this->getIdType());
 
-        $lookup = self::callHook('item', $lookup);
+        $lookup = $this->callHook('item', $lookup);
 
         return $this->run($lookup);
     }
@@ -121,7 +121,7 @@ class AmazonClient implements Factory
         $lookup->setResponseGroup(['Large']);
         $lookup->setIdType($this->getIdType());
 
-        $lookup = self::callHook('items', $lookup);
+        $lookup = $this->callHook('items', $lookup);
 
         return $this->run($lookup);
     }

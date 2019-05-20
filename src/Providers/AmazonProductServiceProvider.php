@@ -27,7 +27,7 @@ class AmazonProductServiceProvider extends ServiceProvider implements Deferrable
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/../config/amazon-product.php' => config_path('amazon-product.php'),
+            __DIR__.'/../config/amazon-product.php' => config_path('amazon-product.php'),
         ]);
     }
 
@@ -39,7 +39,7 @@ class AmazonProductServiceProvider extends ServiceProvider implements Deferrable
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/../config/amazon-product.php', 'amazon-product'
+            __DIR__.'/../config/amazon-product.php', 'amazon-product'
         );
 
         $this->app->singleton(RequestInterface::class, function ($app) {

@@ -14,8 +14,8 @@ trait Hookable
     /**
      * Add hook
      *
-     * @param string   $name
-     * @param callable $hook
+     * @param  string  $name
+     * @param  callable  $hook
      *
      * @return void
      */
@@ -25,7 +25,7 @@ trait Hookable
     }
 
     /**
-     * @param string $name
+     * @param  string  $name
      *
      * @return bool
      */
@@ -35,14 +35,14 @@ trait Hookable
     }
 
     /**
-     * @param string             $name
-     * @param OperationInterface $operation
+     * @param  string  $name
+     * @param  OperationInterface  $operation
      *
      * @return mixed
      */
     public function callHook(string $name, OperationInterface $operation)
     {
-        if (!self::hasHook($name)) {
+        if (! $this->hasHook($name)) {
             return $operation;
         }
 
