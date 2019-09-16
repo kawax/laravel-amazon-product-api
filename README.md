@@ -5,8 +5,8 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/d835c616dc9f95faf516/test_coverage)](https://codeclimate.com/github/kawax/laravel-amazon-product-api/test_coverage)
 
 ## Requirements
-- PHP >= 7.1
-- Laravel >= 5.8
+- PHP >= 7.2
+- Laravel >= 6.0
 
 ## Installation
 
