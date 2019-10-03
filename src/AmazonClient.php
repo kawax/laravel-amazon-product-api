@@ -88,6 +88,7 @@ class AmazonClient implements Factory
         $resources = SearchItemsResource::getAllowableEnumValues();
 
         $request = new SearchItemsRequest();
+        $request->setKeywords('');
         $request->setBrowseNodeId($node);
         $request->setSortBy($sort);
         $request->setPartnerTag(config('amazon-product.associate_tag'));
