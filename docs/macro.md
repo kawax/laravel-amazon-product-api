@@ -5,10 +5,9 @@ Extend any method by your self.
 ## Register in AppServiceProvider
 
 ```php
-use ApaiIO\ApaiIO;
-use ApaiIO\Configuration\GenericConfiguration;
-use ApaiIO\Request\GuzzleRequest;
-use ApaiIO\ResponseTransformer\XmlToArray;
+
+use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\api\DefaultApi;
+use Amazon\ProductAdvertisingAPI\v1\Configuration;
 use GuzzleHttp\Client;
 
 //...
@@ -17,21 +16,15 @@ use GuzzleHttp\Client;
     {
         \AmazonProduct::macro('reconfig', function (array $config) {
             $client = new Client();
-        
-            $request = new GuzzleRequest($client);
-            $request->setScheme('https');
                 
-            $conf = new GenericConfiguration();
+            $conf = (new Configuration)
+                            ->setAccessKey($config['api_key']))
+                            ->setSecretKey($config['api_secret_key']))
+                            ->setRegion($config['region']))
+                            ->setHost($config['host']));
         
-            $conf->setCountry($config['country'])
-                 ->setAccessKey($config['api_key'])
-                 ->setSecretKey($config['api_secret_key'])
-                 ->setAssociateTag($config['associate_tag'])
-                 ->setResponseTransformer(new XmlToArray())
-                 ->setRequest($request);
-        
-            $apaiio = new ApaiIO($conf);
-            $this->config($apaiio);
+            $api = new DefaultApi($client, $conf);
+            $this->config($api);
             
             return $this;
         });
@@ -44,7 +37,8 @@ $config = [
     'api_key'        => '',
     'api_secret_key' => '',
     'associate_tag'  => '',
-    'country'        => '',
+    'host'           => '',
+    'region'         => '',
 ];
 
 \AmazonProduct::reconfig($config);

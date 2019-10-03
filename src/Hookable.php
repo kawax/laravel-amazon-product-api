@@ -2,8 +2,6 @@
 
 namespace Revolution\Amazon\ProductAdvertising;
 
-use ApaiIO\Operations\OperationInterface;
-
 trait Hookable
 {
     /**
@@ -16,7 +14,6 @@ trait Hookable
      *
      * @param  string  $name
      * @param  callable  $hook
-     *
      * @return void
      */
     public function hook(string $name, callable $hook)
@@ -26,7 +23,6 @@ trait Hookable
 
     /**
      * @param  string  $name
-     *
      * @return bool
      */
     public function hasHook(string $name)
@@ -36,18 +32,17 @@ trait Hookable
 
     /**
      * @param  string  $name
-     * @param  OperationInterface  $operation
-     *
+     * @param  $request
      * @return mixed
      */
-    public function callHook(string $name, OperationInterface $operation)
+    public function callHook(string $name, $request)
     {
         if (! $this->hasHook($name)) {
-            return $operation;
+            return $request;
         }
 
         $hook = $this->hooks[$name];
 
-        return call_user_func($hook, $operation);
+        return call_user_func($hook, $request);
     }
 }

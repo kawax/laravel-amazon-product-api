@@ -2,17 +2,21 @@
 
 namespace Revolution\Amazon\ProductAdvertising;
 
-use Illuminate\Support\Traits\Macroable;
-
 use Revolution\Amazon\ProductAdvertising\Contracts\Factory;
 
-use ApaiIO\ApaiIO;
+use Illuminate\Support\Traits\Macroable;
 
-use ApaiIO\Operations\OperationInterface;
+use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\api\DefaultApi;
+use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\PartnerType;
 
-use ApaiIO\Operations\Search;
-use ApaiIO\Operations\Lookup;
-use ApaiIO\Operations\BrowseNodeLookup;
+use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetItemsRequest;
+use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetItemsResource;
+
+use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetBrowseNodesRequest;
+use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetBrowseNodesResource;
+
+use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsRequest;
+use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsResource;
 
 class AmazonClient implements Factory
 {
@@ -20,7 +24,7 @@ class AmazonClient implements Factory
     use Hookable;
 
     /**
-     * @var ApaiIO
+     * @var DefaultApi
      */
     protected $api;
 
@@ -32,10 +36,9 @@ class AmazonClient implements Factory
     /**
      * constructor.
      *
-     * @param  ApaiIO  $api
-     *
+     * @param  DefaultApi  $api
      */
-    public function __construct(ApaiIO $api)
+    public function __construct(DefaultApi $api)
     {
         $this->api = $api;
     }
@@ -43,7 +46,7 @@ class AmazonClient implements Factory
     /**
      * {@inheritdoc}
      */
-    public function config(ApaiIO $api)
+    public function config(DefaultApi $api)
     {
         $this->api = $api;
 
@@ -53,45 +56,49 @@ class AmazonClient implements Factory
     /**
      * {@inheritdoc}
      */
-    public function run(OperationInterface $operation)
-    {
-        $result = $this->api->runOperation($this->callHook('run', $operation));
-
-        return $result;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function search(string $category, string $keyword = null, int $page = 1)
     {
-        $search = new Search();
+        /**
+         * @var SearchItemsResource[] $resources
+         */
+        $resources = SearchItemsResource::getAllowableEnumValues();
 
-        $search->setCategory($category);
-        $search->setKeywords($keyword);
-        $search->setResponseGroup(['Large']);
-        if ($page > 0) {
-            $search->setPage($page);
-        }
+        $request = new SearchItemsRequest();
+        $request->setSearchIndex($category);
+        $request->setKeywords($keyword);
+        $request->setPartnerTag(config('amazon-product.associate_tag'));
+        $request->setPartnerType(PartnerType::ASSOCIATES);
+        $request->setResources($resources);
 
-        $search = $this->callHook('search', $search);
+        $request = $this->callHook('search', $request);
 
-        return $this->run($search);
+        $response = $this->api->searchItems($request);
+
+        return json_decode((string) $response, true);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function browse(string $node, string $response = 'TopSellers')
+    public function browse(string $node, string $sort = 'Featured')
     {
-        $browse = new BrowseNodeLookup();
+        /**
+         * @var SearchItemsResource[] $resources
+         */
+        $resources = SearchItemsResource::getAllowableEnumValues();
 
-        $browse->setNodeId($node);
-        $browse->setResponseGroup([$response]);
+        $request = new SearchItemsRequest();
+        $request->setBrowseNodeId($node);
+        $request->setSortBy($sort);
+        $request->setPartnerTag(config('amazon-product.associate_tag'));
+        $request->setPartnerType(PartnerType::ASSOCIATES);
+        $request->setResources($resources);
 
-        $browse = $this->callHook('browse', $browse);
+        $request = $this->callHook('browse', $request);
 
-        return $this->run($browse);
+        $response = $this->api->searchItems($request);
+
+        return json_decode((string) $response, true);
     }
 
     /**
@@ -99,15 +106,7 @@ class AmazonClient implements Factory
      */
     public function item(string $asin)
     {
-        $lookup = new Lookup();
-
-        $lookup->setItemId($asin);
-        $lookup->setResponseGroup(['Large']);
-        $lookup->setIdType($this->getIdType());
-
-        $lookup = $this->callHook('item', $lookup);
-
-        return $this->run($lookup);
+        return $this->items([$asin]);
     }
 
     /**
@@ -115,15 +114,23 @@ class AmazonClient implements Factory
      */
     public function items(array $asin)
     {
-        $lookup = new Lookup();
+        /**
+         * @var GetItemsResource[] $resources
+         */
+        $resources = GetItemsResource::getAllowableEnumValues();
 
-        $lookup->setItemIds($asin);
-        $lookup->setResponseGroup(['Large']);
-        $lookup->setIdType($this->getIdType());
+        $request = new GetItemsRequest();
+        $request->setItemIds($asin);
+        $request->setPartnerTag(config('amazon-product.associate_tag'));
+        $request->setPartnerType(PartnerType::ASSOCIATES);
+        $request->setItemIdType($this->idType);
+        $request->setResources($resources);
 
-        $lookup = $this->callHook('items', $lookup);
+        $request = $this->callHook('item', $request);
 
-        return $this->run($lookup);
+        $response = $this->api->getItems($request);
+
+        return json_decode((string) $response, true);
     }
 
     /**

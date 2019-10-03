@@ -1,0 +1,52 @@
+{
+  "SearchResult": {
+    "Items": [
+      {
+        "ASIN": "0545162076",
+        "DetailPageURL": "https://www.amazon.com/dp/0545162076?tag=dgfd&linkCode=osi",
+        "Images": {
+          "Primary": {
+            "Medium": {
+              "Height": 134,
+              "URL": "https://m.media-amazon.com/images/I/51BBTJaU6QL._SL160_.jpg",
+              "Width": 160
+            }
+          }
+        },
+        "ItemInfo": {
+          "Title": {
+            "DisplayValue": "Harry Potter Paperback Box Set (Books 1-7)",
+            "Label": "Title",
+            "Locale": "en_US"
+          }
+        },
+        "Offers": {
+          "Listings": [
+            {
+              "Condition": {
+                "DisplayValue": "nuevo",
+                "Label": "Condición",
+                "Locale": "es_US",
+                "Value": "New"
+              },
+              "Id": "l2dKMJRrPVX3O7DAPQ6DWLXBjBeRYsruAnKVf1LNXyjFTUw%2FnNBn41CJV2489iPYMSGuynW8uuwMQ7GhGrcT9F%2F%2FgO5bdp%2B2l0HbPvvHy05ASCdqrOaxWA%3D%3D",
+              "Price": {
+                "Amount": 52.16,
+                "Currency": "USD",
+                "DisplayAmount": "$52.16",
+                "Savings": {
+                  "Amount": 34.77,
+                  "Currency": "USD",
+                  "DisplayAmount": "$34.77 (40%)",
+                  "Percentage": 40
+                }
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "SearchURL": "https://www.amazon.com/s/?field-keywords=Harry+Potter&search-alias=aps&tag=dgfd&linkCode=osi",
+    "TotalResultCount": 146
+  }
+}

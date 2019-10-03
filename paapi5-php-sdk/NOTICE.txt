@@ -1,0 +1,2 @@
+Product Advertising API SDK for PHP
+Copyright 2019-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
