@@ -53,11 +53,11 @@ class AmazonTest extends TestCase
 
     public function testBrowse()
     {
-        $this->setClientHandler(file_get_contents(__DIR__.'/stubs/SearchResult.json'));
+        $this->setClientHandler(file_get_contents(__DIR__.'/stubs/BrowseNodeResult.json'));
 
         $response = $this->amazon->browse('1');
 
-        $this->assertArrayHasKey('SearchResult', $response);
+        $this->assertArrayHasKey('BrowseNodesResult', $response);
     }
 
     public function testItem()

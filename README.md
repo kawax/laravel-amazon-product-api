@@ -71,6 +71,17 @@ AmazonProduct::setIdType('ASIN');
 # PA-APIv5 not support EAN?
 ```
 
+`browse()` is not contains detail data.
+
+```php
+$response = AmazonProduct::browse('1');
+$nodes = data_get($response, 'BrowseNodesResult');
+$items = data_get($nodes, 'BrowseNodes.TopSellers.TopSeller');
+$asins = data_get($items, '*.ASIN');
+$results = AmazonProduct::items($asins);
+# PA-APIv5 not support TopSeller?
+```
+
 Probably, you need try-catch or Laravel's `rescue()` helper.
 
 ```php

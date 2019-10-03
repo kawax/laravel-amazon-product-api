@@ -80,24 +80,22 @@ class AmazonClient implements Factory
     /**
      * {@inheritdoc}
      */
-    public function browse(string $node, string $sort = 'Featured')
+    public function browse(string $node, string $response = 'TopSellers')
     {
         /**
-         * @var SearchItemsResource[] $resources
+         * @var GetBrowseNodesResource[] $resources
          */
-        $resources = SearchItemsResource::getAllowableEnumValues();
+        $resources = GetBrowseNodesResource::getAllowableEnumValues();
 
-        $request = new SearchItemsRequest();
-        $request->setKeywords('');
-        $request->setBrowseNodeId($node);
-        $request->setSortBy($sort);
+        $request = new GetBrowseNodesRequest();
+        $request->setBrowseNodeIds([$node]);
         $request->setPartnerTag(config('amazon-product.associate_tag'));
         $request->setPartnerType(PartnerType::ASSOCIATES);
         $request->setResources($resources);
 
         $request = $this->callHook('browse', $request);
 
-        $response = $this->api->searchItems($request);
+        $response = $this->api->getBrowseNodes($request);
 
         return json_decode((string) $response, true);
     }

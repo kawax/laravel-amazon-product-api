@@ -22,10 +22,5 @@ return [
 ];
 ```
 
-## browse() using SearchRequest
-Instead of BrowseNode.
-
-Direct return items info.
-
 ### Response format changed
 Check your code.
