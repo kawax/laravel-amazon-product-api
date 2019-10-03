@@ -4,6 +4,7 @@
 - Many breaking changes.
 - Update to PA-API v5
 - Use official SDK
+- Support Laravel5.8 and PHP7.1 again
 
 https://webservices.amazon.com/paapi5/documentation/
 
