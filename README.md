@@ -84,7 +84,7 @@ Probably, you need try-catch or Laravel's `rescue()` helper.
 ```php
 try {
     $response = AmazonProduct::browse('1');
-} catch() {
+} catch(ApiException $e) {
 
 }
 
