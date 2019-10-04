@@ -70,6 +70,7 @@ class AmazonClient implements Factory
         $request = new SearchItemsRequest();
         $request->setSearchIndex($category);
         $request->setKeywords($keyword);
+        $request->setItemPage($page);
         $request->setPartnerTag(Config::get('amazon-product.associate_tag'));
         $request->setPartnerType(PartnerType::ASSOCIATES);
         $request->setResources($resources);
