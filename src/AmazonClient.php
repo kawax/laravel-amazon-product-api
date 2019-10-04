@@ -4,6 +4,7 @@ namespace Revolution\Amazon\ProductAdvertising;
 
 use Revolution\Amazon\ProductAdvertising\Contracts\Factory;
 
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Traits\Macroable;
 
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\api\DefaultApi;
@@ -69,7 +70,7 @@ class AmazonClient implements Factory
         $request = new SearchItemsRequest();
         $request->setSearchIndex($category);
         $request->setKeywords($keyword);
-        $request->setPartnerTag(config('amazon-product.associate_tag'));
+        $request->setPartnerTag(Config::get('amazon-product.associate_tag'));
         $request->setPartnerType(PartnerType::ASSOCIATES);
         $request->setResources($resources);
 
@@ -92,7 +93,7 @@ class AmazonClient implements Factory
 
         $request = new GetBrowseNodesRequest();
         $request->setBrowseNodeIds([$node]);
-        $request->setPartnerTag(config('amazon-product.associate_tag'));
+        $request->setPartnerTag(Config::get('amazon-product.associate_tag'));
         $request->setPartnerType(PartnerType::ASSOCIATES);
         $request->setResources($resources);
 
@@ -123,7 +124,7 @@ class AmazonClient implements Factory
 
         $request = new GetItemsRequest();
         $request->setItemIds($asin);
-        $request->setPartnerTag(config('amazon-product.associate_tag'));
+        $request->setPartnerTag(Config::get('amazon-product.associate_tag'));
         $request->setPartnerType(PartnerType::ASSOCIATES);
         $request->setItemIdType($this->idType);
         $request->setResources($resources);
@@ -148,7 +149,7 @@ class AmazonClient implements Factory
         $request = new GetVariationsRequest();
         $request->setASIN($asin);
         $request->setVariationPage($page);
-        $request->setPartnerTag(config('amazon-product.associate_tag'));
+        $request->setPartnerTag(Config::get('amazon-product.associate_tag'));
         $request->setPartnerType(PartnerType::ASSOCIATES);
         $request->setResources($resources);
 

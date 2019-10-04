@@ -28,6 +28,7 @@ return [
 `TopSellers` is not support yet.
 
 ### New variations(string $asin, int $page = 1)
+https://webservices.amazon.com/paapi5/documentation/get-variations.html
 
 ### Response format changed
 Check your code.
