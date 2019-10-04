@@ -54,10 +54,6 @@ dd($response);
 
 # string $browse Browse node
 $response = AmazonProduct::browse('1');
-# sort by Featured
-
-# New
-$response = AmazonProduct::browse('1', 'NewestArrivals');
 
 # string $asin ASIN
 $response = AmazonProduct::item('ASIN1');

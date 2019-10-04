@@ -22,5 +22,10 @@ return [
 ];
 ```
 
+### browse()
+`NewReleases` is Deprecated.
+
+`TopSellers` is not support yet.
+
 ### Response format changed
 Check your code.
