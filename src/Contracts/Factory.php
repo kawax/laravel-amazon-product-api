@@ -3,6 +3,7 @@
 namespace Revolution\Amazon\ProductAdvertising\Contracts;
 
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\api\DefaultApi;
+use Amazon\ProductAdvertisingAPI\v1\ApiException;
 
 interface Factory
 {
@@ -17,6 +18,7 @@ interface Factory
      * @param  string  $keyword
      * @param  int  $page
      * @return mixed
+     * @throws ApiException
      */
     public function search(string $category, string $keyword = null, int $page = 1);
 
@@ -24,18 +26,21 @@ interface Factory
      * @param  string  $node
      * @param  string  $sort
      * @return mixed
+     * @throws ApiException
      */
     public function browse(string $node, string $sort = 'Featured');
 
     /**
      * @param  string  $asin
      * @return mixed
+     * @throws ApiException
      */
     public function item(string $asin);
 
     /**
      * @param  array  $asin
      * @return mixed
+     * @throws ApiException
      */
     public function items(array $asin);
 
