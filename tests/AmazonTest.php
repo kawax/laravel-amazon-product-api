@@ -87,6 +87,15 @@ class AmazonTest extends TestCase
         $this->assertArrayHasKey('SearchResult', $response);
     }
 
+    public function testVariations()
+    {
+        $this->setClientHandler(file_get_contents(__DIR__.'/stubs/VariationsResult.json'));
+
+        $response = $this->amazon->variations('1', 1);
+
+        $this->assertArrayHasKey('VariationsResult', $response);
+    }
+
     public function testIdType()
     {
         $this->amazon->setIdType('EAN');

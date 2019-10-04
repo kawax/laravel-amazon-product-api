@@ -24,3 +24,4 @@ Customize Request.
 - browse
 - item
 - items
+- variations

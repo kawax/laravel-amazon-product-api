@@ -18,6 +18,9 @@ use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetBrowseNodesResource;
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsRequest;
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsResource;
 
+use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetVariationsRequest;
+use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetVariationsResource;
+
 class AmazonClient implements Factory
 {
     use Macroable;
@@ -128,6 +131,30 @@ class AmazonClient implements Factory
         $request = $this->callHook('item', $request);
 
         $response = $this->api->getItems($request);
+
+        return json_decode((string) $response, true);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function variations(string $asin, int $page = 1)
+    {
+        /**
+         * @var GetVariationsResource[] $resources
+         */
+        $resources = GetVariationsResource::getAllowableEnumValues();
+
+        $request = new GetVariationsRequest();
+        $request->setASIN($asin);
+        $request->setVariationPage($page);
+        $request->setPartnerTag(config('amazon-product.associate_tag'));
+        $request->setPartnerType(PartnerType::ASSOCIATES);
+        $request->setResources($resources);
+
+        $request = $this->callHook('variations', $request);
+
+        $response = $this->api->getVariations($request);
 
         return json_decode((string) $response, true);
     }

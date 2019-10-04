@@ -1,0 +1,260 @@
+{
+  "VariationsResult": {
+    "Items": [
+      {
+        "ASIN": "B019MNBMS4",
+        "DetailPageURL": "https://www.amazon.co.uk/dp/B019MNBMS4?tag=xyz-20&linkCode=ogv&th=1&psc=1",
+        "ItemInfo": {
+          "Title": {
+            "DisplayValue": "Tommy Hilfiger Men's Ranger Leather Passcase Wallet with Removable Card Holder,Navy,One Size",
+            "Label": "Title",
+            "Locale": "en_GB"
+          }
+        },
+        "VariationAttributes": [
+          {
+            "Name": "size_name",
+            "Value": "One Size"
+          },
+          {
+            "Name": "color_name",
+            "Value": "Navy"
+          }
+        ]
+      },
+      {
+        "ASIN": "B073211XCB",
+        "DetailPageURL": "https://www.amazon.co.uk/dp/B073211XCB?tag=xyz-20&linkCode=ogv&th=1&psc=1",
+        "ItemInfo": {
+          "Title": {
+            "DisplayValue": "Tommy Hilfiger mens Rfid Blocking 100% Leather Passcase Wallet Wallet - Brown -",
+            "Label": "Title",
+            "Locale": "en_GB"
+          }
+        },
+        "VariationAttributes": [
+          {
+            "Name": "size_name",
+            "Value": "One Size"
+          },
+          {
+            "Name": "color_name",
+            "Value": "Logan - Tan"
+          }
+        ]
+      },
+      {
+        "ASIN": "B00422MCW6",
+        "DetailPageURL": "https://www.amazon.co.uk/dp/B00422MCW6?tag=xyz-20&linkCode=ogv&th=1&psc=1",
+        "ItemInfo": {
+          "Title": {
+            "DisplayValue": "Tommy Hilfiger Men's Ranger Leather Passcase Wallet with Removable Card Holder,Black,One Size",
+            "Label": "Title",
+            "Locale": "en_GB"
+          }
+        },
+        "VariationAttributes": [
+          {
+            "Name": "size_name",
+            "Value": "One Size"
+          },
+          {
+            "Name": "color_name",
+            "Value": "Black"
+          }
+        ]
+      },
+      {
+        "ASIN": "B01M2C97VG",
+        "DetailPageURL": "https://www.amazon.co.uk/dp/B01M2C97VG?tag=xyz-20&linkCode=ogv&th=1&psc=1",
+        "ItemInfo": {
+          "Title": {
+            "DisplayValue": "Tommy Hilfiger Men's Ranger Leather Passcase Wallet with Removable Card Holder,Cognac,One Size",
+            "Label": "Title",
+            "Locale": "en_GB"
+          }
+        },
+        "VariationAttributes": [
+          {
+            "Name": "size_name",
+            "Value": "One Size"
+          },
+          {
+            "Name": "color_name",
+            "Value": "Cognac"
+          }
+        ]
+      },
+      {
+        "ASIN": "B00422MCVW",
+        "DetailPageURL": "https://www.amazon.co.uk/dp/B00422MCVW?tag=xyz-20&linkCode=ogv&th=1&psc=1",
+        "ItemInfo": {
+          "Title": {
+            "DisplayValue": "Tommy Hilfiger Men's Ranger Leather Passcase Wallet with Removable Card Holder,Brown,One Size",
+            "Label": "Title",
+            "Locale": "en_GB"
+          }
+        },
+        "VariationAttributes": [
+          {
+            "Name": "size_name",
+            "Value": "One Size"
+          },
+          {
+            "Name": "color_name",
+            "Value": "Brown"
+          }
+        ]
+      },
+      {
+        "ASIN": "B00422MCVM",
+        "DetailPageURL": "https://www.amazon.co.uk/dp/B00422MCVM?tag=xyz-20&linkCode=ogv&th=1&psc=1",
+        "ItemInfo": {
+          "Title": {
+            "DisplayValue": "Tommy Hilfiger Men's Ranger Leather Passcase Wallet with Removable Card Holder,Tan,One Size",
+            "Label": "Title",
+            "Locale": "en_GB"
+          }
+        },
+        "VariationAttributes": [
+          {
+            "Name": "size_name",
+            "Value": "One Size"
+          },
+          {
+            "Name": "color_name",
+            "Value": "Tan"
+          }
+        ]
+      },
+      {
+        "ASIN": "B01M5J1551",
+        "DetailPageURL": "https://www.amazon.co.uk/dp/B01M5J1551?tag=xyz-20&linkCode=ogv&th=1&psc=1",
+        "ItemInfo": {
+          "Title": {
+            "DisplayValue": "Tommy Hilfiger Men's Ranger Leather Passcase Wallet with Removable Card Holder,Red,One Size",
+            "Label": "Title",
+            "Locale": "en_GB"
+          }
+        },
+        "VariationAttributes": [
+          {
+            "Name": "size_name",
+            "Value": "One Size"
+          },
+          {
+            "Name": "color_name",
+            "Value": "Red"
+          }
+        ]
+      },
+      {
+        "ASIN": "B07321HQRM",
+        "DetailPageURL": "https://www.amazon.co.uk/dp/B07321HQRM?tag=xyz-20&linkCode=ogv&th=1&psc=1",
+        "ItemInfo": {
+          "Title": {
+            "DisplayValue": "Tommy Hilfiger mens Ranger Passcase Wallet Wallet - Black -",
+            "Label": "Title",
+            "Locale": "en_GB"
+          }
+        },
+        "VariationAttributes": [
+          {
+            "Name": "size_name",
+            "Value": "One Size"
+          },
+          {
+            "Name": "color_name",
+            "Value": "Rfid-black"
+          }
+        ]
+      },
+      {
+        "ASIN": "B01MG81M6E",
+        "DetailPageURL": "https://www.amazon.co.uk/dp/B01MG81M6E?tag=xyz-20&linkCode=ogv&th=1&psc=1",
+        "ItemInfo": {
+          "Title": {
+            "Value": "Tommy Hilfiger Men's Ranger Leather Passcase Wallet with Removable Card Holder,Green,One Size",
+            "Label": "Title",
+            "Locale": "en_GB"
+          }
+        },
+        "VariationAttributes": [
+          {
+            "Name": "size_name",
+            "Value": "One Size"
+          },
+          {
+            "Name": "color_name",
+            "Value": "Green"
+          }
+        ]
+      },
+      {
+        "ASIN": "B0731XHR2W",
+        "DetailPageURL": "https://www.amazon.co.uk/dp/B0731XHR2W?tag=xyz-20&linkCode=ogv&th=1&psc=1",
+        "ItemInfo": {
+          "Title": {
+            "DisplayValue": "Tommy Hilfiger mens Ranger Passcase Wallet Wallet - Blue -",
+            "Label": "Title",
+            "Locale": "en_GB"
+          }
+        },
+        "VariationAttributes": [
+          {
+            "Name": "size_name",
+            "Value": "One Size"
+          },
+          {
+            "Name": "color_name",
+            "Value": "Rfid-navy"
+          }
+        ]
+      }
+    ],
+    "VariationSummary": {
+      "PageCount": 2,
+      "Price": {
+        "HighestPrice": {
+          "Amount": 30.87,
+          "Currency": "GBP",
+          "DisplayAmount": "£30.87"
+        },
+        "LowestPrice": {
+          "Amount": 17.03,
+          "Currency": "GBP",
+          "DisplayAmount": "£17.03"
+        }
+      },
+      "VariationCount": 13,
+      "VariationDimensions": [
+        {
+          "DisplayName": "Size",
+          "Name": "size_name",
+          "Values": [
+            "One Size"
+          ]
+        },
+        {
+          "DisplayName": "Colour",
+          "Name": "color_name",
+          "Values": [
+            "Brown",
+            "Navy",
+            "Black",
+            "Burgundy",
+            "Cognac",
+            "Gray",
+            "Green",
+            "Logan - Tan",
+            "Navy/Black",
+            "Red",
+            "Rfid-black",
+            "Rfid-navy",
+            "Tan"
+          ]
+        }
+      ]
+    }
+  }
+}

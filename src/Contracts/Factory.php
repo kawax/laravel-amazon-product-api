@@ -28,7 +28,7 @@ interface Factory
      * @return mixed
      * @throws ApiException
      */
-    public function browse(string $node, string $sort = 'Featured');
+    public function browse(string $node, string $sort = 'TopSellers');
 
     /**
      * @param  string  $asin
@@ -43,6 +43,14 @@ interface Factory
      * @throws ApiException
      */
     public function items(array $asin);
+
+    /**
+     * @param  string  $asin
+     * @param  int  $page
+     * @return mixed
+     * @throws ApiException
+     */
+    public function variations(string $asin, int $page = 1);
 
     /**
      * ASIN (Default), SKU, UPC, EAN, and ISBN

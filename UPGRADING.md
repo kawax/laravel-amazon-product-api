@@ -27,5 +27,7 @@ return [
 
 `TopSellers` is not support yet.
 
+### New variations(string $asin, int $page = 1)
+
 ### Response format changed
 Check your code.
