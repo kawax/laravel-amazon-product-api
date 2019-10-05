@@ -4,9 +4,15 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/d835c616dc9f95faf516/maintainability)](https://codeclimate.com/github/kawax/laravel-amazon-product-api/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/d835c616dc9f95faf516/test_coverage)](https://codeclimate.com/github/kawax/laravel-amazon-product-api/test_coverage)
 
+## Important
+Amazon released PA-API v5. https://webservices.amazon.com/paapi5/documentation/
+v4 will be shut down on 2019/10/31.
+
+This package already support new API. Check UPGRADING.md
+
 ## Requirements
-- PHP >= 7.2
-- Laravel >= 6.0
+- PHP >= 7.1
+- Laravel >= 5.8
 
 ## Installation
 
@@ -25,27 +31,17 @@ php artisan vendor:publish --provider="Revolution\Amazon\ProductAdvertising\Prov
 AMAZON_API_KEY=
 AMAZON_API_SECRET_KEY=
 AMAZON_ASSOCIATE_TAG=
-AMAZON_COUNTRY=com
+AMAZON_HOST=webservices.amazon.com
+AMAZON_REGION=us-east-1
 ```
 
 ### Country lists
-https://docs.aws.amazon.com/AWSECommerceService/latest/DG/Locales.html
-
-e.g.
-- US=com
-- UK=co.uk
+https://webservices.amazon.com/paapi5/documentation/common-request-parameters.html
 
 ## Note
-- API Rate limit https://docs.aws.amazon.com/AWSECommerceService/latest/DG/TroubleshootingApplications.html
-- entity decode https://forums.aws.amazon.com/ann.jspa?annID=5543
-
-```php
-html_entity_decode($txt, ENT_HTML401, "UTF-8");
-```
+- API Rate limit https://webservices.amazon.com/paapi5/documentation/troubleshooting/api-rates.html
 
 ## Usage
-
-This package depends on https://github.com/Exeu/apai-io
 
 ```php
 <?php
@@ -58,10 +54,6 @@ dd($response);
 
 # string $browse Browse node
 $response = AmazonProduct::browse('1');
-# sort by TopSeller
-
-# Response Group: NewReleases
-$response = AmazonProduct::browse('1', 'NewReleases');
 
 # string $asin ASIN
 $response = AmazonProduct::item('ASIN1');
@@ -73,17 +65,18 @@ $response = AmazonProduct::items(['ASIN1', 'ASIN2']);
 $response = AmazonProduct::setIdType('EAN')->item('EAN');
 # reset to ASIN
 AmazonProduct::setIdType('ASIN');
-
+# PA-APIv5 not support EAN?
 ```
 
 `browse()` is not contains detail data.
 
 ```php
 $response = AmazonProduct::browse('1');
-$nodes = data_get($response, 'BrowseNodes');
-$items = data_get($nodes, 'BrowseNode.TopSellers.TopSeller');
+$nodes = data_get($response, 'BrowseNodesResult');
+$items = data_get($nodes, 'BrowseNodes.TopSellers.TopSeller');
 $asins = data_get($items, '*.ASIN');
 $results = AmazonProduct::items($asins);
+# PA-APIv5 not support TopSeller?
 ```
 
 Probably, you need try-catch or Laravel's `rescue()` helper.
@@ -91,62 +84,13 @@ Probably, you need try-catch or Laravel's `rescue()` helper.
 ```php
 try {
     $response = AmazonProduct::browse('1');
-} catch() {
+} catch(ApiException $e) {
 
 }
 
 $response = rescue(function () use ($browse_id) {
                 return AmazonProduct::browse($browse_id);
             }, []);
-```
-
-### Run operation
-
-```php
-<?php
-use AmazonProduct;
-use ApaiIO\Operations\Search;
-
-$search = new Search();
-
-$search->setCategory('All');
-$search->setKeywords('amazon');
-$search->setResponseGroup(['Large']);
-
-$response = AmazonProduct::run($search);
-dd($response);
-# returns normal array
-```
-
-### reconfig
-
-```php
-<?php
-use ApaiIO\ApaiIO;
-use ApaiIO\Configuration\GenericConfiguration;
-use ApaiIO\Request\GuzzleRequest;
-use ApaiIO\ResponseTransformer\XmlToArray;
-use GuzzleHttp\Client;
-
-$client = new Client();
-
-$request = new GuzzleRequest($client);
-$request->setScheme('https');
-
-$config = config('amazon-product');
-
-$conf = new GenericConfiguration();
-
-$conf->setCountry($config['country'])
-     ->setAccessKey($config['api_key'])
-     ->setSecretKey($config['api_secret_key'])
-     ->setAssociateTag($config['associate_tag'])
-     ->setResponseTransformer(new XmlToArray())
-     ->setRequest($request);
-
-$apaiio = new ApaiIO($conf);
-
-AmazonProduct::config($apaiio);
 ```
 
 ## LICENSE

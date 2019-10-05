@@ -2,63 +2,60 @@
 
 namespace Revolution\Amazon\ProductAdvertising\Contracts;
 
-use ApaiIO\ApaiIO;
-use ApaiIO\Operations\OperationInterface;
+use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\api\DefaultApi;
+use Amazon\ProductAdvertisingAPI\v1\ApiException;
 
 interface Factory
 {
     /**
-     * @param  ApaiIO  $api
-     *
+     * @param  DefaultApi  $api
      * @return $this
      */
-    public function config(ApaiIO $api);
-
-    /**
-     * @param  OperationInterface  $operation
-     *
-     * @return mixed
-     */
-    public function run(OperationInterface $operation);
+    public function config(DefaultApi $api);
 
     /**
      * @param  string  $category
      * @param  string  $keyword
      * @param  int  $page
-     *
      * @return mixed
+     * @throws ApiException
      */
     public function search(string $category, string $keyword = null, int $page = 1);
 
     /**
      * @param  string  $node
-     * @param  string  $response
-     *
+     * @param  string  $sort
      * @return mixed
+     * @throws ApiException
      */
-    public function browse(string $node, string $response = 'TopSellers');
+    public function browse(string $node, string $sort = 'TopSellers');
 
     /**
      * @param  string  $asin
-     *
      * @return mixed
+     * @throws ApiException
      */
     public function item(string $asin);
 
     /**
      * @param  array  $asin
-     *
      * @return mixed
-     *
-     * @throws \Exception
+     * @throws ApiException
      */
     public function items(array $asin);
+
+    /**
+     * @param  string  $asin
+     * @param  int  $page
+     * @return mixed
+     * @throws ApiException
+     */
+    public function variations(string $asin, int $page = 1);
 
     /**
      * ASIN (Default), SKU, UPC, EAN, and ISBN
      *
      * @param  string  $idType
-     *
      * @return Factory
      */
     public function setIdType(string $idType): Factory;

@@ -1,1 +1,5 @@
 preset: psr2
+
+finder:
+  exclude:
+    - "paapi5-php-sdk"

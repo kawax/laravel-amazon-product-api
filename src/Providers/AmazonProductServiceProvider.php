@@ -5,12 +5,8 @@ namespace Revolution\Amazon\ProductAdvertising\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Support\DeferrableProvider;
 
-use ApaiIO\ApaiIO;
-use ApaiIO\Configuration\GenericConfiguration;
-use ApaiIO\Configuration\ConfigurationInterface;
-use ApaiIO\Request\GuzzleRequest;
-use ApaiIO\Request\RequestInterface;
-use ApaiIO\ResponseTransformer\XmlToArray;
+use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\api\DefaultApi;
+use Amazon\ProductAdvertisingAPI\v1\Configuration;
 
 use GuzzleHttp\Client;
 
@@ -42,25 +38,14 @@ class AmazonProductServiceProvider extends ServiceProvider implements Deferrable
             __DIR__.'/../config/amazon-product.php', 'amazon-product'
         );
 
-        $this->app->singleton(RequestInterface::class, function ($app) {
-            $request = new GuzzleRequest($this->app->make(Client::class));
-            $request->setScheme('https');
-
-            return $request;
-        });
-
-        $this->app->singleton(ConfigurationInterface::class, function ($app) {
-            return (new GenericConfiguration)
-                ->setCountry(config('amazon-product.country'))
+        $this->app->singleton(DefaultApi::class, function ($app) {
+            $config = (new Configuration)
                 ->setAccessKey(config('amazon-product.api_key'))
                 ->setSecretKey(config('amazon-product.api_secret_key'))
-                ->setAssociateTag(config('amazon-product.associate_tag'))
-                ->setResponseTransformer(new XmlToArray)
-                ->setRequest($this->app->make(RequestInterface::class));
-        });
+                ->setRegion(config('amazon-product.region'))
+                ->setHost(config('amazon-product.host'));
 
-        $this->app->singleton(ApaiIO::class, function ($app) {
-            return new ApaiIO($this->app->make(ConfigurationInterface::class));
+            return new DefaultApi(new Client, $config);
         });
 
         $this->app->singleton(Factory::class, AmazonClient::class);
@@ -75,9 +60,7 @@ class AmazonProductServiceProvider extends ServiceProvider implements Deferrable
     {
         return [
             Factory::class,
-            ApaiIO::class,
-            RequestInterface::class,
-            ConfigurationInterface::class,
+            DefaultApi::class,
         ];
     }
 }

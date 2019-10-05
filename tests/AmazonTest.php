@@ -2,18 +2,11 @@
 
 namespace Tests;
 
-use ApaiIO\ApaiIO;
-use ApaiIO\Configuration\GenericConfiguration;
-use ApaiIO\Request\GuzzleRequest;
-use ApaiIO\ResponseTransformer\XmlToArray;
+use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\api\DefaultApi;
+use Amazon\ProductAdvertisingAPI\v1\Configuration;
 
-use ApaiIO\Operations\Search;
-use ApaiIO\Operations\Lookup;
-
-use Illuminate\Support\Collection;
 use Revolution\Amazon\ProductAdvertising\AmazonClient;
 use Revolution\Amazon\ProductAdvertising\Contracts\Factory;
-use Revolution\Amazon\ProductAdvertising\ResponseTransformer\XmlToCollection;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
@@ -46,15 +39,11 @@ class AmazonTest extends TestCase
         $handler = HandlerStack::create($mock);
         $client = new Client(['handler' => $handler]);
 
-        $request = new GuzzleRequest($client);
-        $conf = new GenericConfiguration();
+        $config = new Configuration;
 
-        $conf->setResponseTransformer(new XmlToArray())
-             ->setRequest($request);
+        $api = new DefaultApi($client, $config);
 
-        $apaiio = new ApaiIO($conf);
-
-        $this->amazon = new AmazonClient($apaiio);
+        $this->amazon = new AmazonClient($api);
     }
 
     public function testAmazonInstance()
@@ -62,55 +51,49 @@ class AmazonTest extends TestCase
         $this->assertInstanceOf(AmazonClient::class, $this->amazon);
     }
 
-    public function testRun()
-    {
-        $this->setClientHandler(file_get_contents(__DIR__.'/stubs/ItemSearch.xml'));
-
-        $search = new Search();
-
-        $search->setCategory('All');
-        $search->setKeywords('amazon');
-        $search->setResponseGroup(['Large']);
-
-        $response = $this->amazon->run($search);
-
-        $this->assertArrayHasKey('Items', $response);
-    }
-
     public function testBrowse()
     {
-        $this->setClientHandler(file_get_contents(__DIR__.'/stubs/BrowseNodeLookup.xml'));
+        $this->setClientHandler(file_get_contents(__DIR__.'/stubs/BrowseNodeResult.json'));
 
         $response = $this->amazon->browse('1');
 
-        $this->assertArrayHasKey('BrowseNodes', $response);
+        $this->assertArrayHasKey('BrowseNodesResult', $response);
     }
 
     public function testItem()
     {
-        $this->setClientHandler(file_get_contents(__DIR__.'/stubs/ItemLookup.xml'));
+        $this->setClientHandler(file_get_contents(__DIR__.'/stubs/ItemsResult.json'));
 
         $response = $this->amazon->item('1');
 
-        $this->assertArrayHasKey('Items', $response);
+        $this->assertArrayHasKey('ItemsResult', $response);
     }
 
     public function testItems()
     {
-        $this->setClientHandler(file_get_contents(__DIR__.'/stubs/ItemLookup.xml'));
+        $this->setClientHandler(file_get_contents(__DIR__.'/stubs/ItemsResult.json'));
 
         $response = $this->amazon->items(['1']);
 
-        $this->assertArrayHasKey('Items', $response);
+        $this->assertArrayHasKey('ItemsResult', $response);
     }
 
     public function testSearch()
     {
-        $this->setClientHandler(file_get_contents(__DIR__.'/stubs/ItemSearch.xml'));
+        $this->setClientHandler(file_get_contents(__DIR__.'/stubs/SearchResult.json'));
 
         $response = $this->amazon->search('All', 'keyword', 1);
 
-        $this->assertArrayHasKey('Items', $response);
+        $this->assertArrayHasKey('SearchResult', $response);
+    }
+
+    public function testVariations()
+    {
+        $this->setClientHandler(file_get_contents(__DIR__.'/stubs/VariationsResult.json'));
+
+        $response = $this->amazon->variations('1', 1);
+
+        $this->assertArrayHasKey('VariationsResult', $response);
     }
 
     public function testIdType()
@@ -132,10 +115,10 @@ class AmazonTest extends TestCase
 
     public function testHookable()
     {
-        $this->setClientHandler(file_get_contents(__DIR__.'/stubs/ItemLookup.xml'));
+        $this->setClientHandler(file_get_contents(__DIR__.'/stubs/ItemsResult.json'));
 
-        $this->amazon->hook('item', function (Lookup $lookup) {
-            return $lookup->setMerchantId('Amazon');
+        $this->amazon->hook('item', function ($request) {
+            return $request->setMerchant('Amazon');
         });
 
         $response = $this->amazon->item('1');
@@ -153,31 +136,6 @@ class AmazonTest extends TestCase
     public function testFactory()
     {
         $amazon = resolve(Factory::class);
-
-        $this->assertInstanceOf(AmazonClient::class, $amazon);
-    }
-
-    public function testApai()
-    {
-        $apai = resolve(ApaiIO::class);
-
-        $this->assertInstanceOf(ApaiIO::class, $apai);
-    }
-
-    public function testXmlToCollection()
-    {
-        $xml = new XmlToCollection();
-        $collect = $xml->transform(file_get_contents(__DIR__.'/stubs/ItemLookup.xml'));
-
-        $this->assertInstanceOf(Collection::class, $collect);
-        $this->assertTrue($collect->has('Items'));
-    }
-
-    public function testConfig()
-    {
-        $apai = resolve(ApaiIO::class);
-
-        $amazon = $this->amazon->config($apai);
 
         $this->assertInstanceOf(AmazonClient::class, $amazon);
     }

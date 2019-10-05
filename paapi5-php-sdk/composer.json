@@ -1,0 +1,23 @@
+{
+    "name" : "amazon/paapiphpsdk",
+    "version" : "1.0.0",
+    "keywords" : [
+        "amazon",
+        "php",
+        "sdk",
+        "api"
+    ],
+    "homepage" : "https://webservices.amazon.com/paapi5/documentation/index.html",
+    "license" : "Apache2.0",
+    "authors" : [{
+        "name" : "Product Advertising API Team"
+    }
+    ],
+    "require" : {
+        "php" : ">=5.5",
+        "guzzlehttp/guzzle" : "^6.2"
+    },
+    "autoload": {
+        "psr-4": { "Amazon\\ProductAdvertisingAPI\\v1\\" : "src/" }
+    }
+}
