@@ -44,6 +44,7 @@ class AmazonTest extends TestCase
         $api = new DefaultApi($client, $config);
 
         $this->amazon = new AmazonClient($api);
+        $this->amazon->config($api);
     }
 
     public function testAmazonInstance()
