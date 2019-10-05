@@ -5,7 +5,7 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/d835c616dc9f95faf516/test_coverage)](https://codeclimate.com/github/kawax/laravel-amazon-product-api/test_coverage)
 
 ## Important
-Amazon released PA-API v5. https://webservices.amazon.com/paapi5/documentation/
+Amazon released PA-API v5. https://webservices.amazon.com/paapi5/documentation/  
 v4 will be shut down on 2019/10/31.
 
 This package already support new API. Check UPGRADING.md

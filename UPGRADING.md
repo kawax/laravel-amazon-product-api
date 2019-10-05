@@ -9,7 +9,7 @@
 https://webservices.amazon.com/paapi5/documentation/
 
 ### config
-Add `host` and `region`.
+Add `host` and `region`.  
 https://webservices.amazon.com/paapi5/documentation/common-request-parameters.html#host-and-region
 
 ```
