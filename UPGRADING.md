@@ -22,6 +22,11 @@ return [
 ];
 ```
 
+```
+AMAZON_HOST=webservices.amazon.com
+AMAZON_REGION=us-east-1
+```
+
 ### browse()
 `NewReleases` is Deprecated.
 
