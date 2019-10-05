@@ -10,8 +10,12 @@ Customize Request.
     public function boot()
     {
         \AmazonProduct::hook('item', function ($request) {
-               $resources = [];
+               // Reduce resources
+               $resources = [
+                   GetItemsResource::ITEM_INFOTITLE,
+               ];
                $request->setResources($resources);
+
                $request->setMerchant('Amazon');
 
                return $request;
