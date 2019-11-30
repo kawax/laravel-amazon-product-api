@@ -6,7 +6,7 @@
 
 ## Important
 Amazon released PA-API v5. https://webservices.amazon.com/paapi5/documentation/  
-v4 will be shut down on 2019/10/31.
+v4 will be shut down on 2020/02.
 
 This package already support new API. Check UPGRADING.md
 
