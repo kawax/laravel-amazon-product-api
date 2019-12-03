@@ -485,7 +485,7 @@ class GetVariationsRequest implements ModelInterface, ArrayAccess
     /**
      * Sets partnerType
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\PartnerType $partnerType partnerType
+     * @param string $partnerType partnerType
      *
      * @return $this
      */

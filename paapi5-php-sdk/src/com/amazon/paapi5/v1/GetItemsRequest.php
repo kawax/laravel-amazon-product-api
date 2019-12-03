@@ -359,7 +359,7 @@ class GetItemsRequest implements ModelInterface, ArrayAccess
     /**
      * Sets itemIdType
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\ItemIdType $itemIdType itemIdType
+     * @param string $itemIdType itemIdType
      *
      * @return $this
      */
@@ -503,7 +503,7 @@ class GetItemsRequest implements ModelInterface, ArrayAccess
     /**
      * Sets partnerType
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\PartnerType $partnerType partnerType
+     * @param string $partnerType partnerType
      *
      * @return $this
      */
