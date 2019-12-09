@@ -13,6 +13,7 @@
  * express or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
+
 namespace Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1;
 
 use \ArrayAccess;
@@ -30,28 +31,28 @@ class BrowseNodeChildren implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $swaggerModelName = 'BrowseNodeChildren';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $swaggerTypes = [
-        
+
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $swaggerFormats = [
-        
+
     ];
 
     /**
@@ -81,7 +82,7 @@ class BrowseNodeChildren implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+
     ];
 
     /**
@@ -90,7 +91,7 @@ class BrowseNodeChildren implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+
     ];
 
     /**
@@ -99,7 +100,7 @@ class BrowseNodeChildren implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+
     ];
 
     /**
@@ -143,10 +144,6 @@ class BrowseNodeChildren implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    
-
-    
-
     /**
      * Associative array for storing property values
      *
@@ -157,7 +154,7 @@ class BrowseNodeChildren implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param  mixed[]  $data  Associated array of property values
      *                      initializing the model
      */
     public function __construct(array $data = null)
@@ -171,7 +168,7 @@ class BrowseNodeChildren implements ModelInterface, ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];//parent::listInvalidProperties();
 
         return $invalidProperties;
     }
@@ -184,9 +181,9 @@ class BrowseNodeChildren implements ModelInterface, ArrayAccess
      */
     public function valid()
     {
-        if (!parent::valid()) {
-            return false;
-        }
+        //        if (!parent::valid()) {
+        //            return false;
+        //        }
 
         return true;
     }
@@ -194,7 +191,7 @@ class BrowseNodeChildren implements ModelInterface, ArrayAccess
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
+     * @param  integer  $offset  Offset
      *
      * @return boolean
      */
@@ -206,7 +203,7 @@ class BrowseNodeChildren implements ModelInterface, ArrayAccess
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param  integer  $offset  Offset
      *
      * @return mixed
      */
@@ -218,8 +215,8 @@ class BrowseNodeChildren implements ModelInterface, ArrayAccess
     /**
      * Sets value based on offset.
      *
-     * @param integer $offset Offset
-     * @param mixed   $value  Value to be set
+     * @param  integer  $offset  Offset
+     * @param  mixed  $value  Value to be set
      *
      * @return void
      */
@@ -235,7 +232,7 @@ class BrowseNodeChildren implements ModelInterface, ArrayAccess
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
+     * @param  integer  $offset  Offset
      *
      * @return void
      */
