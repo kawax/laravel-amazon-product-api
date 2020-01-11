@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests;
+namespace Revolution\Amazon\ProductAdvertising\Tests;
 
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\api\DefaultApi;
 use Amazon\ProductAdvertisingAPI\v1\Configuration;

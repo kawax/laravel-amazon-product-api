@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests;
+namespace Revolution\Amazon\ProductAdvertising\Tests;
 
 use Revolution\Amazon\ProductAdvertising\Providers\AmazonProductServiceProvider;
 use Revolution\Amazon\ProductAdvertising\Facades\AmazonProduct;
