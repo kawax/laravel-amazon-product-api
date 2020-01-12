@@ -45,7 +45,7 @@ https://webservices.amazon.com/paapi5/documentation/common-request-parameters.ht
 
 ```php
 <?php
-use AmazonProduct;
+use Revolution\Amazon\ProductAdvertising\Facades\AmazonProduct;
 
 # string $category, string $keyword = null, int $page = 1
 $response = AmazonProduct::search('All', 'amazon' , 1);
