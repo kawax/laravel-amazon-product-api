@@ -14,6 +14,11 @@ This package already support new API. Check UPGRADING.md
 - PHP >= 7.1
 - Laravel >= 5.8
 
+## Versioning
+- Basic : semver
+- Drop old PHP or Laravel version : `+0.1`
+- Support only latest major version (`master` brunch), but you can PR to old brunches.
+
 ## Installation
 
 ### Composer
