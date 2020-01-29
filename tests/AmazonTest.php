@@ -39,7 +39,7 @@ class AmazonTest extends TestCase
         $handler = HandlerStack::create($mock);
         $client = new Client(['handler' => $handler]);
 
-        $config = new Configuration;
+        $config = new Configuration();
 
         $api = new DefaultApi($client, $config);
 

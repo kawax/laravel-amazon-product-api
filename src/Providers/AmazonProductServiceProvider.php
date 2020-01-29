@@ -39,13 +39,13 @@ class AmazonProductServiceProvider extends ServiceProvider implements Deferrable
         );
 
         $this->app->singleton(DefaultApi::class, function ($app) {
-            $config = (new Configuration)
+            $config = (new Configuration())
                 ->setAccessKey(config('amazon-product.api_key'))
                 ->setSecretKey(config('amazon-product.api_secret_key'))
                 ->setRegion(config('amazon-product.region'))
                 ->setHost(config('amazon-product.host'));
 
-            return new DefaultApi(new Client, $config);
+            return new DefaultApi(new Client(), $config);
         });
 
         $this->app->singleton(Factory::class, AmazonClient::class);
