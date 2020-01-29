@@ -1,4 +1,5 @@
 <?php
+
 return [
     'api_key'        => env('AMAZON_API_KEY', ''),
     'api_secret_key' => env('AMAZON_API_SECRET_KEY', ''),
