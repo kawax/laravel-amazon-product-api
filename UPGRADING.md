@@ -1,6 +1,6 @@
 # UPGRADING
 
-## 3.0 to 4.0
+## v4.0
 - Many breaking changes.
 - Update to PA-API v5
 - Use official SDK
@@ -22,6 +22,7 @@ return [
 ];
 ```
 
+### .env
 ```
 AMAZON_HOST=webservices.amazon.com
 AMAZON_REGION=us-east-1
