@@ -1,4 +1,6 @@
-preset: psr12
+preset: laravel
+disabled:
+  - unused_use
 
 finder:
   exclude:
