@@ -10,7 +10,7 @@ trait Hookable
     protected $hooks = [];
 
     /**
-     * Add hook
+     * Add hook.
      *
      * @param  string  $name
      * @param  callable  $hook

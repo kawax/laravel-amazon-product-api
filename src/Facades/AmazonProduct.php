@@ -3,7 +3,6 @@
 namespace Revolution\Amazon\ProductAdvertising\Facades;
 
 use Illuminate\Support\Facades\Facade;
-
 use Revolution\Amazon\ProductAdvertising\Contracts\Factory;
 
 class AmazonProduct extends Facade

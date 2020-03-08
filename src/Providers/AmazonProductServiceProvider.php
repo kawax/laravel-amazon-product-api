@@ -2,16 +2,13 @@
 
 namespace Revolution\Amazon\ProductAdvertising\Providers;
 
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Contracts\Support\DeferrableProvider;
-
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\api\DefaultApi;
 use Amazon\ProductAdvertisingAPI\v1\Configuration;
-
 use GuzzleHttp\Client;
-
-use Revolution\Amazon\ProductAdvertising\Contracts\Factory;
+use Illuminate\Contracts\Support\DeferrableProvider;
+use Illuminate\Support\ServiceProvider;
 use Revolution\Amazon\ProductAdvertising\AmazonClient;
+use Revolution\Amazon\ProductAdvertising\Contracts\Factory;
 
 class AmazonProductServiceProvider extends ServiceProvider implements DeferrableProvider
 {

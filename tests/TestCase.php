@@ -2,8 +2,8 @@
 
 namespace Revolution\Amazon\ProductAdvertising\Tests;
 
-use Revolution\Amazon\ProductAdvertising\Providers\AmazonProductServiceProvider;
 use Revolution\Amazon\ProductAdvertising\Facades\AmazonProduct;
+use Revolution\Amazon\ProductAdvertising\Providers\AmazonProductServiceProvider;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {

@@ -2,8 +2,8 @@
 
 namespace Revolution\Amazon\ProductAdvertising\Contracts;
 
-use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\api\DefaultApi;
 use Amazon\ProductAdvertisingAPI\v1\ApiException;
+use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\api\DefaultApi;
 
 interface Factory
 {
@@ -53,12 +53,12 @@ interface Factory
     public function variations(string $asin, int $page = 1);
 
     /**
-     * ASIN (Default), SKU, UPC, EAN, and ISBN
+     * ASIN (Default), SKU, UPC, EAN, and ISBN.
      *
      * @param  string  $idType
      * @return Factory
      */
-    public function setIdType(string $idType): Factory;
+    public function setIdType(string $idType): self;
 
     /**
      * @return string
