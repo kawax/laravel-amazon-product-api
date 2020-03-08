@@ -2,25 +2,19 @@
 
 namespace Revolution\Amazon\ProductAdvertising;
 
-use Revolution\Amazon\ProductAdvertising\Contracts\Factory;
-
-use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Traits\Macroable;
-
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\api\DefaultApi;
-use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\PartnerType;
-
-use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetItemsRequest;
-use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetItemsResource;
-
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetBrowseNodesRequest;
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetBrowseNodesResource;
-
-use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsRequest;
-use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsResource;
-
+use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetItemsRequest;
+use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetItemsResource;
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetVariationsRequest;
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetVariationsResource;
+use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\PartnerType;
+use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsRequest;
+use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsResource;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Traits\Macroable;
+use Revolution\Amazon\ProductAdvertising\Contracts\Factory;
 
 class AmazonClient implements Factory
 {
@@ -162,7 +156,7 @@ class AmazonClient implements Factory
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function setIdType(string $idType): Factory
     {
@@ -172,7 +166,7 @@ class AmazonClient implements Factory
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function getIdType(): string
     {

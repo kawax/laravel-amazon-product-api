@@ -4,14 +4,12 @@ namespace Revolution\Amazon\ProductAdvertising\Tests;
 
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\api\DefaultApi;
 use Amazon\ProductAdvertisingAPI\v1\Configuration;
-
-use Revolution\Amazon\ProductAdvertising\AmazonClient;
-use Revolution\Amazon\ProductAdvertising\Contracts\Factory;
-
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
+use Revolution\Amazon\ProductAdvertising\AmazonClient;
+use Revolution\Amazon\ProductAdvertising\Contracts\Factory;
 
 class AmazonTest extends TestCase
 {
