@@ -31,7 +31,7 @@ trait Browse
         /**
          * @var GetBrowseNodesResponse $response
          */
-        $response = $this->api->getBrowseNodes($request);
+        $response = $this->api()->getBrowseNodes($request);
 
         return json_decode($response->__toString(), true);
     }

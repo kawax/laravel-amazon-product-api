@@ -33,7 +33,7 @@ trait Search
         /**
          * @var SearchItemsResponse $response
          */
-        $response = $this->api->searchItems($request);
+        $response = $this->api()->searchItems($request);
 
         return json_decode($response->__toString(), true);
     }

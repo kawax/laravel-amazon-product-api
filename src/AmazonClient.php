@@ -48,6 +48,14 @@ class AmazonClient implements Factory
     /**
      * {@inheritdoc}
      */
+    public function api(): DefaultApi
+    {
+        return $this->api;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function setIdType(string $idType): Factory
     {
         $this->idType = $idType;

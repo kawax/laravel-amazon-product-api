@@ -32,7 +32,7 @@ trait Variation
         /**
          * @var GetVariationsResponse $response
          */
-        $response = $this->api->getVariations($request);
+        $response = $this->api()->getVariations($request);
 
         return json_decode($response->__toString(), true);
     }

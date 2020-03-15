@@ -40,7 +40,7 @@ trait Item
         /**
          * @var GetItemsResponse $response
          */
-        $response = $this->api->getItems($request);
+        $response = $this->api()->getItems($request);
 
         return json_decode($response->__toString(), true);
     }

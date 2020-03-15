@@ -9,14 +9,21 @@ interface Factory
 {
     /**
      * @param  DefaultApi  $api
+     *
      * @return $this
      */
     public function config(DefaultApi $api);
 
     /**
+     * @return DefaultApi
+     */
+    public function api(): DefaultApi;
+
+    /**
      * @param  string  $category
      * @param  string  $keyword
      * @param  int  $page
+     *
      * @return mixed
      * @throws ApiException
      */
@@ -25,6 +32,7 @@ interface Factory
     /**
      * @param  string  $node
      * @param  string  $sort
+     *
      * @return mixed
      * @throws ApiException
      */
@@ -32,6 +40,7 @@ interface Factory
 
     /**
      * @param  string  $asin
+     *
      * @return mixed
      * @throws ApiException
      */
@@ -39,6 +48,7 @@ interface Factory
 
     /**
      * @param  array  $asin
+     *
      * @return mixed
      * @throws ApiException
      */
@@ -47,6 +57,7 @@ interface Factory
     /**
      * @param  string  $asin
      * @param  int  $page
+     *
      * @return mixed
      * @throws ApiException
      */
@@ -56,6 +67,7 @@ interface Factory
      * ASIN (Default), SKU, UPC, EAN, and ISBN.
      *
      * @param  string  $idType
+     *
      * @return Factory
      */
     public function setIdType(string $idType): self;
