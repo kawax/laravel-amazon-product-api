@@ -4,6 +4,7 @@ namespace Revolution\Amazon\ProductAdvertising\Concerns;
 
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetItemsRequest;
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetItemsResource;
+use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetItemsResponse;
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\PartnerType;
 use Illuminate\Support\Facades\Config;
 
@@ -36,8 +37,11 @@ trait Item
 
         $request = $this->callHook('item', $request);
 
+        /**
+         * @var GetItemsResponse $response
+         */
         $response = $this->api->getItems($request);
 
-        return json_decode((string)$response, true);
+        return json_decode($response->__toString(), true);
     }
 }

@@ -5,6 +5,7 @@ namespace Revolution\Amazon\ProductAdvertising\Concerns;
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\PartnerType;
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsRequest;
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsResource;
+use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsResponse;
 use Illuminate\Support\Facades\Config;
 
 trait Search
@@ -29,8 +30,11 @@ trait Search
 
         $request = $this->callHook('search', $request);
 
+        /**
+         * @var SearchItemsResponse $response
+         */
         $response = $this->api->searchItems($request);
 
-        return json_decode((string)$response, true);
+        return json_decode($response->__toString(), true);
     }
 }

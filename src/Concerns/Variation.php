@@ -4,6 +4,7 @@ namespace Revolution\Amazon\ProductAdvertising\Concerns;
 
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetVariationsRequest;
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetVariationsResource;
+use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetVariationsResponse;
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\PartnerType;
 use Illuminate\Support\Facades\Config;
 
@@ -28,8 +29,11 @@ trait Variation
 
         $request = $this->callHook('variations', $request);
 
+        /**
+         * @var GetVariationsResponse $response
+         */
         $response = $this->api->getVariations($request);
 
-        return json_decode((string)$response, true);
+        return json_decode($response->__toString(), true);
     }
 }
