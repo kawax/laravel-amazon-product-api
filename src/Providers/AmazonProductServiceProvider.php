@@ -19,9 +19,12 @@ class AmazonProductServiceProvider extends ServiceProvider implements Deferrable
      */
     public function boot()
     {
-        $this->publishes([
-            __DIR__.'/../config/amazon-product.php' => config_path('amazon-product.php'),
-        ]);
+        $this->publishes(
+            [
+                __DIR__.'/../config/amazon-product.php' => config_path('amazon-product.php'),
+            ],
+            'amazon-product-config'
+        );
     }
 
     /**
@@ -32,18 +35,22 @@ class AmazonProductServiceProvider extends ServiceProvider implements Deferrable
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__.'/../config/amazon-product.php', 'amazon-product'
+            __DIR__.'/../config/amazon-product.php',
+            'amazon-product'
         );
 
-        $this->app->singleton(DefaultApi::class, function ($app) {
-            $config = (new Configuration())
-                ->setAccessKey(config('amazon-product.api_key'))
-                ->setSecretKey(config('amazon-product.api_secret_key'))
-                ->setRegion(config('amazon-product.region'))
-                ->setHost(config('amazon-product.host'));
+        $this->app->singleton(
+            DefaultApi::class,
+            function ($app) {
+                $config = (new Configuration())
+                    ->setAccessKey(config('amazon-product.api_key'))
+                    ->setSecretKey(config('amazon-product.api_secret_key'))
+                    ->setRegion(config('amazon-product.region'))
+                    ->setHost(config('amazon-product.host'));
 
-            return new DefaultApi(new Client(), $config);
-        });
+                return new DefaultApi(new Client(), $config);
+            }
+        );
 
         $this->app->singleton(Factory::class, AmazonClient::class);
     }

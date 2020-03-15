@@ -28,7 +28,7 @@ composer require revolution/laravel-amazon-product-api
 
 ### config/amazon-product.php
 ```bash
-php artisan vendor:publish --provider="Revolution\Amazon\ProductAdvertising\Providers\AmazonProductServiceProvider"
+php artisan vendor:publish --tag=amazon-product-config
 ```
 
 ### .env
