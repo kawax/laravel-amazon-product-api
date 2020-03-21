@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -13,6 +14,7 @@
  * express or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
+
 namespace Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1;
 use \Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
 
@@ -32,6 +34,8 @@ class SearchItemsResource
     const BROWSE_NODE_INFOBROWSE_NODESANCESTOR = 'BrowseNodeInfo.BrowseNodes.Ancestor';
     const BROWSE_NODE_INFOBROWSE_NODESSALES_RANK = 'BrowseNodeInfo.BrowseNodes.SalesRank';
     const BROWSE_NODE_INFOWEBSITE_SALES_RANK = 'BrowseNodeInfo.WebsiteSalesRank';
+    const CUSTOMER_REVIEWSCOUNT = 'CustomerReviews.Count';
+    const CUSTOMER_REVIEWSSTAR_RATING = 'CustomerReviews.StarRating';
     const IMAGESPRIMARYSMALL = 'Images.Primary.Small';
     const IMAGESPRIMARYMEDIUM = 'Images.Primary.Medium';
     const IMAGESPRIMARYLARGE = 'Images.Primary.Large';
@@ -96,6 +100,8 @@ class SearchItemsResource
             self::BROWSE_NODE_INFOBROWSE_NODESANCESTOR,
             self::BROWSE_NODE_INFOBROWSE_NODESSALES_RANK,
             self::BROWSE_NODE_INFOWEBSITE_SALES_RANK,
+            self::CUSTOMER_REVIEWSCOUNT,
+            self::CUSTOMER_REVIEWSSTAR_RATING,
             self::IMAGESPRIMARYSMALL,
             self::IMAGESPRIMARYMEDIUM,
             self::IMAGESPRIMARYLARGE,

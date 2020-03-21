@@ -27,13 +27,13 @@
  * For more details, refer: https://webservices.amazon.com/paapi5/documentation/getbrowsenodes.html
  */
 
-use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\API\DefaultApi;
 use Amazon\ProductAdvertisingAPI\v1\ApiException;
-use Amazon\ProductAdvertisingAPI\v1\Configuration;
+use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\api\DefaultApi;
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetBrowseNodesRequest;
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetBrowseNodesResource;
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\PartnerType;
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\ProductAdvertisingAPIClientException;
+use Amazon\ProductAdvertisingAPI\v1\Configuration;
 
 require_once(__DIR__ . '/vendor/autoload.php'); // change path as needed
 
@@ -41,12 +41,11 @@ require_once(__DIR__ . '/vendor/autoload.php'); // change path as needed
  * Returns the array of Browse Nodes mapped to Browse Node id
  *
  * @param array $browseNodes Browse nodes value.
- *
  * @return array of \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\BrowseNode mapped to Browse Node id.
  */
 function parseResponse($browseNodes)
 {
-    $mappedResponse = array();
+    $mappedResponse = [];
     foreach ($browseNodes as $browseNode) {
         $mappedResponse[$browseNode->getId()] = $browseNode;
     }
@@ -59,8 +58,8 @@ function getBrowseNodes()
 
     /*
      * Add your credentials
-     * Please add your access key here
      */
+    # Please add your access key here
     $config->setAccessKey('<YOUR ACCESS KEY>');
     # Please add your secret key here
     $config->setSecretKey('<YOUR SECRET KEY>');
@@ -70,30 +69,34 @@ function getBrowseNodes()
 
     /*
      * PAAPI host and region to which you want to send request
-     * For more details refer: https://webservices.amazon.com/paapi5/documentation/common-request-parameters.html#host-and-region
+     * For more details refer:
+     * https://webservices.amazon.com/paapi5/documentation/common-request-parameters.html#host-and-region
      */
     $config->setHost('webservices.amazon.com');
     $config->setRegion('us-east-1');
 
     $apiInstance = new DefaultApi(
-    /*
-     * If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-     * This is optional, `GuzzleHttp\Client` will be used as default.
-     */
-        new GuzzleHttp\Client(), $config);
+        /*
+         * If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+         * This is optional, `GuzzleHttp\Client` will be used as default.
+         */
+        new GuzzleHttp\Client(),
+        $config
+    );
 
     # Request initialization
 
     # Specify browseNode id(s)
-    $browseNodeIds = array("3040", "0", "3045");
+    $browseNodeIds = ["3040", "0", "3045"];
 
     /*
      * Choose resources you want from GetItemsResource enum
-     * For more details, refer: https://webservices.amazon.com/paapi5/documentation/getbrowsenodes.html#resources-parameter
+     * For more details,
+     * refer: https://webservices.amazon.com/paapi5/documentation/getbrowsenodes.html#resources-parameter
      */
-    $resources = array(
+    $resources = [
         GetBrowseNodesResource::ANCESTOR,
-        GetBrowseNodesResource::CHILDREN);
+        GetBrowseNodesResource::CHILDREN];
 
     # Forming the request
     $getBrowseNodesRequest = new GetBrowseNodesRequest();
@@ -120,21 +123,21 @@ function getBrowseNodes()
         echo "Complete response: ", $getBrowseNodesResponse, PHP_EOL;
 
         # Parsing the response
-        if ($getBrowseNodesResponse->getBrowseNodesResult() != null) {
+        if ($getBrowseNodesResponse->getBrowseNodesResult() !== null) {
             echo 'Printing all browse node information in BrowseNodesResult:', PHP_EOL;
-            if ($getBrowseNodesResponse->getBrowseNodesResult()->getBrowseNodes() != null) {
+            if ($getBrowseNodesResponse->getBrowseNodesResult()->getBrowseNodes() !== null) {
                 $responseList = parseResponse($getBrowseNodesResponse->getBrowseNodesResult()->getBrowseNodes());
                 foreach ($browseNodeIds as $browseNodeId) {
                     echo "Printing information about the browse node with Id: ", $browseNodeId, PHP_EOL;
-                    if ($responseList[$browseNodeId] != null) {
+                    if ($responseList[$browseNodeId] !== null) {
                         $browseNode = $responseList[$browseNodeId];
-                        if ($browseNode->getId() != null) {
+                        if ($browseNode->getId() !== null) {
                             echo 'BrowseNode Id: ', $browseNode->getId(), PHP_EOL;
                         }
-                        if ($browseNode->getDisplayName() != null) {
+                        if ($browseNode->getDisplayName() !== null) {
                             echo 'DisplayName: ', $browseNode->getDisplayName(), PHP_EOL;
                         }
-                        if ($browseNode->getContextFreeName() != null) {
+                        if ($browseNode->getContextFreeName() !== null) {
                             echo 'ContextFreeName: ', $browseNode->getContextFreeName(), PHP_EOL;
                         }
                     } else {
@@ -143,7 +146,7 @@ function getBrowseNodes()
                 }
             }
         }
-        if ($getBrowseNodesResponse->getErrors() != null) {
+        if ($getBrowseNodesResponse->getErrors() !== null) {
             echo PHP_EOL, 'Printing Errors:', PHP_EOL, 'Printing first error object from list of errors', PHP_EOL;
             echo 'Error code: ', $getBrowseNodesResponse->getErrors()[0]->getCode(), PHP_EOL;
             echo 'Error message: ', $getBrowseNodesResponse->getErrors()[0]->getMessage(), PHP_EOL;
@@ -173,8 +176,8 @@ function getBrowseNodesWithHttpInfo()
 
     /*
      * Add your credentials
-     * Please add your access key here
      */
+    # Please add your access key here
     $config->setAccessKey('<YOUR ACCESS KEY>');
     # Please add your secret key here
     $config->setSecretKey('<YOUR SECRET KEY>');
@@ -184,30 +187,34 @@ function getBrowseNodesWithHttpInfo()
 
     /*
      * PAAPI host and region to which you want to send request
-     * For more details refer: https://webservices.amazon.com/paapi5/documentation/common-request-parameters.html#host-and-region
+     * For more details refer:
+     * https://webservices.amazon.com/paapi5/documentation/common-request-parameters.html#host-and-region
      */
     $config->setHost('webservices.amazon.com');
     $config->setRegion('us-east-1');
 
     $apiInstance = new DefaultApi(
-    /*
-     * If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-     * This is optional, `GuzzleHttp\Client` will be used as default.
-     */
-        new GuzzleHttp\Client(), $config);
+        /*
+         * If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+         * This is optional, `GuzzleHttp\Client` will be used as default.
+         */
+        new GuzzleHttp\Client(),
+        $config
+    );
 
     # Request initialization
 
     # Specify browseNode id(s)
-    $browseNodeIds = array("3040", "0", "3045");
+    $browseNodeIds = ["3040", "0", "3045"];
 
     /*
      * Choose resources you want from GetItemsResource enum
-     * For more details, refer: https://webservices.amazon.com/paapi5/documentation/getbrowsenodes.html#resources-parameter
+     * For more details,
+     * refer: https://webservices.amazon.com/paapi5/documentation/getbrowsenodes.html#resources-parameter
      */
-    $resources = array(
+    $resources = [
         GetBrowseNodesResource::ANCESTOR,
-        GetBrowseNodesResource::CHILDREN);
+        GetBrowseNodesResource::CHILDREN];
 
     # Forming the request
     $getBrowseNodesRequest = new GetBrowseNodesRequest();
@@ -239,21 +246,21 @@ function getBrowseNodesWithHttpInfo()
 
         # Parsing the response
         $response = $browseNodesWithHttpInfo[0];
-        if ($response->getBrowseNodesResult() != null) {
+        if ($response->getBrowseNodesResult() !== null) {
             echo 'Printing all browse node information in BrowseNodesResult:', PHP_EOL;
-            if ($response->getBrowseNodesResult()->getBrowseNodes() != null) {
+            if ($response->getBrowseNodesResult()->getBrowseNodes() !== null) {
                 $responseList = parseResponse($response->getBrowseNodesResult()->getBrowseNodes());
                 foreach ($browseNodeIds as $browseNodeId) {
                     echo "Printing information about the browse node with Id: ", $browseNodeId, PHP_EOL;
-                    if ($responseList[$browseNodeId] != null) {
+                    if ($responseList[$browseNodeId] !== null) {
                         $browseNode = $responseList[$browseNodeId];
-                        if ($browseNode->getId() != null) {
+                        if ($browseNode->getId() !== null) {
                             echo 'BrowseNode Id: ', $browseNode->getId(), PHP_EOL;
                         }
-                        if ($browseNode->getDisplayName() != null) {
+                        if ($browseNode->getDisplayName() !== null) {
                             echo 'DisplayName: ', $browseNode->getDisplayName(), PHP_EOL;
                         }
-                        if ($browseNode->getContextFreeName() != null) {
+                        if ($browseNode->getContextFreeName() !== null) {
                             echo 'ContextFreeName: ', $browseNode->getContextFreeName(), PHP_EOL;
                         }
                     } else {
@@ -262,7 +269,7 @@ function getBrowseNodesWithHttpInfo()
                 }
             }
         }
-        if ($response->getErrors() != null) {
+        if ($response->getErrors() !== null) {
             echo PHP_EOL, 'Printing Errors:', PHP_EOL, 'Printing first error object from list of errors', PHP_EOL;
             echo 'Error code: ', $response->getErrors()[0]->getCode(), PHP_EOL;
             echo 'Error message: ', $response->getErrors()[0]->getMessage(), PHP_EOL;
@@ -292,8 +299,8 @@ function getBrowseNodesAsync()
 
     /*
      * Add your credentials
-     * Please add your access key here
      */
+    # Please add your access key here
     $config->setAccessKey('<YOUR ACCESS KEY>');
     # Please add your secret key here
     $config->setSecretKey('<YOUR SECRET KEY>');
@@ -303,30 +310,34 @@ function getBrowseNodesAsync()
 
     /*
      * PAAPI host and region to which you want to send request
-     * For more details refer: https://webservices.amazon.com/paapi5/documentation/common-request-parameters.html#host-and-region
+     * For more details refer:
+     * https://webservices.amazon.com/paapi5/documentation/common-request-parameters.html#host-and-region
      */
     $config->setHost('webservices.amazon.com');
     $config->setRegion('us-east-1');
 
     $apiInstance = new DefaultApi(
-    /*
-     * If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-     * This is optional, `GuzzleHttp\Client` will be used as default.
-     */
-        new GuzzleHttp\Client(), $config);
+        /*
+         * If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+         * This is optional, `GuzzleHttp\Client` will be used as default.
+         */
+        new GuzzleHttp\Client(),
+        $config
+    );
 
     # Request initialization
 
     # Specify browseNode id(s)
-    $browseNodeIds = array("3040", "0", "3045");
+    $browseNodeIds = ["3040", "0", "3045"];
 
     /*
      * Choose resources you want from GetItemsResource enum
-     * For more details, refer: https://webservices.amazon.com/paapi5/documentation/getbrowsenodes.html#resources-parameter
+     * For more details,
+     * refer: https://webservices.amazon.com/paapi5/documentation/getbrowsenodes.html#resources-parameter
      */
-    $resources = array(
+    $resources = [
         GetBrowseNodesResource::ANCESTOR,
-        GetBrowseNodesResource::CHILDREN);
+        GetBrowseNodesResource::CHILDREN];
 
     # Forming the request
     $getBrowseNodesRequest = new GetBrowseNodesRequest();
@@ -364,21 +375,21 @@ function getBrowseNodesAsync()
         echo "Complete response: ", $response, PHP_EOL;
 
         # Parsing the response
-        if ($response->getBrowseNodesResult() != null) {
+        if ($response->getBrowseNodesResult() !== null) {
             echo 'Printing all browse node information in BrowseNodesResult:', PHP_EOL;
-            if ($response->getBrowseNodesResult()->getBrowseNodes() != null) {
+            if ($response->getBrowseNodesResult()->getBrowseNodes() !== null) {
                 $responseList = parseResponse($response->getBrowseNodesResult()->getBrowseNodes());
                 foreach ($browseNodeIds as $browseNodeId) {
                     echo "Printing information about the browse node with Id: ", $browseNodeId, PHP_EOL;
-                    if ($responseList[$browseNodeId] != null) {
+                    if ($responseList[$browseNodeId] !== null) {
                         $browseNode = $responseList[$browseNodeId];
-                        if ($browseNode->getId() != null) {
+                        if ($browseNode->getId() !== null) {
                             echo 'BrowseNode Id: ', $browseNode->getId(), PHP_EOL;
                         }
-                        if ($browseNode->getDisplayName() != null) {
+                        if ($browseNode->getDisplayName() !== null) {
                             echo 'DisplayName: ', $browseNode->getDisplayName(), PHP_EOL;
                         }
-                        if ($browseNode->getContextFreeName() != null) {
+                        if ($browseNode->getContextFreeName() !== null) {
                             echo 'ContextFreeName: ', $browseNode->getContextFreeName(), PHP_EOL;
                         }
                     } else {
@@ -387,7 +398,7 @@ function getBrowseNodesAsync()
                 }
             }
         }
-        if ($response->getErrors() != null) {
+        if ($response->getErrors() !== null) {
             echo PHP_EOL, 'Printing Errors:', PHP_EOL, 'Printing first error object from list of errors', PHP_EOL;
             echo 'Error code: ', $response->getErrors()[0]->getCode(), PHP_EOL;
             echo 'Error message: ', $response->getErrors()[0]->getMessage(), PHP_EOL;
@@ -417,8 +428,8 @@ function getBrowseNodesAsyncWithHttpInfo()
 
     /*
      * Add your credentials
-     * Please add your access key here
      */
+    # Please add your access key here
     $config->setAccessKey('<YOUR ACCESS KEY>');
     # Please add your secret key here
     $config->setSecretKey('<YOUR SECRET KEY>');
@@ -428,30 +439,34 @@ function getBrowseNodesAsyncWithHttpInfo()
 
     /*
      * PAAPI host and region to which you want to send request
-     * For more details refer: https://webservices.amazon.com/paapi5/documentation/common-request-parameters.html#host-and-region
+     * For more details refer:
+     * https://webservices.amazon.com/paapi5/documentation/common-request-parameters.html#host-and-region
      */
     $config->setHost('webservices.amazon.com');
     $config->setRegion('us-east-1');
 
     $apiInstance = new DefaultApi(
-    /*
-     * If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-     * This is optional, `GuzzleHttp\Client` will be used as default.
-     */
-        new GuzzleHttp\Client(), $config);
+        /*
+         * If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+         * This is optional, `GuzzleHttp\Client` will be used as default.
+         */
+        new GuzzleHttp\Client(),
+        $config
+    );
 
     # Request initialization
 
     # Specify browseNode id(s)
-    $browseNodeIds = array("3040", "0", "3045");
+    $browseNodeIds = ["3040", "0", "3045"];
 
     /*
      * Choose resources you want from GetItemsResource enum
-     * For more details, refer: https://webservices.amazon.com/paapi5/documentation/getbrowsenodes.html#resources-parameter
+     * For more details,
+     * refer: https://webservices.amazon.com/paapi5/documentation/getbrowsenodes.html#resources-parameter
      */
-    $resources = array(
+    $resources = [
         GetBrowseNodesResource::ANCESTOR,
-        GetBrowseNodesResource::CHILDREN);
+        GetBrowseNodesResource::CHILDREN];
 
     # Forming the request
     $getBrowseNodesRequest = new GetBrowseNodesRequest();
@@ -493,21 +508,21 @@ function getBrowseNodesAsyncWithHttpInfo()
 
         # Parsing the response
         $response = $responseWithHttpInfo[0];
-        if ($response->getBrowseNodesResult() != null) {
+        if ($response->getBrowseNodesResult() !== null) {
             echo 'Printing all browse node information in BrowseNodesResult:', PHP_EOL;
-            if ($response->getBrowseNodesResult()->getBrowseNodes() != null) {
+            if ($response->getBrowseNodesResult()->getBrowseNodes() !== null) {
                 $responseList = parseResponse($response->getBrowseNodesResult()->getBrowseNodes());
                 foreach ($browseNodeIds as $browseNodeId) {
                     echo "Printing information about the browse node with Id: ", $browseNodeId, PHP_EOL;
-                    if ($responseList[$browseNodeId] != null) {
+                    if ($responseList[$browseNodeId] !== null) {
                         $browseNode = $responseList[$browseNodeId];
-                        if ($browseNode->getId() != null) {
+                        if ($browseNode->getId() !== null) {
                             echo 'BrowseNode Id: ', $browseNode->getId(), PHP_EOL;
                         }
-                        if ($browseNode->getDisplayName() != null) {
+                        if ($browseNode->getDisplayName() !== null) {
                             echo 'DisplayName: ', $browseNode->getDisplayName(), PHP_EOL;
                         }
-                        if ($browseNode->getContextFreeName() != null) {
+                        if ($browseNode->getContextFreeName() !== null) {
                             echo 'ContextFreeName: ', $browseNode->getContextFreeName(), PHP_EOL;
                         }
                     } else {
@@ -516,7 +531,7 @@ function getBrowseNodesAsyncWithHttpInfo()
                 }
             }
         }
-        if ($response->getErrors() != null) {
+        if ($response->getErrors() !== null) {
             echo PHP_EOL, 'Printing Errors:', PHP_EOL, 'Printing first error object from list of errors', PHP_EOL;
             echo 'Error code: ', $response->getErrors()[0]->getCode(), PHP_EOL;
             echo 'Error message: ', $response->getErrors()[0]->getMessage(), PHP_EOL;

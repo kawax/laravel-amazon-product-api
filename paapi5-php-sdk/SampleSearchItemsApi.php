@@ -27,13 +27,13 @@
  * For more details, refer: https://webservices.amazon.com/paapi5/documentation/search-items.html
  */
 
-use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\api\DefaultApi;
 use Amazon\ProductAdvertisingAPI\v1\ApiException;
-use Amazon\ProductAdvertisingAPI\v1\Configuration;
-use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsRequest;
-use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsResource;
+use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\api\DefaultApi;
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\PartnerType;
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\ProductAdvertisingAPIClientException;
+use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsRequest;
+use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsResource;
+use Amazon\ProductAdvertisingAPI\v1\Configuration;
 
 require_once(__DIR__ . '/vendor/autoload.php'); // change path as needed
 
@@ -43,8 +43,8 @@ function searchItems()
 
     /*
      * Add your credentials
-     * Please add your access key here
      */
+    # Please add your access key here
     $config->setAccessKey('<YOUR ACCESS KEY>');
     # Please add your secret key here
     $config->setSecretKey('<YOUR SECRET KEY>');
@@ -54,17 +54,20 @@ function searchItems()
 
     /*
      * PAAPI host and region to which you want to send request
-     * For more details refer: https://webservices.amazon.com/paapi5/documentation/common-request-parameters.html#host-and-region
+     * For more details refer:
+     * https://webservices.amazon.com/paapi5/documentation/common-request-parameters.html#host-and-region
      */
     $config->setHost('webservices.amazon.com');
     $config->setRegion('us-east-1');
 
     $apiInstance = new DefaultApi(
-    /*
-     * If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-     * This is optional, `GuzzleHttp\Client` will be used as default.
-     */
-        new GuzzleHttp\Client(), $config);
+        /*
+         * If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+         * This is optional, `GuzzleHttp\Client` will be used as default.
+         */
+        new GuzzleHttp\Client(),
+        $config
+    );
 
     # Request initialization
 
@@ -73,7 +76,8 @@ function searchItems()
 
     /*
      * Specify the category in which search request is to be made
-     * For more details, refer: https://webservices.amazon.com/paapi5/documentation/use-cases/organization-of-items-on-amazon/search-index.html
+     * For more details, refer:
+     * https://webservices.amazon.com/paapi5/documentation/use-cases/organization-of-items-on-amazon/search-index.html
      */
     $searchIndex = "All";
 
@@ -82,11 +86,12 @@ function searchItems()
 
     /*
      * Choose resources you want from SearchItemsResource enum
-     * For more details, refer: https://webservices.amazon.com/paapi5/documentation/search-items.html#resources-parameter
+     * For more details,
+     * refer: https://webservices.amazon.com/paapi5/documentation/search-items.html#resources-parameter
      */
-    $resources = array(
+    $resources = [
         SearchItemsResource::ITEM_INFOTITLE,
-        SearchItemsResource::OFFERSLISTINGSPRICE);
+        SearchItemsResource::OFFERSLISTINGSPRICE];
 
     # Forming the request
     $searchItemsRequest = new SearchItemsRequest();
@@ -116,32 +121,32 @@ function searchItems()
         echo 'Complete Response: ', $searchItemsResponse, PHP_EOL;
 
         # Parsing the response
-        if ($searchItemsResponse->getSearchResult() != null) {
+        if ($searchItemsResponse->getSearchResult() !== null) {
             echo 'Printing first item information in SearchResult:', PHP_EOL;
             $item = $searchItemsResponse->getSearchResult()->getItems()[0];
-            if ($item != null) {
-                if ($item->getASIN() != null) {
+            if ($item !== null) {
+                if ($item->getASIN() !== null) {
                     echo "ASIN: ", $item->getASIN(), PHP_EOL;
                 }
-                if ($item->getDetailPageURL() != null) {
+                if ($item->getDetailPageURL() !== null) {
                     echo "DetailPageURL: ", $item->getDetailPageURL(), PHP_EOL;
                 }
-                if ($item->getItemInfo() != null
-                    and $item->getItemInfo()->getTitle() != null
-                    and $item->getItemInfo()->getTitle()->getDisplayValue() != null) {
+                if ($item->getItemInfo() !== null
+                    and $item->getItemInfo()->getTitle() !== null
+                    and $item->getItemInfo()->getTitle()->getDisplayValue() !== null) {
                     echo "Title: ", $item->getItemInfo()->getTitle()->getDisplayValue(), PHP_EOL;
                 }
-                if ($item->getOffers() != null
-                    and $item->getOffers() != null
-                    and $item->getOffers()->getListings() != null
-                    and $item->getOffers()->getListings()[0]->getPrice() != null
-                    and $item->getOffers()->getListings()[0]->getPrice()->getDisplayAmount() != null) {
+                if ($item->getOffers() !== null
+                    and $item->getOffers() !== null
+                    and $item->getOffers()->getListings() !== null
+                    and $item->getOffers()->getListings()[0]->getPrice() !== null
+                    and $item->getOffers()->getListings()[0]->getPrice()->getDisplayAmount() !== null) {
                     echo "Buying price: ", $item->getOffers()->getListings()[0]->getPrice()
                         ->getDisplayAmount(), PHP_EOL;
                 }
             }
         }
-        if ($searchItemsResponse->getErrors() != null) {
+        if ($searchItemsResponse->getErrors() !== null) {
             echo PHP_EOL, 'Printing Errors:', PHP_EOL, 'Printing first error object from list of errors', PHP_EOL;
             echo 'Error code: ', $searchItemsResponse->getErrors()[0]->getCode(), PHP_EOL;
             echo 'Error message: ', $searchItemsResponse->getErrors()[0]->getMessage(), PHP_EOL;
@@ -170,8 +175,8 @@ function searchItemsWithHttpInfo()
 
     /*
      * Add your credentials
-     * Please add your access key here
      */
+    # Please add your access key here
     $config->setAccessKey('<YOUR ACCESS KEY>');
     # Please add your secret key here
     $config->setSecretKey('<YOUR SECRET KEY>');
@@ -181,17 +186,20 @@ function searchItemsWithHttpInfo()
 
     /*
      * PAAPI host and region to which you want to send request
-     * For more details refer: https://webservices.amazon.com/paapi5/documentation/common-request-parameters.html#host-and-region
+     * For more details refer:
+     * https://webservices.amazon.com/paapi5/documentation/common-request-parameters.html#host-and-region
      */
     $config->setHost('webservices.amazon.com');
     $config->setRegion('us-east-1');
 
     $apiInstance = new DefaultApi(
-    /*
-     * If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-     * This is optional, `GuzzleHttp\Client` will be used as default.
-     */
-        new GuzzleHttp\Client(), $config);
+        /*
+         * If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+         * This is optional, `GuzzleHttp\Client` will be used as default.
+         */
+        new GuzzleHttp\Client(),
+        $config
+    );
 
     # Request initialization
 
@@ -200,7 +208,8 @@ function searchItemsWithHttpInfo()
 
     /*
      * Specify the category in which search request is to be made
-     * For more details, refer: https://webservices.amazon.com/paapi5/documentation/use-cases/organization-of-items-on-amazon/search-index.html
+     * For more details, refer:
+     * https://webservices.amazon.com/paapi5/documentation/use-cases/organization-of-items-on-amazon/search-index.html
      */
     $searchIndex = "All";
 
@@ -209,11 +218,12 @@ function searchItemsWithHttpInfo()
 
     /*
      * Choose resources you want from SearchItemsResource enum
-     * For more details, refer: https://webservices.amazon.com/paapi5/documentation/search-items.html#resources-parameter
+     * For more details, refer:
+     * https://webservices.amazon.com/paapi5/documentation/search-items.html#resources-parameter
      */
-    $resources = array(
+    $resources = [
         SearchItemsResource::ITEM_INFOTITLE,
-        SearchItemsResource::OFFERSLISTINGSPRICE);
+        SearchItemsResource::OFFERSLISTINGSPRICE];
 
     # Forming the request
     $searchItemsRequest = new SearchItemsRequest();
@@ -247,32 +257,32 @@ function searchItemsWithHttpInfo()
 
         # Parsing the response
         $response = $responseWithHttpInfo[0];
-        if ($response->getSearchResult() != null) {
+        if ($response->getSearchResult() !== null) {
             echo 'Printing first item information in SearchResult:', PHP_EOL;
             $item = $response->getSearchResult()->getItems()[0];
-            if ($item != null) {
-                if ($item->getASIN() != null) {
+            if ($item !== null) {
+                if ($item->getASIN() !== null) {
                     echo "ASIN: ", $item->getASIN(), PHP_EOL;
                 }
-                if ($item->getDetailPageURL() != null) {
+                if ($item->getDetailPageURL() !== null) {
                     echo "DetailPageURL: ", $item->getDetailPageURL(), PHP_EOL;
                 }
-                if ($item->getItemInfo() != null
-                    and $item->getItemInfo()->getTitle() != null
-                    and $item->getItemInfo()->getTitle()->getDisplayValue() != null) {
+                if ($item->getItemInfo() !== null
+                    and $item->getItemInfo()->getTitle() !== null
+                    and $item->getItemInfo()->getTitle()->getDisplayValue() !== null) {
                     echo "Title: ", $item->getItemInfo()->getTitle()->getDisplayValue(), PHP_EOL;
                 }
-                if ($item->getOffers() != null
-                    and $item->getOffers() != null
-                    and $item->getOffers()->getListings() != null
-                    and $item->getOffers()->getListings()[0]->getPrice() != null
-                    and $item->getOffers()->getListings()[0]->getPrice()->getDisplayAmount() != null) {
+                if ($item->getOffers() !== null
+                    and $item->getOffers() !== null
+                    and $item->getOffers()->getListings() !== null
+                    and $item->getOffers()->getListings()[0]->getPrice() !== null
+                    and $item->getOffers()->getListings()[0]->getPrice()->getDisplayAmount() !== null) {
                     echo "Buying price: ", $item->getOffers()->getListings()[0]->getPrice()
                         ->getDisplayAmount(), PHP_EOL;
                 }
             }
         }
-        if ($response->getErrors() != null) {
+        if ($response->getErrors() !== null) {
             echo PHP_EOL, 'Printing Errors:', PHP_EOL, 'Printing first error object from list of errors', PHP_EOL;
             echo 'Error code: ', $response->getErrors()[0]->getCode(), PHP_EOL;
             echo 'Error message: ', $response->getErrors()[0]->getMessage(), PHP_EOL;
@@ -301,8 +311,8 @@ function searchItemsAsync()
 
     /*
      * Add your credentials
-     * Please add your access key here
      */
+    # Please add your access key here
     $config->setAccessKey('<YOUR ACCESS KEY>');
     # Please add your secret key here
     $config->setSecretKey('<YOUR SECRET KEY>');
@@ -312,17 +322,20 @@ function searchItemsAsync()
 
     /*
      * PAAPI host and region to which you want to send request
-     * For more details refer: https://webservices.amazon.com/paapi5/documentation/common-request-parameters.html#host-and-region
+     * For more details refer:
+     * https://webservices.amazon.com/paapi5/documentation/common-request-parameters.html#host-and-region
      */
     $config->setHost('webservices.amazon.com');
     $config->setRegion('us-east-1');
 
     $apiInstance = new DefaultApi(
-    /*
-     * If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-     * This is optional, `GuzzleHttp\Client` will be used as default.
-     */
-        new GuzzleHttp\Client(), $config);
+        /*
+         * If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+         * This is optional, `GuzzleHttp\Client` will be used as default.
+         */
+        new GuzzleHttp\Client(),
+        $config
+    );
 
     # Request initialization
 
@@ -331,7 +344,8 @@ function searchItemsAsync()
 
     /*
      * Specify the category in which search request is to be made
-     * For more details, refer: https://webservices.amazon.com/paapi5/documentation/use-cases/organization-of-items-on-amazon/search-index.html
+     * For more details, refer:
+     * https://webservices.amazon.com/paapi5/documentation/use-cases/organization-of-items-on-amazon/search-index.html
      */
     $searchIndex = "All";
 
@@ -340,11 +354,12 @@ function searchItemsAsync()
 
     /*
      * Choose resources you want from SearchItemsResource enum
-     * For more details, refer: https://webservices.amazon.com/paapi5/documentation/search-items.html#resources-parameter
+     * For more details, refer:
+     * https://webservices.amazon.com/paapi5/documentation/search-items.html#resources-parameter
      */
-    $resources = array(
+    $resources = [
         SearchItemsResource::ITEM_INFOTITLE,
-        SearchItemsResource::OFFERSLISTINGSPRICE);
+        SearchItemsResource::OFFERSLISTINGSPRICE];
 
     # Forming the request
     $searchItemsRequest = new SearchItemsRequest();
@@ -384,32 +399,32 @@ function searchItemsAsync()
         echo 'Complete Response: ', $response, PHP_EOL;
 
         # Parsing the response
-        if ($response->getSearchResult() != null) {
+        if ($response->getSearchResult() !== null) {
             echo 'Printing first item information in SearchResult:', PHP_EOL;
             $item = $response->getSearchResult()->getItems()[0];
-            if ($item != null) {
-                if ($item->getASIN() != null) {
+            if ($item !== null) {
+                if ($item->getASIN() !== null) {
                     echo "ASIN: ", $item->getASIN(), PHP_EOL;
                 }
-                if ($item->getDetailPageURL() != null) {
+                if ($item->getDetailPageURL() !== null) {
                     echo "DetailPageURL: ", $item->getDetailPageURL(), PHP_EOL;
                 }
-                if ($item->getItemInfo() != null
-                    and $item->getItemInfo()->getTitle() != null
-                    and $item->getItemInfo()->getTitle()->getDisplayValue() != null) {
+                if ($item->getItemInfo() !== null
+                    and $item->getItemInfo()->getTitle() !== null
+                    and $item->getItemInfo()->getTitle()->getDisplayValue() !== null) {
                     echo "Title: ", $item->getItemInfo()->getTitle()->getDisplayValue(), PHP_EOL;
                 }
-                if ($item->getOffers() != null
-                    and $item->getOffers() != null
-                    and $item->getOffers()->getListings() != null
-                    and $item->getOffers()->getListings()[0]->getPrice() != null
-                    and $item->getOffers()->getListings()[0]->getPrice()->getDisplayAmount() != null) {
+                if ($item->getOffers() !== null
+                    and $item->getOffers() !== null
+                    and $item->getOffers()->getListings() !== null
+                    and $item->getOffers()->getListings()[0]->getPrice() !== null
+                    and $item->getOffers()->getListings()[0]->getPrice()->getDisplayAmount() !== null) {
                     echo "Buying price: ", $item->getOffers()->getListings()[0]->getPrice()
                         ->getDisplayAmount(), PHP_EOL;
                 }
             }
         }
-        if ($response->getErrors() != null) {
+        if ($response->getErrors() !== null) {
             echo PHP_EOL, 'Printing Errors:', PHP_EOL, 'Printing first error object from list of errors', PHP_EOL;
             echo 'Error code: ', $response->getErrors()[0]->getCode(), PHP_EOL;
             echo 'Error message: ', $response->getErrors()[0]->getMessage(), PHP_EOL;
@@ -438,8 +453,8 @@ function searchItemsAsyncWithHttpInfo()
 
     /*
      * Add your credentials
-     * Please add your access key here
      */
+    # Please add your access key here
     $config->setAccessKey('<YOUR ACCESS KEY>');
     # Please add your secret key here
     $config->setSecretKey('<YOUR SECRET KEY>');
@@ -449,17 +464,20 @@ function searchItemsAsyncWithHttpInfo()
 
     /*
      * PAAPI host and region to which you want to send request
-     * For more details refer: https://webservices.amazon.com/paapi5/documentation/common-request-parameters.html#host-and-region
+     * For more details refer:
+     * https://webservices.amazon.com/paapi5/documentation/common-request-parameters.html#host-and-region
      */
     $config->setHost('webservices.amazon.com');
     $config->setRegion('us-east-1');
 
     $apiInstance = new DefaultApi(
-    /*
-     * If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-     * This is optional, `GuzzleHttp\Client` will be used as default.
-     */
-        new GuzzleHttp\Client(), $config);
+        /*
+         * If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+         * This is optional, `GuzzleHttp\Client` will be used as default.
+         */
+        new GuzzleHttp\Client(),
+        $config
+    );
 
     # Request initialization
 
@@ -468,7 +486,8 @@ function searchItemsAsyncWithHttpInfo()
 
     /*
      * Specify the category in which search request is to be made
-     * For more details, refer: https://webservices.amazon.com/paapi5/documentation/use-cases/organization-of-items-on-amazon/search-index.html
+     * For more details, refer:
+     * https://webservices.amazon.com/paapi5/documentation/use-cases/organization-of-items-on-amazon/search-index.html
      */
     $searchIndex = "All";
 
@@ -477,11 +496,12 @@ function searchItemsAsyncWithHttpInfo()
 
     /*
      * Choose resources you want from SearchItemsResource enum
-     * For more details, refer: https://webservices.amazon.com/paapi5/documentation/search-items.html#resources-parameter
+     * For more details, refer:
+     * https://webservices.amazon.com/paapi5/documentation/search-items.html#resources-parameter
      */
-    $resources = array(
+    $resources = [
         SearchItemsResource::ITEM_INFOTITLE,
-        SearchItemsResource::OFFERSLISTINGSPRICE);
+        SearchItemsResource::OFFERSLISTINGSPRICE];
 
     # Forming the request
     $searchItemsRequest = new SearchItemsRequest();
@@ -525,32 +545,32 @@ function searchItemsAsyncWithHttpInfo()
 
         # Parsing the response
         $response = $responseWithHttpInfo[0];
-        if ($response->getSearchResult() != null) {
+        if ($response->getSearchResult() !== null) {
             echo 'Printing first item information in SearchResult:', PHP_EOL;
             $item = $response->getSearchResult()->getItems()[0];
-            if ($item != null) {
-                if ($item->getASIN() != null) {
+            if ($item !== null) {
+                if ($item->getASIN() !== null) {
                     echo "ASIN: ", $item->getASIN(), PHP_EOL;
                 }
-                if ($item->getDetailPageURL() != null) {
+                if ($item->getDetailPageURL() !== null) {
                     echo "DetailPageURL: ", $item->getDetailPageURL(), PHP_EOL;
                 }
-                if ($item->getItemInfo() != null
-                    and $item->getItemInfo()->getTitle() != null
-                    and $item->getItemInfo()->getTitle()->getDisplayValue() != null) {
+                if ($item->getItemInfo() !== null
+                    and $item->getItemInfo()->getTitle() !== null
+                    and $item->getItemInfo()->getTitle()->getDisplayValue() !== null) {
                     echo "Title: ", $item->getItemInfo()->getTitle()->getDisplayValue(), PHP_EOL;
                 }
-                if ($item->getOffers() != null
-                    and $item->getOffers() != null
-                    and $item->getOffers()->getListings() != null
-                    and $item->getOffers()->getListings()[0]->getPrice() != null
-                    and $item->getOffers()->getListings()[0]->getPrice()->getDisplayAmount() != null) {
+                if ($item->getOffers() !== null
+                    and $item->getOffers() !== null
+                    and $item->getOffers()->getListings() !== null
+                    and $item->getOffers()->getListings()[0]->getPrice() !== null
+                    and $item->getOffers()->getListings()[0]->getPrice()->getDisplayAmount() !== null) {
                     echo "Buying price: ", $item->getOffers()->getListings()[0]->getPrice()
                         ->getDisplayAmount(), PHP_EOL;
                 }
             }
         }
-        if ($response->getErrors() != null) {
+        if ($response->getErrors() !== null) {
             echo PHP_EOL, 'Printing Errors:', PHP_EOL, 'Printing first error object from list of errors', PHP_EOL;
             echo 'Error code: ', $response->getErrors()[0]->getCode(), PHP_EOL;
             echo 'Error message: ', $response->getErrors()[0]->getMessage(), PHP_EOL;

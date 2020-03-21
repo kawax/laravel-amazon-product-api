@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -13,6 +14,7 @@
  * express or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
+
 namespace Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1;
 
 use \ArrayAccess;
@@ -168,9 +170,9 @@ class GetBrowseNodesRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    
 
-    
+
+
 
     /**
      * Associative array for storing property values
@@ -224,17 +226,7 @@ class GetBrowseNodesRequest implements ModelInterface, ArrayAccess
      */
     public function valid()
     {
-
-        if ($this->container['browseNodeIds'] === null) {
-            return false;
-        }
-        if ($this->container['partnerTag'] === null) {
-            return false;
-        }
-        if ($this->container['partnerType'] === null) {
-            return false;
-        }
-        return true;
+        return count($this->listInvalidProperties()) === 0;
     }
 
 
@@ -347,7 +339,7 @@ class GetBrowseNodesRequest implements ModelInterface, ArrayAccess
     /**
      * Sets partnerType
      *
-     * @param string $partnerType partnerType
+     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\PartnerType $partnerType partnerType
      *
      * @return $this
      */

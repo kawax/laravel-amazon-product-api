@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -13,6 +14,7 @@
  * express or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
+
 namespace Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1;
 
 use \ArrayAccess;
@@ -43,7 +45,7 @@ class BrowseNode implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'ancestor' => '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\BrowseNodeAncestor',
-        'children' => '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\BrowseNodeChildren',
+        'children' => '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\BrowseNodeChild[]',
         'contextFreeName' => 'string',
         'displayName' => 'string',
         'id' => 'string',
@@ -221,8 +223,7 @@ class BrowseNode implements ModelInterface, ArrayAccess
      */
     public function valid()
     {
-
-        return true;
+        return count($this->listInvalidProperties()) === 0;
     }
 
 
@@ -253,7 +254,7 @@ class BrowseNode implements ModelInterface, ArrayAccess
     /**
      * Gets children
      *
-     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\BrowseNodeChildren
+     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\BrowseNodeChild[]
      */
     public function getChildren()
     {
@@ -263,7 +264,7 @@ class BrowseNode implements ModelInterface, ArrayAccess
     /**
      * Sets children
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\BrowseNodeChildren $children children
+     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\BrowseNodeChild[] $children children
      *
      * @return $this
      */

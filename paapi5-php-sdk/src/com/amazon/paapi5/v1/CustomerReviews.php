@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -20,39 +21,41 @@ use \ArrayAccess;
 use \Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
 
 /**
- * BrowseNodeChildren Class Doc Comment
+ * CustomerReviews Class Doc Comment
  *
  * @category Class
  * @package  Amazon\ProductAdvertisingAPI\v1
  * @author   Product Advertising API team
  */
-class BrowseNodeChildren implements ModelInterface, ArrayAccess
+class CustomerReviews implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
-    protected static $swaggerModelName = 'BrowseNodeChildren';
+      * The original name of the model.
+      *
+      * @var string
+      */
+    protected static $swaggerModelName = 'CustomerReviews';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $swaggerTypes = [
-
+        'count' => 'int',
+        'starRating' => '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\Rating'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $swaggerFormats = [
-
+        'count' => 'int32',
+        'starRating' => null
     ];
 
     /**
@@ -82,7 +85,8 @@ class BrowseNodeChildren implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-
+        'count' => 'Count',
+        'starRating' => 'StarRating'
     ];
 
     /**
@@ -91,7 +95,8 @@ class BrowseNodeChildren implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-
+        'count' => 'setCount',
+        'starRating' => 'setStarRating'
     ];
 
     /**
@@ -100,7 +105,8 @@ class BrowseNodeChildren implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-
+        'count' => 'getCount',
+        'starRating' => 'getStarRating'
     ];
 
     /**
@@ -144,6 +150,10 @@ class BrowseNodeChildren implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    
+
+    
+
     /**
      * Associative array for storing property values
      *
@@ -154,11 +164,13 @@ class BrowseNodeChildren implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param  mixed[]  $data  Associated array of property values
+     * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
     public function __construct(array $data = null)
     {
+        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
+        $this->container['starRating'] = isset($data['starRating']) ? $data['starRating'] : null;
     }
 
     /**
@@ -168,7 +180,7 @@ class BrowseNodeChildren implements ModelInterface, ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];//parent::listInvalidProperties();
+        $invalidProperties = [];
 
         return $invalidProperties;
     }
@@ -181,17 +193,61 @@ class BrowseNodeChildren implements ModelInterface, ArrayAccess
      */
     public function valid()
     {
-        //        if (!parent::valid()) {
-        //            return false;
-        //        }
+        return count($this->listInvalidProperties()) === 0;
+    }
 
-        return true;
+
+    /**
+     * Gets count
+     *
+     * @return int
+     */
+    public function getCount()
+    {
+        return $this->container['count'];
     }
 
     /**
+     * Sets count
+     *
+     * @param int $count count
+     *
+     * @return $this
+     */
+    public function setCount($count)
+    {
+        $this->container['count'] = $count;
+
+        return $this;
+    }
+
+    /**
+     * Gets starRating
+     *
+     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\Rating
+     */
+    public function getStarRating()
+    {
+        return $this->container['starRating'];
+    }
+
+    /**
+     * Sets starRating
+     *
+     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\Rating $starRating starRating
+     *
+     * @return $this
+     */
+    public function setStarRating($starRating)
+    {
+        $this->container['starRating'] = $starRating;
+
+        return $this;
+    }
+    /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param  integer  $offset  Offset
+     * @param integer $offset Offset
      *
      * @return boolean
      */
@@ -203,7 +259,7 @@ class BrowseNodeChildren implements ModelInterface, ArrayAccess
     /**
      * Gets offset.
      *
-     * @param  integer  $offset  Offset
+     * @param integer $offset Offset
      *
      * @return mixed
      */
@@ -215,8 +271,8 @@ class BrowseNodeChildren implements ModelInterface, ArrayAccess
     /**
      * Sets value based on offset.
      *
-     * @param  integer  $offset  Offset
-     * @param  mixed  $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
      *
      * @return void
      */
@@ -232,7 +288,7 @@ class BrowseNodeChildren implements ModelInterface, ArrayAccess
     /**
      * Unsets offset.
      *
-     * @param  integer  $offset  Offset
+     * @param integer $offset Offset
      *
      * @return void
      */

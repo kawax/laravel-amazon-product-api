@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
@@ -14,24 +15,7 @@
  * permissions and limitations under the License.
  */
 
-/**
- * Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License").
- * You may not use this file except in compliance with the License.
- * A copy of the License is located at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * or in the "license" file accompanying this file. This file is distributed
- * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
- * express or implied. See the License for the specific language governing
- * permissions and limitations under the License.
- */
-
-namespace Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1;
-
-use Amazon\ProductAdvertisingAPI\v1\Configuration;
+namespace Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\auth;
 
 /**
  * SignHelper Class Doc Comment
@@ -42,15 +26,13 @@ use Amazon\ProductAdvertisingAPI\v1\Configuration;
  */
 class SignHelper
 {
-
     private $host = null;
     private $accessKey = null;
     private $secretKey = null;
     private $region = null;
     private $resourcePath = null;
     private $operation = null;
-    private $canonicalURI = '/';
-    private $awsHeaders = array();
+    private $awsHeaders = [];
     private $payload = '';
 
     private $service = 'ProductAdvertisingAPI';
@@ -62,8 +44,8 @@ class SignHelper
     private $currentDate = null;
 
     /**
-     * @param Configuration $config
-     * @param string $paylod
+     * @param object $config
+     * @param string $payload
      * @param string $resourcePath
      * @param string operation
      */
@@ -82,15 +64,6 @@ class SignHelper
         /* Get current timestamp value.(UTC) */
         $this->xAmzDate = $this->getTimeStamp();
         $this->currentDate = $this->getDate();
-    }
-
-    /**
-     * Function to add a header
-     * @param header - value of header
-     */
-    function addHeader($headerName, $headerValue)
-    {
-        $this->awsHeaders[$headerName] = $headerValue;
     }
 
     private function prepareCanonicalRequest()
@@ -116,7 +89,9 @@ class SignHelper
         $this->strSignedHeader = substr($signedHeaders, 0, -1);
         $canonicalURL .= $this->strSignedHeader . "\n";
 
-        /* Use a hash (digest) function like SHA256 to create a hashed value from the payload in the body of the HTTP or HTTPS. */
+        /* Use a hash (digest) function like SHA256 to create a hashed value from the payload
+         * in the body of the HTTP or HTTPS.
+         */
         $canonicalURL .= $this->generateHex($this->payload);
 
         return $canonicalURL;
@@ -155,8 +130,8 @@ class SignHelper
     }
 
     /**
-     * Function used to create Authorisation header and reurn all headers
-     * @return - Array of headrs
+     * Function used to create and return authorization header
+     * @return array authorization header
      */
     public function getHeaders()
     {
@@ -179,13 +154,13 @@ class SignHelper
         $signature = $this->calculateSignature($stringToSign);
         if ($signature) {
             $this->awsHeaders['Authorization'] = $this->buildAuthorizationString($signature);
-            return $this->awsHeaders;
         }
+        return $this->awsHeaders;
     }
 
     /**
      * Build Amz target for X-Amz-Target header
-     * @return - Amz target
+     * @return string Amz target
      */
     private function buildAmzTarget()
     {
@@ -194,8 +169,8 @@ class SignHelper
 
     /**
      * Build string for Authorization header.
-     * @param strSignature
-     * @return
+     * @param string strSignature
+     * @return string authorization string
      */
     private function buildAuthorizationString($strSignature)
     {
@@ -204,8 +179,8 @@ class SignHelper
 
     /**
      * Generate Hex code of String.
-     * @param data
-     * @return - hex code
+     * @param string data
+     * @return string hex code
      */
     private function generateHex($data)
     {
@@ -213,12 +188,12 @@ class SignHelper
     }
 
     /**
-     * Funtion to generate AWS signature key.
-     * @param key
-     * @param date
-     * @param region
-     * @param service
-     * @return - signature key
+     * Function to generate AWS signature key.
+     * @param string key
+     * @param string date
+     * @param string region
+     * @param string service
+     * @return string signature key
      * @reference - http://docs.aws.amazon.com/general/latest/gr/signature-v4-examples.html#signature-v4-examples-java
      */
     private function getSignatureKey($key, $date, $region, $service)
@@ -234,7 +209,7 @@ class SignHelper
 
     /**
      * Get timestamp. yyyyMMdd'T'HHmmss'Z'
-     * @return - timestamp in required firmat
+     * @return string timestamp in required format
      */
     private function getTimeStamp()
     {
@@ -243,7 +218,7 @@ class SignHelper
 
     /**
      * Get date. yyyyMMdd
-     * @return - GMT date
+     * @return object GMT date
      */
     private function getDate()
     {

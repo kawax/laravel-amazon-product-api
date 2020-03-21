@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -13,6 +14,7 @@
  * express or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
+
 namespace Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1;
 
 use \ArrayAccess;
@@ -44,6 +46,7 @@ class Item implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'aSIN' => 'string',
         'browseNodeInfo' => '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\BrowseNodeInfo',
+        'customerReviews' => '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\CustomerReviews',
         'detailPageURL' => 'string',
         'images' => '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\Images',
         'itemInfo' => '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\ItemInfo',
@@ -62,6 +65,7 @@ class Item implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'aSIN' => null,
         'browseNodeInfo' => null,
+        'customerReviews' => null,
         'detailPageURL' => null,
         'images' => null,
         'itemInfo' => null,
@@ -101,6 +105,7 @@ class Item implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'aSIN' => 'ASIN',
         'browseNodeInfo' => 'BrowseNodeInfo',
+        'customerReviews' => 'CustomerReviews',
         'detailPageURL' => 'DetailPageURL',
         'images' => 'Images',
         'itemInfo' => 'ItemInfo',
@@ -119,6 +124,7 @@ class Item implements ModelInterface, ArrayAccess
     protected static $setters = [
         'aSIN' => 'setASIN',
         'browseNodeInfo' => 'setBrowseNodeInfo',
+        'customerReviews' => 'setCustomerReviews',
         'detailPageURL' => 'setDetailPageURL',
         'images' => 'setImages',
         'itemInfo' => 'setItemInfo',
@@ -137,6 +143,7 @@ class Item implements ModelInterface, ArrayAccess
     protected static $getters = [
         'aSIN' => 'getASIN',
         'browseNodeInfo' => 'getBrowseNodeInfo',
+        'customerReviews' => 'getCustomerReviews',
         'detailPageURL' => 'getDetailPageURL',
         'images' => 'getImages',
         'itemInfo' => 'getItemInfo',
@@ -209,6 +216,7 @@ class Item implements ModelInterface, ArrayAccess
     {
         $this->container['aSIN'] = isset($data['aSIN']) ? $data['aSIN'] : null;
         $this->container['browseNodeInfo'] = isset($data['browseNodeInfo']) ? $data['browseNodeInfo'] : null;
+        $this->container['customerReviews'] = isset($data['customerReviews']) ? $data['customerReviews'] : null;
         $this->container['detailPageURL'] = isset($data['detailPageURL']) ? $data['detailPageURL'] : null;
         $this->container['images'] = isset($data['images']) ? $data['images'] : null;
         $this->container['itemInfo'] = isset($data['itemInfo']) ? $data['itemInfo'] : null;
@@ -239,8 +247,7 @@ class Item implements ModelInterface, ArrayAccess
      */
     public function valid()
     {
-
-        return true;
+        return count($this->listInvalidProperties()) === 0;
     }
 
 
@@ -288,6 +295,30 @@ class Item implements ModelInterface, ArrayAccess
     public function setBrowseNodeInfo($browseNodeInfo)
     {
         $this->container['browseNodeInfo'] = $browseNodeInfo;
+
+        return $this;
+    }
+
+    /**
+     * Gets customerReviews
+     *
+     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\CustomerReviews
+     */
+    public function getCustomerReviews()
+    {
+        return $this->container['customerReviews'];
+    }
+
+    /**
+     * Sets customerReviews
+     *
+     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\CustomerReviews $customerReviews customerReviews
+     *
+     * @return $this
+     */
+    public function setCustomerReviews($customerReviews)
+    {
+        $this->container['customerReviews'] = $customerReviews;
 
         return $this;
     }

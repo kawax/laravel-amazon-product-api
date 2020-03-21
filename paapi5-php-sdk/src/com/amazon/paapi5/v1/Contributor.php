@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -13,6 +14,7 @@
  * express or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
+
 namespace Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1;
 
 use \ArrayAccess;
@@ -44,7 +46,8 @@ class Contributor implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'locale' => 'string',
         'name' => 'string',
-        'role' => 'string'
+        'role' => 'string',
+        'roleType' => 'string'
     ];
 
     /**
@@ -55,7 +58,8 @@ class Contributor implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'locale' => null,
         'name' => null,
-        'role' => null
+        'role' => null,
+        'roleType' => null
     ];
 
     /**
@@ -87,7 +91,8 @@ class Contributor implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'locale' => 'Locale',
         'name' => 'Name',
-        'role' => 'Role'
+        'role' => 'Role',
+        'roleType' => 'RoleType'
     ];
 
     /**
@@ -98,7 +103,8 @@ class Contributor implements ModelInterface, ArrayAccess
     protected static $setters = [
         'locale' => 'setLocale',
         'name' => 'setName',
-        'role' => 'setRole'
+        'role' => 'setRole',
+        'roleType' => 'setRoleType'
     ];
 
     /**
@@ -109,7 +115,8 @@ class Contributor implements ModelInterface, ArrayAccess
     protected static $getters = [
         'locale' => 'getLocale',
         'name' => 'getName',
-        'role' => 'getRole'
+        'role' => 'getRole',
+        'roleType' => 'getRoleType'
     ];
 
     /**
@@ -175,6 +182,7 @@ class Contributor implements ModelInterface, ArrayAccess
         $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['role'] = isset($data['role']) ? $data['role'] : null;
+        $this->container['roleType'] = isset($data['roleType']) ? $data['roleType'] : null;
     }
 
     /**
@@ -197,8 +205,7 @@ class Contributor implements ModelInterface, ArrayAccess
      */
     public function valid()
     {
-
-        return true;
+        return count($this->listInvalidProperties()) === 0;
     }
 
 
@@ -270,6 +277,30 @@ class Contributor implements ModelInterface, ArrayAccess
     public function setRole($role)
     {
         $this->container['role'] = $role;
+
+        return $this;
+    }
+
+    /**
+     * Gets roleType
+     *
+     * @return string
+     */
+    public function getRoleType()
+    {
+        return $this->container['roleType'];
+    }
+
+    /**
+     * Sets roleType
+     *
+     * @param string $roleType roleType
+     *
+     * @return $this
+     */
+    public function setRoleType($roleType)
+    {
+        $this->container['roleType'] = $roleType;
 
         return $this;
     }

@@ -27,13 +27,13 @@
  * For more details, refer: https://webservices.amazon.com/paapi5/documentation/get-variations.html
  */
 
-use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\api\DefaultApi;
 use Amazon\ProductAdvertisingAPI\v1\ApiException;
-use Amazon\ProductAdvertisingAPI\v1\Configuration;
+use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\api\DefaultApi;
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetVariationsRequest;
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetVariationsResource;
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\PartnerType;
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\ProductAdvertisingAPIClientException;
+use Amazon\ProductAdvertisingAPI\v1\Configuration;
 
 require_once(__DIR__ . '/vendor/autoload.php'); // change path as needed
 
@@ -43,8 +43,8 @@ function getVariations()
 
     /*
      * Add your credentials
-     * Please add your access key here
      */
+    # Please add your access key here
     $config->setAccessKey('<YOUR ACCESS KEY>');
     # Please add your secret key here
     $config->setSecretKey('<YOUR SECRET KEY>');
@@ -54,17 +54,20 @@ function getVariations()
 
     /*
      * PAAPI host and region to which you want to send request
-     * For more details refer: https://webservices.amazon.com/paapi5/documentation/common-request-parameters.html#host-and-region
+     * For more details refer:
+     * https://webservices.amazon.com/paapi5/documentation/common-request-parameters.html#host-and-region
      */
     $config->setHost('webservices.amazon.com');
     $config->setRegion('us-east-1');
 
     $apiInstance = new DefaultApi(
-    /*
-     * If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-     * This is optional, `GuzzleHttp\Client` will be used as default.
-     */
-        new GuzzleHttp\Client(), $config);
+        /*
+         * If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+         * This is optional, `GuzzleHttp\Client` will be used as default.
+         */
+        new GuzzleHttp\Client(),
+        $config
+    );
 
     # Request initialization
 
@@ -73,11 +76,12 @@ function getVariations()
 
     /*
      * Choose resources you want from GetVariationsResource enum
-     * For more details, refer: https://webservices.amazon.com/paapi5/documentation/get-variations.html#resources-parameter
+     * For more details,
+     * refer: https://webservices.amazon.com/paapi5/documentation/get-variations.html#resources-parameter
      */
-    $resources = array(
+    $resources = [
         GetVariationsResource::ITEM_INFOTITLE,
-        GetVariationsResource::OFFERSLISTINGSPRICE);
+        GetVariationsResource::OFFERSLISTINGSPRICE];
 
     # Forming the request
     $getVariationsRequest = new GetVariationsRequest();
@@ -105,36 +109,36 @@ function getVariations()
         echo 'Complete Response: ', $getVariationsResponse, PHP_EOL;
 
         # Parsing the response
-        if ($getVariationsResponse->getVariationsResult() != null) {
+        if ($getVariationsResponse->getVariationsResult() !== null) {
             echo 'Printing VariationSummary', PHP_EOL;
-            if ($getVariationsResponse->getVariationsResult()->getVariationSummary() != null
-                and $getVariationsResponse->getVariationsResult()->getVariationSummary()->getVariationCount() != null) {
+            if ($getVariationsResponse->getVariationsResult()->getVariationSummary() !== null
+                and $getVariationsResponse->getVariationsResult()->getVariationSummary()->getVariationCount() !== null) {
                 echo 'VariationCount: ', $getVariationsResponse->getVariationsResult()->getVariationSummary()
                     ->getVariationCount(), PHP_EOL;
             }
             echo 'Printing first item information in VariationsResult', PHP_EOL;
             $item = $getVariationsResponse->getVariationsResult()->getItems()[0];
-            if ($item != null) {
+            if ($item !== null) {
                 if ($item->getASIN()) {
                     echo 'ASIN: ', $item->getASIN(), PHP_EOL;
                 }
-                if ($item->getItemInfo() != null and $item->getItemInfo()->getTitle() != null
-                    and $item->getItemInfo()->getTitle()->getDisplayValue() != null) {
+                if ($item->getItemInfo() !== null and $item->getItemInfo()->getTitle() !== null
+                    and $item->getItemInfo()->getTitle()->getDisplayValue() !== null) {
                     echo 'Title: ', $item->getItemInfo()->getTitle()->getDisplayValue(), PHP_EOL;
                 }
-                if ($item->getDetailPageURL() != null) {
+                if ($item->getDetailPageURL() !== null) {
                     echo 'Detail Page URL: ', $item->getDetailPageURL(), PHP_EOL;
                 }
-                if ($item->getOffers() != null
-                    and $item->getOffers()->getListings() != null
-                    and $item->getOffers()->getListings()[0]->getPrice() != null
-                    and $item->getOffers()->getListings()[0]->getPrice()->getDisplayAmount() != null) {
+                if ($item->getOffers() !== null
+                    and $item->getOffers()->getListings() !== null
+                    and $item->getOffers()->getListings()[0]->getPrice() !== null
+                    and $item->getOffers()->getListings()[0]->getPrice()->getDisplayAmount() !== null) {
                     echo 'Buying price: ', $item->getOffers()->getListings()[0]->getPrice()
                         ->getDisplayAmount(), PHP_EOL;
                 }
             }
         }
-        if ($getVariationsResponse->getErrors() != null) {
+        if ($getVariationsResponse->getErrors() !== null) {
             echo PHP_EOL, 'Printing Errors:', PHP_EOL, 'Printing first error object from list of errors', PHP_EOL;
             echo 'Error code: ', $getVariationsResponse->getErrors()[0]->getCode(), PHP_EOL;
             echo 'Error message: ', $getVariationsResponse->getErrors()[0]->getMessage(), PHP_EOL;
@@ -163,8 +167,8 @@ function getVariationsWithHttpInfo()
 
     /*
      * Add your credentials
-     * Please add your access key here
      */
+    # Please add your access key here
     $config->setAccessKey('<YOUR ACCESS KEY>');
     # Please add your secret key here
     $config->setSecretKey('<YOUR SECRET KEY>');
@@ -174,17 +178,20 @@ function getVariationsWithHttpInfo()
 
     /*
      * PAAPI host and region to which you want to send request
-     * For more details refer: https://webservices.amazon.com/paapi5/documentation/common-request-parameters.html#host-and-region
+     * For more details refer:
+     * https://webservices.amazon.com/paapi5/documentation/common-request-parameters.html#host-and-region
      */
     $config->setHost('webservices.amazon.com');
     $config->setRegion('us-east-1');
 
     $apiInstance = new DefaultApi(
-    /*
-     * If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-     * This is optional, `GuzzleHttp\Client` will be used as default.
-     */
-        new GuzzleHttp\Client(), $config);
+        /*
+         * If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+         * This is optional, `GuzzleHttp\Client` will be used as default.
+         */
+        new GuzzleHttp\Client(),
+        $config
+    );
 
     # Request initialization
 
@@ -193,11 +200,12 @@ function getVariationsWithHttpInfo()
 
     /*
      * Choose resources you want from GetVariationsResource enum
-     * For more details, refer: https://webservices.amazon.com/paapi5/documentation/get-variations.html#resources-parameter
+     * For more details,
+     * refer: https://webservices.amazon.com/paapi5/documentation/get-variations.html#resources-parameter
      */
-    $resources = array(
+    $resources = [
         GetVariationsResource::ITEM_INFOTITLE,
-        GetVariationsResource::OFFERSLISTINGSPRICE);
+        GetVariationsResource::OFFERSLISTINGSPRICE];
 
     # Forming the request
     $getVariationsRequest = new GetVariationsRequest();
@@ -229,36 +237,36 @@ function getVariationsWithHttpInfo()
 
         # Parsing the response
         $response = $responseWithHttpInfo[0];
-        if ($response->getVariationsResult() != null) {
+        if ($response->getVariationsResult() !== null) {
             echo 'Printing VariationSummary', PHP_EOL;
-            if ($response->getVariationsResult()->getVariationSummary() != null
-                and $response->getVariationsResult()->getVariationSummary()->getVariationCount() != null) {
+            if ($response->getVariationsResult()->getVariationSummary() !== null
+                and $response->getVariationsResult()->getVariationSummary()->getVariationCount() !== null) {
                 echo 'VariationCount: ', $response->getVariationsResult()->getVariationSummary()
                     ->getVariationCount(), PHP_EOL;
             }
             echo 'Printing first item information in VariationsResult', PHP_EOL;
             $item = $response->getVariationsResult()->getItems()[0];
-            if ($item != null) {
+            if ($item !== null) {
                 if ($item->getASIN()) {
                     echo 'ASIN: ', $item->getASIN(), PHP_EOL;
                 }
-                if ($item->getItemInfo() != null and $item->getItemInfo()->getTitle() != null
-                    and $item->getItemInfo()->getTitle()->getDisplayValue() != null) {
+                if ($item->getItemInfo() !== null and $item->getItemInfo()->getTitle() !== null
+                    and $item->getItemInfo()->getTitle()->getDisplayValue() !== null) {
                     echo 'Title: ', $item->getItemInfo()->getTitle()->getDisplayValue(), PHP_EOL;
                 }
-                if ($item->getDetailPageURL() != null) {
+                if ($item->getDetailPageURL() !== null) {
                     echo 'Detail Page URL: ', $item->getDetailPageURL(), PHP_EOL;
                 }
-                if ($item->getOffers() != null
-                    and $item->getOffers()->getListings() != null
-                    and $item->getOffers()->getListings()[0]->getPrice() != null
-                    and $item->getOffers()->getListings()[0]->getPrice()->getDisplayAmount() != null) {
+                if ($item->getOffers() !== null
+                    and $item->getOffers()->getListings() !== null
+                    and $item->getOffers()->getListings()[0]->getPrice() !== null
+                    and $item->getOffers()->getListings()[0]->getPrice()->getDisplayAmount() !== null) {
                     echo 'Buying price: ', $item->getOffers()->getListings()[0]->getPrice()
                         ->getDisplayAmount(), PHP_EOL;
                 }
             }
         }
-        if ($response->getErrors() != null) {
+        if ($response->getErrors() !== null) {
             echo PHP_EOL, 'Printing Errors:', PHP_EOL, 'Printing first error object from list of errors', PHP_EOL;
             echo 'Error code: ', $response->getErrors()[0]->getCode(), PHP_EOL;
             echo 'Error message: ', $response->getErrors()[0]->getMessage(), PHP_EOL;
@@ -287,8 +295,8 @@ function getVariationsAsync()
 
     /*
      * Add your credentials
-     * Please add your access key here
      */
+    # Please add your access key here
     $config->setAccessKey('<YOUR ACCESS KEY>');
     # Please add your secret key here
     $config->setSecretKey('<YOUR SECRET KEY>');
@@ -298,17 +306,20 @@ function getVariationsAsync()
 
     /*
      * PAAPI host and region to which you want to send request
-     * For more details refer: https://webservices.amazon.com/paapi5/documentation/common-request-parameters.html#host-and-region
+     * For more details refer:
+     * https://webservices.amazon.com/paapi5/documentation/common-request-parameters.html#host-and-region
      */
     $config->setHost('webservices.amazon.com');
     $config->setRegion('us-east-1');
 
     $apiInstance = new DefaultApi(
-    /*
-     * If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-     * This is optional, `GuzzleHttp\Client` will be used as default.
-     */
-        new GuzzleHttp\Client(), $config);
+        /*
+         * If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+         * This is optional, `GuzzleHttp\Client` will be used as default.
+         */
+        new GuzzleHttp\Client(),
+        $config
+    );
 
     # Request initialization
 
@@ -317,11 +328,12 @@ function getVariationsAsync()
 
     /*
      * Choose resources you want from GetVariationsResource enum
-     * For more details, refer: https://webservices.amazon.com/paapi5/documentation/get-variations.html#resources-parameter
+     * For more details,
+     * refer: https://webservices.amazon.com/paapi5/documentation/get-variations.html#resources-parameter
      */
-    $resources = array(
+    $resources = [
         GetVariationsResource::ITEM_INFOTITLE,
-        GetVariationsResource::OFFERSLISTINGSPRICE);
+        GetVariationsResource::OFFERSLISTINGSPRICE];
 
     # Forming the request
     $getVariationsRequest = new GetVariationsRequest();
@@ -356,40 +368,39 @@ function getVariationsAsync()
         );
 
         echo 'API called successfully', PHP_EOL;
-        echo 'Complete Response: ';
-        var_dump($response);
+        echo 'Complete Response: ', $response, PHP_EOL;
 
         # Parsing the response
-        if ($response->getVariationsResult() != null) {
+        if ($response->getVariationsResult() !== null) {
             echo 'Printing VariationSummary', PHP_EOL;
-            if ($response->getVariationsResult()->getVariationSummary() != null
-                and $response->getVariationsResult()->getVariationSummary()->getVariationCount() != null) {
+            if ($response->getVariationsResult()->getVariationSummary() !== null
+                and $response->getVariationsResult()->getVariationSummary()->getVariationCount() !== null) {
                 echo 'VariationCount: ', $response->getVariationsResult()->getVariationSummary()
                     ->getVariationCount(), PHP_EOL;
             }
             echo 'Printing first item information in VariationsResult', PHP_EOL;
             $item = $response->getVariationsResult()->getItems()[0];
-            if ($item != null) {
+            if ($item !== null) {
                 if ($item->getASIN()) {
                     echo 'ASIN: ', $item->getASIN(), PHP_EOL;
                 }
-                if ($item->getItemInfo() != null and $item->getItemInfo()->getTitle() != null
-                    and $item->getItemInfo()->getTitle()->getDisplayValue() != null) {
+                if ($item->getItemInfo() !== null and $item->getItemInfo()->getTitle() !== null
+                    and $item->getItemInfo()->getTitle()->getDisplayValue() !== null) {
                     echo 'Title: ', $item->getItemInfo()->getTitle()->getDisplayValue(), PHP_EOL;
                 }
-                if ($item->getDetailPageURL() != null) {
+                if ($item->getDetailPageURL() !== null) {
                     echo 'Detail Page URL: ', $item->getDetailPageURL(), PHP_EOL;
                 }
-                if ($item->getOffers() != null
-                    and $item->getOffers()->getListings() != null
-                    and $item->getOffers()->getListings()[0]->getPrice() != null
-                    and $item->getOffers()->getListings()[0]->getPrice()->getDisplayAmount() != null) {
+                if ($item->getOffers() !== null
+                    and $item->getOffers()->getListings() !== null
+                    and $item->getOffers()->getListings()[0]->getPrice() !== null
+                    and $item->getOffers()->getListings()[0]->getPrice()->getDisplayAmount() !== null) {
                     echo 'Buying price: ', $item->getOffers()->getListings()[0]->getPrice()
                         ->getDisplayAmount(), PHP_EOL;
                 }
             }
         }
-        if ($response->getErrors() != null) {
+        if ($response->getErrors() !== null) {
             echo PHP_EOL, 'Printing Errors:', PHP_EOL, 'Printing first error object from list of errors', PHP_EOL;
             echo 'Error code: ', $response->getErrors()[0]->getCode(), PHP_EOL;
             echo 'Error message: ', $response->getErrors()[0]->getMessage(), PHP_EOL;
@@ -419,8 +430,8 @@ function getVariationsAsyncWithHttpInfo()
 
     /*
      * Add your credentials
-     * Please add your access key here
      */
+    # Please add your access key here
     $config->setAccessKey('<YOUR ACCESS KEY>');
     # Please add your secret key here
     $config->setSecretKey('<YOUR SECRET KEY>');
@@ -430,17 +441,20 @@ function getVariationsAsyncWithHttpInfo()
 
     /*
      * PAAPI host and region to which you want to send request
-     * For more details refer: https://webservices.amazon.com/paapi5/documentation/common-request-parameters.html#host-and-region
+     * For more details refer:
+     * https://webservices.amazon.com/paapi5/documentation/common-request-parameters.html#host-and-region
      */
     $config->setHost('webservices.amazon.com');
     $config->setRegion('us-east-1');
 
     $apiInstance = new DefaultApi(
-    /*
-     * If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-     * This is optional, `GuzzleHttp\Client` will be used as default.
-     */
-        new GuzzleHttp\Client(), $config);
+        /*
+         * If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+         * This is optional, `GuzzleHttp\Client` will be used as default.
+         */
+        new GuzzleHttp\Client(),
+        $config
+    );
 
     # Request initialization
 
@@ -449,11 +463,12 @@ function getVariationsAsyncWithHttpInfo()
 
     /*
      * Choose resources you want from GetVariationsResource enum
-     * For more details, refer: https://webservices.amazon.com/paapi5/documentation/get-variations.html#resources-parameter
+     * For more details,
+     * refer: https://webservices.amazon.com/paapi5/documentation/get-variations.html#resources-parameter
      */
-    $resources = array(
+    $resources = [
         GetVariationsResource::ITEM_INFOTITLE,
-        GetVariationsResource::OFFERSLISTINGSPRICE);
+        GetVariationsResource::OFFERSLISTINGSPRICE];
 
     # Forming the request
     $getVariationsRequest = new GetVariationsRequest();
@@ -495,36 +510,36 @@ function getVariationsAsyncWithHttpInfo()
 
         # Parsing the response
         $response = $responseWithHttpInfo[0];
-        if ($response->getVariationsResult() != null) {
+        if ($response->getVariationsResult() !== null) {
             echo 'Printing VariationSummary', PHP_EOL;
-            if ($response->getVariationsResult()->getVariationSummary() != null
-                and $response->getVariationsResult()->getVariationSummary()->getVariationCount() != null) {
+            if ($response->getVariationsResult()->getVariationSummary() !== null
+                and $response->getVariationsResult()->getVariationSummary()->getVariationCount() !== null) {
                 echo 'VariationCount: ', $response->getVariationsResult()->getVariationSummary()
                     ->getVariationCount(), PHP_EOL;
             }
             echo 'Printing first item information in VariationsResult', PHP_EOL;
             $item = $response->getVariationsResult()->getItems()[0];
-            if ($item != null) {
+            if ($item !== null) {
                 if ($item->getASIN()) {
                     echo 'ASIN: ', $item->getASIN(), PHP_EOL;
                 }
-                if ($item->getItemInfo() != null and $item->getItemInfo()->getTitle() != null
-                    and $item->getItemInfo()->getTitle()->getDisplayValue() != null) {
+                if ($item->getItemInfo() !== null and $item->getItemInfo()->getTitle() !== null
+                    and $item->getItemInfo()->getTitle()->getDisplayValue() !== null) {
                     echo 'Title: ', $item->getItemInfo()->getTitle()->getDisplayValue(), PHP_EOL;
                 }
-                if ($item->getDetailPageURL() != null) {
+                if ($item->getDetailPageURL() !== null) {
                     echo 'Detail Page URL: ', $item->getDetailPageURL(), PHP_EOL;
                 }
-                if ($item->getOffers() != null
-                    and $item->getOffers()->getListings() != null
-                    and $item->getOffers()->getListings()[0]->getPrice() != null
-                    and $item->getOffers()->getListings()[0]->getPrice()->getDisplayAmount() != null) {
+                if ($item->getOffers() !== null
+                    and $item->getOffers()->getListings() !== null
+                    and $item->getOffers()->getListings()[0]->getPrice() !== null
+                    and $item->getOffers()->getListings()[0]->getPrice()->getDisplayAmount() !== null) {
                     echo 'Buying price: ', $item->getOffers()->getListings()[0]->getPrice()
                         ->getDisplayAmount(), PHP_EOL;
                 }
             }
         }
-        if ($response->getErrors() != null) {
+        if ($response->getErrors() !== null) {
             echo PHP_EOL, 'Printing Errors:', PHP_EOL, 'Printing first error object from list of errors', PHP_EOL;
             echo 'Error code: ', $response->getErrors()[0]->getCode(), PHP_EOL;
             echo 'Error message: ', $response->getErrors()[0]->getMessage(), PHP_EOL;
