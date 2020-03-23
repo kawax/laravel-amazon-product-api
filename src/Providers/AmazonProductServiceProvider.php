@@ -13,21 +13,6 @@ use Revolution\Amazon\ProductAdvertising\Contracts\Factory;
 class AmazonProductServiceProvider extends ServiceProvider implements DeferrableProvider
 {
     /**
-     * Bootstrap the application services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        $this->publishes(
-            [
-                __DIR__.'/../config/amazon-product.php' => config_path('amazon-product.php'),
-            ],
-            'amazon-product-config'
-        );
-    }
-
-    /**
      * Register the application services.
      *
      * @return void
@@ -35,7 +20,7 @@ class AmazonProductServiceProvider extends ServiceProvider implements Deferrable
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__.'/../config/amazon-product.php',
+            __DIR__.'/../../config/amazon-product.php',
             'amazon-product'
         );
 
@@ -53,6 +38,21 @@ class AmazonProductServiceProvider extends ServiceProvider implements Deferrable
         );
 
         $this->app->singleton(Factory::class, AmazonClient::class);
+    }
+
+    /**
+     * Bootstrap the application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $this->publishes(
+            [
+                __DIR__.'/../../config/amazon-product.php' => config_path('amazon-product.php'),
+            ],
+            'amazon-product-config'
+        );
     }
 
     /**
