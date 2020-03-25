@@ -18,10 +18,10 @@ use GuzzleHttp\Client;
             $client = new Client();
                 
             $conf = (new Configuration)
-                            ->setAccessKey($config['api_key']))
-                            ->setSecretKey($config['api_secret_key']))
-                            ->setRegion($config['region']))
-                            ->setHost($config['host']));
+                            ->setAccessKey($config['api_key'])
+                            ->setSecretKey($config['api_secret_key'])
+                            ->setRegion($config['region'])
+                            ->setHost($config['host']);
         
             $api = new DefaultApi($client, $conf);
             $this->config($api);
