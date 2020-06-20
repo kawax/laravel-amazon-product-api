@@ -14,8 +14,8 @@ v4 will be shut down on 2020/03.
 This package already support new API. Check UPGRADING.md
 
 ## Requirements
-- PHP >= 7.1
-- Laravel >= 5.8
+- PHP >= 7.2
+- Laravel >= 6.0
 
 ## Versioning
 - Basic : semver
