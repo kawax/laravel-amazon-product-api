@@ -9,12 +9,13 @@ Extend any method by your self.
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\api\DefaultApi;
 use Amazon\ProductAdvertisingAPI\v1\Configuration;
 use GuzzleHttp\Client;
+use Revolution\Amazon\ProductAdvertising\Facades\AmazonProduct;
 
 //...
 
     public function boot()
     {
-        \AmazonProduct::macro('reconfig', function (array $config) {
+        AmazonProduct::macro('reconfig', function (array $config) {
             $client = new Client();
                 
             $conf = (new Configuration)
@@ -24,7 +25,7 @@ use GuzzleHttp\Client;
                             ->setHost($config['host']);
         
             $api = new DefaultApi($client, $conf);
-            $this->config($api);
+            $this->apiUsing($api);
             
             return $this;
         });
@@ -41,5 +42,5 @@ $config = [
     'region'         => '',
 ];
 
-\AmazonProduct::reconfig($config);
+AmazonProduct::reconfig($config);
 ```

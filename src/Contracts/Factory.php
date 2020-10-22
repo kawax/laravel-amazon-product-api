@@ -8,6 +8,11 @@ use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\api\DefaultApi;
 interface Factory
 {
     /**
+     * @return DefaultApi
+     */
+    public function api(): DefaultApi;
+
+    /**
      * @param  DefaultApi  $api
      *
      * @return $this
@@ -15,13 +20,15 @@ interface Factory
     public function config(DefaultApi $api);
 
     /**
-     * @return DefaultApi
+     * @param  DefaultApi|callable  $api
+     *
+     * @return $this
      */
-    public function api(): DefaultApi;
+    public function apiUsing($api);
 
     /**
      * @param  string  $category
-     * @param  string  $keyword
+     * @param  string|null  $keyword
      * @param  int  $page
      *
      * @return mixed

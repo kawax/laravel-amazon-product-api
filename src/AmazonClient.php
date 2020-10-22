@@ -38,6 +38,14 @@ class AmazonClient implements Factory
     /**
      * {@inheritdoc}
      */
+    public function api(): DefaultApi
+    {
+        return $this->api;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function config(DefaultApi $api)
     {
         $this->api = $api;
@@ -48,9 +56,11 @@ class AmazonClient implements Factory
     /**
      * {@inheritdoc}
      */
-    public function api(): DefaultApi
+    public function apiUsing($api)
     {
-        return $this->api;
+        $this->api = is_callable($api) ? call_user_func($api) : $api;
+
+        return $this;
     }
 
     /**

@@ -7,12 +7,6 @@
 ## End of active support (2020/06)
 My API account has been banned, so my active support is over. However, PR is accepted.
 
-## Important
-Amazon released PA-API v5. https://webservices.amazon.com/paapi5/documentation/  
-v4 will be shut down on 2020/03.
-
-This package already support new API. Check UPGRADING.md
-
 ## Requirements
 - PHP >= 7.2
 - Laravel >= 6.0
@@ -29,7 +23,7 @@ This package already support new API. Check UPGRADING.md
 composer require revolution/laravel-amazon-product-api
 ```
 
-### config/amazon-product.php
+### Publishing config (Optional)
 ```bash
 php artisan vendor:publish --tag=amazon-product-config
 ```

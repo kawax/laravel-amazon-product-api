@@ -1,6 +1,6 @@
 preset: laravel
 disabled:
-  - unused_use
+  - no_unused_imports
 
 finder:
   exclude:

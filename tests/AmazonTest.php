@@ -30,9 +30,11 @@ class AmazonTest extends TestCase
      */
     public function setClientHandler(string $body)
     {
-        $mock = new MockHandler([
-            new Response(200, [], $body),
-        ]);
+        $mock = new MockHandler(
+            [
+                new Response(200, [], $body),
+            ]
+        );
 
         $handler = HandlerStack::create($mock);
         $client = new Client(['handler' => $handler]);
@@ -104,9 +106,12 @@ class AmazonTest extends TestCase
 
     public function testMacro()
     {
-        AmazonClient::macro('test', function () {
-            return 'test';
-        });
+        AmazonClient::macro(
+            'test',
+            function () {
+                return 'test';
+            }
+        );
 
         $this->assertTrue(AmazonClient::hasMacro('test'));
         $this->assertTrue(is_callable([AmazonClient::class, 'test']));
@@ -116,9 +121,12 @@ class AmazonTest extends TestCase
     {
         $this->setClientHandler(file_get_contents(__DIR__.'/stubs/ItemsResult.json'));
 
-        $this->amazon->hook('item', function ($request) {
-            return $request->setMerchant('Amazon');
-        });
+        $this->amazon->hook(
+            'item',
+            function ($request) {
+                return $request->setMerchant('Amazon');
+            }
+        );
 
         $response = $this->amazon->item('1');
 
@@ -127,15 +135,28 @@ class AmazonTest extends TestCase
 
     public function testClient()
     {
-        $amazon = resolve(AmazonClient::class);
+        $amazon = app(AmazonClient::class);
 
         $this->assertInstanceOf(AmazonClient::class, $amazon);
     }
 
     public function testFactory()
     {
-        $amazon = resolve(Factory::class);
+        $amazon = app(Factory::class);
 
         $this->assertInstanceOf(AmazonClient::class, $amazon);
+    }
+
+    public function testApiUsing()
+    {
+        $amazon = app(Factory::class);
+
+        $amazon->apiUsing(
+            function () {
+                return app(DefaultApi::class);
+            }
+        );
+
+        $this->assertInstanceOf(DefaultApi::class, $amazon->api());
     }
 }
