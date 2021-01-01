@@ -8,7 +8,7 @@
 My API account has been banned, so my active support is over. However, PR is accepted.
 
 ## Requirements
-- PHP >= 7.2
+- PHP >= 7.3
 - Laravel >= 6.0
 
 ## Versioning
