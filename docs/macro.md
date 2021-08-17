@@ -10,6 +10,7 @@ use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\api\DefaultApi;
 use Amazon\ProductAdvertisingAPI\v1\Configuration;
 use GuzzleHttp\Client;
 use Revolution\Amazon\ProductAdvertising\Facades\AmazonProduct;
+use Illuminate\Support\Facades\Config;
 
 //...
 
@@ -23,6 +24,8 @@ use Revolution\Amazon\ProductAdvertising\Facades\AmazonProduct;
                             ->setSecretKey($config['api_secret_key'])
                             ->setRegion($config['region'])
                             ->setHost($config['host']);
+                            
+            Config::set('amazon-product.associate_tag',$config['associate_tag']);
         
             $api = new DefaultApi($client, $conf);
             $this->apiUsing($api);
