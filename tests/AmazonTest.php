@@ -10,6 +10,7 @@ use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
 use Revolution\Amazon\ProductAdvertising\AmazonClient;
 use Revolution\Amazon\ProductAdvertising\Contracts\Factory;
+use Revolution\Amazon\ProductAdvertising\Facades\AmazonProduct;
 
 class AmazonTest extends TestCase
 {
@@ -158,5 +159,12 @@ class AmazonTest extends TestCase
         );
 
         $this->assertInstanceOf(DefaultApi::class, $amazon->api());
+    }
+
+    public function testFacade()
+    {
+        AmazonProduct::shouldReceive('browse')->andReturn([]);
+
+        $this->assertSame([], AmazonProduct::browse('1'));
     }
 }

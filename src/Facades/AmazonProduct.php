@@ -3,6 +3,7 @@
 namespace Revolution\Amazon\ProductAdvertising\Facades;
 
 use Illuminate\Support\Facades\Facade;
+use Revolution\Amazon\ProductAdvertising\AmazonClient;
 use Revolution\Amazon\ProductAdvertising\Contracts\Factory;
 
 /**
@@ -12,6 +13,8 @@ use Revolution\Amazon\ProductAdvertising\Contracts\Factory;
  * @method static array search(string $category, string $keyword = null, int $page = 1)
  * @method static array variations(string $asin, int $page = 1)
  * @method static static setIdType(string $idType)
+ *
+ * @see AmazonClient
  */
 class AmazonProduct extends Facade
 {
