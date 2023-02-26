@@ -13,14 +13,13 @@ trait Search
     /**
      * {@inheritdoc}
      */
-    public function search(string $category, string $keyword = null, int $page = 1)
+    public function search(string $category, string $keyword = null, int $page = 1): array
     {
-        /**
-         * @var SearchItemsResource[] $resources
-         */
+        /** @var array $resources */
         $resources = SearchItemsResource::getAllowableEnumValues();
 
-        $request = new SearchItemsRequest();
+        /** @var SearchItemsRequest $request */
+        $request = app(SearchItemsRequest::class);
         $request->setSearchIndex($category);
         $request->setKeywords($keyword);
         $request->setItemPage($page);

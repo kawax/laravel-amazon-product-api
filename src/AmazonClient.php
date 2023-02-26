@@ -15,48 +15,26 @@ class AmazonClient implements Factory
     use Macroable;
     use Hookable;
 
-    /**
-     * @var DefaultApi
-     */
-    protected $api;
-
-    /**
-     * @var string
-     */
-    protected $idType = 'ASIN';
-
-    /**
-     * constructor.
-     *
-     * @param  DefaultApi  $api
-     */
-    public function __construct(DefaultApi $api)
-    {
-        $this->api = $api;
+    public function __construct(
+        protected DefaultApi $api,
+        protected string $idType = 'ASIN',
+    ) {
+        //
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function api(): DefaultApi
     {
         return $this->api;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function config(DefaultApi $api)
+    public function config(DefaultApi $api): static
     {
         $this->api = $api;
 
         return $this;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function apiUsing($api)
+    public function apiUsing(callable|DefaultApi $api): static
     {
         $this->api = is_callable($api) ? call_user_func($api) : $api;
 
@@ -64,18 +42,15 @@ class AmazonClient implements Factory
     }
 
     /**
-     * {@inheritdoc}
+     * ASIN (Default), SKU, UPC, EAN, and ISBN.
      */
-    public function setIdType(string $idType): Factory
+    public function setIdType(string $idType): static
     {
         $this->idType = $idType;
 
         return $this;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getIdType(): string
     {
         return $this->idType;

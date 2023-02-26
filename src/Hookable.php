@@ -4,38 +4,22 @@ namespace Revolution\Amazon\ProductAdvertising;
 
 trait Hookable
 {
-    /**
-     * @var array
-     */
-    protected $hooks = [];
+    protected array $hooks = [];
 
     /**
      * Add hook.
-     *
-     * @param  string  $name
-     * @param  callable  $hook
-     * @return void
      */
-    public function hook(string $name, callable $hook)
+    public function hook(string $name, callable $hook): void
     {
         $this->hooks[$name] = $hook;
     }
 
-    /**
-     * @param  string  $name
-     * @return bool
-     */
-    public function hasHook(string $name)
+    public function hasHook(string $name): bool
     {
         return isset($this->hooks[$name]);
     }
 
-    /**
-     * @param  string  $name
-     * @param  $request
-     * @return mixed
-     */
-    public function callHook(string $name, $request)
+    public function callHook(string $name, $request): mixed
     {
         if (! $this->hasHook($name)) {
             return $request;

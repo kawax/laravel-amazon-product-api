@@ -7,77 +7,41 @@ use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\api\DefaultApi;
 
 interface Factory
 {
-    /**
-     * @return DefaultApi
-     */
     public function api(): DefaultApi;
 
-    /**
-     * @param  DefaultApi  $api
-     * @return $this
-     */
-    public function config(DefaultApi $api);
+    public function config(DefaultApi $api): static;
+
+    public function apiUsing(callable|DefaultApi $api): static;
 
     /**
-     * @param  DefaultApi|callable  $api
-     * @return $this
-     */
-    public function apiUsing($api);
-
-    /**
-     * @param  string  $category
-     * @param  string|null  $keyword
-     * @param  int  $page
-     * @return mixed
-     *
      * @throws ApiException
      */
-    public function search(string $category, string $keyword = null, int $page = 1);
+    public function search(string $category, string $keyword = null, int $page = 1): array;
 
     /**
-     * @param  string  $node
-     * @param  string  $sort
-     * @return mixed
-     *
      * @throws ApiException
      */
-    public function browse(string $node, string $sort = 'TopSellers');
+    public function browse(string $node, string $sort = 'TopSellers'): array;
 
     /**
-     * @param  string  $asin
-     * @return mixed
-     *
      * @throws ApiException
      */
-    public function item(string $asin);
+    public function item(string $asin): array;
 
     /**
-     * @param  array  $asin
-     * @return mixed
-     *
      * @throws ApiException
      */
-    public function items(array $asin);
+    public function items(array $asin): array;
 
     /**
-     * @param  string  $asin
-     * @param  int  $page
-     * @return mixed
-     *
      * @throws ApiException
      */
-    public function variations(string $asin, int $page = 1);
+    public function variations(string $asin, int $page = 1): array;
 
     /**
      * ASIN (Default), SKU, UPC, EAN, and ISBN.
-     *
-     * @param  string  $idType
-     * @return Factory
      */
-    public function setIdType(string $idType): self;
+    public function setIdType(string $idType): static;
 
-    /**
-     * @return string
-     */
     public function getIdType(): string;
 }

@@ -28,6 +28,7 @@ use Amazon\ProductAdvertisingAPI\v1\Configuration;
 use Amazon\ProductAdvertisingAPI\v1\HeaderSelector;
 use Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\auth\SignHelper;
+use GuzzleHttp\Utils;
 
 /**
  * DefaultApi Class Doc Comment
@@ -87,7 +88,7 @@ class DefaultApi
      */
     public function getBrowseNodes($getBrowseNodesRequest)
     {
-        list($response) = $this->getBrowseNodesWithHttpInfo($getBrowseNodesRequest);
+        [$response] = $this->getBrowseNodesWithHttpInfo($getBrowseNodesRequest);
         return $response;
     }
 
@@ -342,7 +343,7 @@ class DefaultApi
             $httpBody = $_tempBody;
             // \stdClass has no __toString(), so we should encode it manually
             if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
+                $httpBody = Utils::jsonEncode($httpBody);
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -357,7 +358,7 @@ class DefaultApi
                 $httpBody = new MultipartStream($multipartContents);
 
             } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
+                $httpBody = Utils::jsonEncode($formParams);
 
             } else {
                 // for HTTP post (form)
@@ -399,7 +400,7 @@ class DefaultApi
      */
     public function getItems($getItemsRequest)
     {
-        list($response) = $this->getItemsWithHttpInfo($getItemsRequest);
+        [$response] = $this->getItemsWithHttpInfo($getItemsRequest);
         return $response;
     }
 
@@ -654,7 +655,7 @@ class DefaultApi
             $httpBody = $_tempBody;
             // \stdClass has no __toString(), so we should encode it manually
             if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
+                $httpBody = Utils::jsonEncode($httpBody);
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -669,7 +670,7 @@ class DefaultApi
                 $httpBody = new MultipartStream($multipartContents);
 
             } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
+                $httpBody = Utils::jsonEncode($formParams);
 
             } else {
                 // for HTTP post (form)
@@ -711,7 +712,7 @@ class DefaultApi
      */
     public function getVariations($getVariationsRequest)
     {
-        list($response) = $this->getVariationsWithHttpInfo($getVariationsRequest);
+        [$response] = $this->getVariationsWithHttpInfo($getVariationsRequest);
         return $response;
     }
 
@@ -966,7 +967,7 @@ class DefaultApi
             $httpBody = $_tempBody;
             // \stdClass has no __toString(), so we should encode it manually
             if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
+                $httpBody = Utils::jsonEncode($httpBody);
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -981,7 +982,7 @@ class DefaultApi
                 $httpBody = new MultipartStream($multipartContents);
 
             } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
+                $httpBody = Utils::jsonEncode($formParams);
 
             } else {
                 // for HTTP post (form)
@@ -1023,7 +1024,7 @@ class DefaultApi
      */
     public function searchItems($searchItemsRequest)
     {
-        list($response) = $this->searchItemsWithHttpInfo($searchItemsRequest);
+        [$response] = $this->searchItemsWithHttpInfo($searchItemsRequest);
         return $response;
     }
 
@@ -1278,7 +1279,7 @@ class DefaultApi
             $httpBody = $_tempBody;
             // \stdClass has no __toString(), so we should encode it manually
             if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
+                $httpBody = Utils::jsonEncode($httpBody);
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1293,7 +1294,7 @@ class DefaultApi
                 $httpBody = new MultipartStream($multipartContents);
 
             } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
+                $httpBody = Utils::jsonEncode($formParams);
 
             } else {
                 // for HTTP post (form)

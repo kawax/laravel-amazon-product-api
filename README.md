@@ -50,48 +50,52 @@ https://webservices.amazon.com/paapi5/documentation/common-request-parameters.ht
 use Revolution\Amazon\ProductAdvertising\Facades\AmazonProduct;
 
 # string $category, string $keyword = null, int $page = 1
-$response = AmazonProduct::search('All', 'amazon' , 1);
+$response = AmazonProduct::search(category: 'All', keyword: 'amazon' , page: 1);
 dd($response);
 # returns normal array
 
 # string $browse Browse node
-$response = AmazonProduct::browse('1');
+$response = AmazonProduct::browse(node: '1');
 
 # string $asin ASIN
-$response = AmazonProduct::item('ASIN1');
+$response = AmazonProduct::item(asin: 'ASIN1');
 
 # array $asin ASIN
-$response = AmazonProduct::items(['ASIN1', 'ASIN2']);
+$response = AmazonProduct::items(asin: ['ASIN1', 'ASIN2']);
 
 # setIdType: support only item() and items()
-$response = AmazonProduct::setIdType('EAN')->item('EAN');
+$response = AmazonProduct::setIdType(idType: 'EAN')->item(asin: 'EAN');
 # reset to ASIN
-AmazonProduct::setIdType('ASIN');
+AmazonProduct::setIdType(idType: 'ASIN');
 # PA-APIv5 not support EAN?
 ```
 
 `browse()` is not contains detail data.
 
 ```php
-$response = AmazonProduct::browse('1');
+use Revolution\Amazon\ProductAdvertising\Facades\AmazonProduct;
+
+$response = AmazonProduct::browse(node: '1');
 $nodes = data_get($response, 'BrowseNodesResult');
 $items = data_get($nodes, 'BrowseNodes.TopSellers.TopSeller');
 $asins = data_get($items, '*.ASIN');
-$results = AmazonProduct::items($asins);
+$results = AmazonProduct::items(asin: $asins);
 # PA-APIv5 not support TopSeller?
 ```
 
 Probably, you need try-catch or Laravel's `rescue()` helper.
 
 ```php
+use Revolution\Amazon\ProductAdvertising\Facades\AmazonProduct;
+
 try {
-    $response = AmazonProduct::browse('1');
+    $response = AmazonProduct::browse(node: '1');
 } catch(ApiException $e) {
 
 }
 
 $response = rescue(function () use ($browse_id) {
-                return AmazonProduct::browse($browse_id);
+                return AmazonProduct::browse(node: $browse_id);
             }, []);
 ```
 
