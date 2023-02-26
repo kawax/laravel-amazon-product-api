@@ -275,9 +275,9 @@ class SearchItemsRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    
 
-
-
+    
 
     /**
      * Associative array for storing property values
@@ -870,7 +870,7 @@ class SearchItemsRequest implements ModelInterface, ArrayAccess
     /**
      * Sets partnerType
      *
-     * @param string $partnerType partnerType
+     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\PartnerType $partnerType partnerType
      *
      * @return $this
      */

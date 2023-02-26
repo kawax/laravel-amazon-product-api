@@ -58,6 +58,7 @@ class GetItemsResource
     const OFFERSLISTINGSAVAILABILITYMIN_ORDER_QUANTITY = 'Offers.Listings.Availability.MinOrderQuantity';
     const OFFERSLISTINGSAVAILABILITYTYPE = 'Offers.Listings.Availability.Type';
     const OFFERSLISTINGSCONDITION = 'Offers.Listings.Condition';
+    const OFFERSLISTINGSCONDITIONCONDITION_NOTE = 'Offers.Listings.Condition.ConditionNote';
     const OFFERSLISTINGSCONDITIONSUB_CONDITION = 'Offers.Listings.Condition.SubCondition';
     const OFFERSLISTINGSDELIVERY_INFOIS_AMAZON_FULFILLED = 'Offers.Listings.DeliveryInfo.IsAmazonFulfilled';
     const OFFERSLISTINGSDELIVERY_INFOIS_FREE_SHIPPING_ELIGIBLE = 'Offers.Listings.DeliveryInfo.IsFreeShippingEligible';
@@ -81,6 +82,7 @@ class GetItemsResource
     const RENTAL_OFFERSLISTINGSAVAILABILITYTYPE = 'RentalOffers.Listings.Availability.Type';
     const RENTAL_OFFERSLISTINGSBASE_PRICE = 'RentalOffers.Listings.BasePrice';
     const RENTAL_OFFERSLISTINGSCONDITION = 'RentalOffers.Listings.Condition';
+    const RENTAL_OFFERSLISTINGSCONDITIONCONDITION_NOTE = 'RentalOffers.Listings.Condition.ConditionNote';
     const RENTAL_OFFERSLISTINGSCONDITIONSUB_CONDITION = 'RentalOffers.Listings.Condition.SubCondition';
     const RENTAL_OFFERSLISTINGSDELIVERY_INFOIS_AMAZON_FULFILLED = 'RentalOffers.Listings.DeliveryInfo.IsAmazonFulfilled';
     const RENTAL_OFFERSLISTINGSDELIVERY_INFOIS_FREE_SHIPPING_ELIGIBLE = 'RentalOffers.Listings.DeliveryInfo.IsFreeShippingEligible';
@@ -123,6 +125,7 @@ class GetItemsResource
             self::OFFERSLISTINGSAVAILABILITYMIN_ORDER_QUANTITY,
             self::OFFERSLISTINGSAVAILABILITYTYPE,
             self::OFFERSLISTINGSCONDITION,
+            self::OFFERSLISTINGSCONDITIONCONDITION_NOTE,
             self::OFFERSLISTINGSCONDITIONSUB_CONDITION,
             self::OFFERSLISTINGSDELIVERY_INFOIS_AMAZON_FULFILLED,
             self::OFFERSLISTINGSDELIVERY_INFOIS_FREE_SHIPPING_ELIGIBLE,
@@ -146,6 +149,7 @@ class GetItemsResource
             self::RENTAL_OFFERSLISTINGSAVAILABILITYTYPE,
             self::RENTAL_OFFERSLISTINGSBASE_PRICE,
             self::RENTAL_OFFERSLISTINGSCONDITION,
+            self::RENTAL_OFFERSLISTINGSCONDITIONCONDITION_NOTE,
             self::RENTAL_OFFERSLISTINGSCONDITIONSUB_CONDITION,
             self::RENTAL_OFFERSLISTINGSDELIVERY_INFOIS_AMAZON_FULFILLED,
             self::RENTAL_OFFERSLISTINGSDELIVERY_INFOIS_FREE_SHIPPING_ELIGIBLE,

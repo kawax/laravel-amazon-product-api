@@ -48,7 +48,8 @@ class OfferCondition implements ModelInterface, ArrayAccess
         'label' => 'string',
         'locale' => 'string',
         'value' => 'string',
-        'subCondition' => '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\OfferSubCondition'
+        'subCondition' => '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\OfferSubCondition',
+        'conditionNote' => '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\OfferConditionNote'
     ];
 
     /**
@@ -61,7 +62,8 @@ class OfferCondition implements ModelInterface, ArrayAccess
         'label' => null,
         'locale' => null,
         'value' => null,
-        'subCondition' => null
+        'subCondition' => null,
+        'conditionNote' => null
     ];
 
     /**
@@ -95,7 +97,8 @@ class OfferCondition implements ModelInterface, ArrayAccess
         'label' => 'Label',
         'locale' => 'Locale',
         'value' => 'Value',
-        'subCondition' => 'SubCondition'
+        'subCondition' => 'SubCondition',
+        'conditionNote' => 'ConditionNote'
     ];
 
     /**
@@ -108,7 +111,8 @@ class OfferCondition implements ModelInterface, ArrayAccess
         'label' => 'setLabel',
         'locale' => 'setLocale',
         'value' => 'setValue',
-        'subCondition' => 'setSubCondition'
+        'subCondition' => 'setSubCondition',
+        'conditionNote' => 'setConditionNote'
     ];
 
     /**
@@ -121,7 +125,8 @@ class OfferCondition implements ModelInterface, ArrayAccess
         'label' => 'getLabel',
         'locale' => 'getLocale',
         'value' => 'getValue',
-        'subCondition' => 'getSubCondition'
+        'subCondition' => 'getSubCondition',
+        'conditionNote' => 'getConditionNote'
     ];
 
     /**
@@ -189,6 +194,7 @@ class OfferCondition implements ModelInterface, ArrayAccess
         $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
         $this->container['subCondition'] = isset($data['subCondition']) ? $data['subCondition'] : null;
+        $this->container['conditionNote'] = isset($data['conditionNote']) ? $data['conditionNote'] : null;
     }
 
     /**
@@ -331,6 +337,30 @@ class OfferCondition implements ModelInterface, ArrayAccess
     public function setSubCondition($subCondition)
     {
         $this->container['subCondition'] = $subCondition;
+
+        return $this;
+    }
+
+    /**
+     * Gets conditionNote
+     *
+     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\OfferConditionNote
+     */
+    public function getConditionNote()
+    {
+        return $this->container['conditionNote'];
+    }
+
+    /**
+     * Sets conditionNote
+     *
+     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\OfferConditionNote $conditionNote conditionNote
+     *
+     * @return $this
+     */
+    public function setConditionNote($conditionNote)
+    {
+        $this->container['conditionNote'] = $conditionNote;
 
         return $this;
     }

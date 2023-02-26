@@ -21,13 +21,13 @@ use \ArrayAccess;
 use \Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
 
 /**
- * OfferMerchantInfo Class Doc Comment
+ * OfferConditionNote Class Doc Comment
  *
  * @category Class
  * @package  Amazon\ProductAdvertisingAPI\v1
  * @author   Product Advertising API team
  */
-class OfferMerchantInfo implements ModelInterface, ArrayAccess
+class OfferConditionNote implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -36,7 +36,7 @@ class OfferMerchantInfo implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'OfferMerchantInfo';
+    protected static $swaggerModelName = 'OfferConditionNote';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -44,11 +44,8 @@ class OfferMerchantInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'defaultShippingCountry' => 'string',
-        'feedbackCount' => 'int',
-        'feedbackRating' => 'float',
-        'id' => 'string',
-        'name' => 'string'
+        'locale' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -57,11 +54,8 @@ class OfferMerchantInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'defaultShippingCountry' => null,
-        'feedbackCount' => 'int32',
-        'feedbackRating' => null,
-        'id' => null,
-        'name' => null
+        'locale' => null,
+        'value' => null
     ];
 
     /**
@@ -91,11 +85,8 @@ class OfferMerchantInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'defaultShippingCountry' => 'DefaultShippingCountry',
-        'feedbackCount' => 'FeedbackCount',
-        'feedbackRating' => 'FeedbackRating',
-        'id' => 'Id',
-        'name' => 'Name'
+        'locale' => 'Locale',
+        'value' => 'Value'
     ];
 
     /**
@@ -104,11 +95,8 @@ class OfferMerchantInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'defaultShippingCountry' => 'setDefaultShippingCountry',
-        'feedbackCount' => 'setFeedbackCount',
-        'feedbackRating' => 'setFeedbackRating',
-        'id' => 'setId',
-        'name' => 'setName'
+        'locale' => 'setLocale',
+        'value' => 'setValue'
     ];
 
     /**
@@ -117,11 +105,8 @@ class OfferMerchantInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'defaultShippingCountry' => 'getDefaultShippingCountry',
-        'feedbackCount' => 'getFeedbackCount',
-        'feedbackRating' => 'getFeedbackRating',
-        'id' => 'getId',
-        'name' => 'getName'
+        'locale' => 'getLocale',
+        'value' => 'getValue'
     ];
 
     /**
@@ -184,11 +169,8 @@ class OfferMerchantInfo implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['defaultShippingCountry'] = isset($data['defaultShippingCountry']) ? $data['defaultShippingCountry'] : null;
-        $this->container['feedbackCount'] = isset($data['feedbackCount']) ? $data['feedbackCount'] : null;
-        $this->container['feedbackRating'] = isset($data['feedbackRating']) ? $data['feedbackRating'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -216,121 +198,49 @@ class OfferMerchantInfo implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets defaultShippingCountry
+     * Gets locale
      *
      * @return string
      */
-    public function getDefaultShippingCountry()
+    public function getLocale()
     {
-        return $this->container['defaultShippingCountry'];
+        return $this->container['locale'];
     }
 
     /**
-     * Sets defaultShippingCountry
+     * Sets locale
      *
-     * @param string $defaultShippingCountry defaultShippingCountry
+     * @param string $locale locale
      *
      * @return $this
      */
-    public function setDefaultShippingCountry($defaultShippingCountry)
+    public function setLocale($locale)
     {
-        $this->container['defaultShippingCountry'] = $defaultShippingCountry;
+        $this->container['locale'] = $locale;
 
         return $this;
     }
 
     /**
-     * Gets feedbackCount
-     *
-     * @return int
-     */
-    public function getFeedbackCount()
-    {
-        return $this->container['feedbackCount'];
-    }
-
-    /**
-     * Sets feedbackCount
-     *
-     * @param int $feedbackCount feedbackCount
-     *
-     * @return $this
-     */
-    public function setFeedbackCount($feedbackCount)
-    {
-        $this->container['feedbackCount'] = $feedbackCount;
-
-        return $this;
-    }
-
-    /**
-     * Gets feedbackRating
-     *
-     * @return float
-     */
-    public function getFeedbackRating()
-    {
-        return $this->container['feedbackRating'];
-    }
-
-    /**
-     * Sets feedbackRating
-     *
-     * @param float $feedbackRating feedbackRating
-     *
-     * @return $this
-     */
-    public function setFeedbackRating($feedbackRating)
-    {
-        $this->container['feedbackRating'] = $feedbackRating;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
+     * Gets value
      *
      * @return string
      */
-    public function getId()
+    public function getValue()
     {
-        return $this->container['id'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets id
+     * Sets value
      *
-     * @param string $id id
+     * @param string $value value
      *
      * @return $this
      */
-    public function setId($id)
+    public function setValue($value)
     {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name name
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
+        $this->container['value'] = $value;
 
         return $this;
     }

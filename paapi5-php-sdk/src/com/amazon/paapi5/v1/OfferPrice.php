@@ -48,6 +48,8 @@ class OfferPrice implements ModelInterface, ArrayAccess
         'currency' => 'string',
         'displayAmount' => 'string',
         'pricePerUnit' => 'float',
+        'priceType' => '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\PriceType',
+        'priceTypeLabel' => 'string',
         'savings' => '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\OfferSavings'
     ];
 
@@ -61,6 +63,8 @@ class OfferPrice implements ModelInterface, ArrayAccess
         'currency' => null,
         'displayAmount' => null,
         'pricePerUnit' => null,
+        'priceType' => null,
+        'priceTypeLabel' => null,
         'savings' => null
     ];
 
@@ -95,6 +99,8 @@ class OfferPrice implements ModelInterface, ArrayAccess
         'currency' => 'Currency',
         'displayAmount' => 'DisplayAmount',
         'pricePerUnit' => 'PricePerUnit',
+        'priceType' => 'PriceType',
+        'priceTypeLabel' => 'PriceTypeLabel',
         'savings' => 'Savings'
     ];
 
@@ -108,6 +114,8 @@ class OfferPrice implements ModelInterface, ArrayAccess
         'currency' => 'setCurrency',
         'displayAmount' => 'setDisplayAmount',
         'pricePerUnit' => 'setPricePerUnit',
+        'priceType' => 'setPriceType',
+        'priceTypeLabel' => 'setPriceTypeLabel',
         'savings' => 'setSavings'
     ];
 
@@ -121,6 +129,8 @@ class OfferPrice implements ModelInterface, ArrayAccess
         'currency' => 'getCurrency',
         'displayAmount' => 'getDisplayAmount',
         'pricePerUnit' => 'getPricePerUnit',
+        'priceType' => 'getPriceType',
+        'priceTypeLabel' => 'getPriceTypeLabel',
         'savings' => 'getSavings'
     ];
 
@@ -188,6 +198,8 @@ class OfferPrice implements ModelInterface, ArrayAccess
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['displayAmount'] = isset($data['displayAmount']) ? $data['displayAmount'] : null;
         $this->container['pricePerUnit'] = isset($data['pricePerUnit']) ? $data['pricePerUnit'] : null;
+        $this->container['priceType'] = isset($data['priceType']) ? $data['priceType'] : null;
+        $this->container['priceTypeLabel'] = isset($data['priceTypeLabel']) ? $data['priceTypeLabel'] : null;
         $this->container['savings'] = isset($data['savings']) ? $data['savings'] : null;
     }
 
@@ -312,6 +324,54 @@ class OfferPrice implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets priceType
+     *
+     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\PriceType
+     */
+    public function getPriceType()
+    {
+        return $this->container['priceType'];
+    }
+
+    /**
+     * Sets priceType
+     *
+     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\PriceType $priceType priceType
+     *
+     * @return $this
+     */
+    public function setPriceType($priceType)
+    {
+        $this->container['priceType'] = $priceType;
+
+        return $this;
+    }
+
+    /**
+     * Gets priceTypeLabel
+     *
+     * @return string
+     */
+    public function getPriceTypeLabel()
+    {
+        return $this->container['priceTypeLabel'];
+    }
+
+    /**
+     * Sets priceTypeLabel
+     *
+     * @param string $priceTypeLabel priceTypeLabel
+     *
+     * @return $this
+     */
+    public function setPriceTypeLabel($priceTypeLabel)
+    {
+        $this->container['priceTypeLabel'] = $priceTypeLabel;
+
+        return $this;
+    }
+
+    /**
      * Gets savings
      *
      * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\OfferSavings
@@ -341,7 +401,7 @@ class OfferPrice implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset) : bool
     {
         return isset($this->container[$offset]);
     }
@@ -353,7 +413,7 @@ class OfferPrice implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset) : mixed
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
@@ -366,7 +426,7 @@ class OfferPrice implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value) : void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -382,7 +442,7 @@ class OfferPrice implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset) : void
     {
         unset($this->container[$offset]);
     }

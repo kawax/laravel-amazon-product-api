@@ -44,6 +44,7 @@ class TechnicalInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'energyEfficiencyClass' => '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SingleStringValuedAttribute',
         'formats' => '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\MultiValuedAttribute'
     ];
 
@@ -53,6 +54,7 @@ class TechnicalInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'energyEfficiencyClass' => null,
         'formats' => null
     ];
 
@@ -83,6 +85,7 @@ class TechnicalInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'energyEfficiencyClass' => 'EnergyEfficiencyClass',
         'formats' => 'Formats'
     ];
 
@@ -92,6 +95,7 @@ class TechnicalInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'energyEfficiencyClass' => 'setEnergyEfficiencyClass',
         'formats' => 'setFormats'
     ];
 
@@ -101,6 +105,7 @@ class TechnicalInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'energyEfficiencyClass' => 'getEnergyEfficiencyClass',
         'formats' => 'getFormats'
     ];
 
@@ -164,6 +169,7 @@ class TechnicalInfo implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['energyEfficiencyClass'] = isset($data['energyEfficiencyClass']) ? $data['energyEfficiencyClass'] : null;
         $this->container['formats'] = isset($data['formats']) ? $data['formats'] : null;
     }
 
@@ -190,6 +196,30 @@ class TechnicalInfo implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets energyEfficiencyClass
+     *
+     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SingleStringValuedAttribute
+     */
+    public function getEnergyEfficiencyClass()
+    {
+        return $this->container['energyEfficiencyClass'];
+    }
+
+    /**
+     * Sets energyEfficiencyClass
+     *
+     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SingleStringValuedAttribute $energyEfficiencyClass energyEfficiencyClass
+     *
+     * @return $this
+     */
+    public function setEnergyEfficiencyClass($energyEfficiencyClass)
+    {
+        $this->container['energyEfficiencyClass'] = $energyEfficiencyClass;
+
+        return $this;
+    }
 
     /**
      * Gets formats
