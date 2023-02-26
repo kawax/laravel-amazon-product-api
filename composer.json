@@ -9,15 +9,15 @@
   "require": {
     "php": "^8.0",
     "guzzlehttp/guzzle": "^7.5",
-    "illuminate/support": "^9.0||^10.0"
+    "illuminate/support": "^9.0||^10.0",
+    "thewirecutter/paapi5-php-sdk": "^1.2"
   },
   "require-dev": {
     "orchestra/testbench": "^7.0||^8.0"
   },
   "autoload": {
     "psr-4": {
-      "Revolution\\Amazon\\ProductAdvertising\\": "src/",
-      "Amazon\\ProductAdvertisingAPI\\v1\\": "paapi5-php-sdk/src/"
+      "Revolution\\Amazon\\ProductAdvertising\\": "src/"
     }
   },
   "autoload-dev": {
