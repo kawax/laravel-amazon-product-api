@@ -8,8 +8,8 @@
 My API account has been banned, so my active support is over. However, PR is accepted.
 
 ## Requirements
-- PHP >= 8.0
-- Laravel >= 9.0
+- PHP >= 8.1
+- Laravel >= 10.0
 
 ## Versioning
 - Basic : semver
