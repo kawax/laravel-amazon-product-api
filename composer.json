@@ -13,7 +13,7 @@
     "thewirecutter/paapi5-php-sdk": "^1.2"
   },
   "require-dev": {
-    "orchestra/testbench": "^8.0"
+    "orchestra/testbench": "^9.0"
   },
   "autoload": {
     "psr-4": {
