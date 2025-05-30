@@ -1,8 +1,6 @@
 # Amazon Product Advertising API for Laravel
 
 [![Build Status](https://travis-ci.com/kawax/laravel-amazon-product-api.svg?branch=master)](https://travis-ci.com/kawax/laravel-amazon-product-api)
-[![Maintainability](https://api.codeclimate.com/v1/badges/d835c616dc9f95faf516/maintainability)](https://codeclimate.com/github/kawax/laravel-amazon-product-api/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/d835c616dc9f95faf516/test_coverage)](https://codeclimate.com/github/kawax/laravel-amazon-product-api/test_coverage)
 
 ## End of active support (2020/06)
 My API account has been banned, so my active support is over. However, PR is accepted.
