@@ -1,0 +1,34 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+permissions: read-all
+
+jobs:
+  test:
+    name: tests
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-versions: ['8.2', '8.3', '8.4']
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup PHP, with composer and extensions
+        uses: shivammathur/setup-php@v2 #https://github.com/shivammathur/setup-php
+        with:
+          php-version: ${{ matrix.php-versions }}
+          extensions: mbstring
+          coverage: xdebug
+      - name: Install Composer dependencies
+        run: composer install -q
+      - name: Test
+        run: vendor/bin/phpunit
+      - name: Code Coverage
+        uses: qltysh/qlty-action/coverage@v1
+        with:
+          token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
+          files: build/logs/clover.xml
