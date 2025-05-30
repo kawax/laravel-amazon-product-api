@@ -3,7 +3,7 @@
 [![Maintainability](https://qlty.sh/badges/0b83095f-5fbb-441c-906f-60a51d064f5b/maintainability.svg)](https://qlty.sh/gh/invokable/projects/laravel-amazon-product-api)
 [![Code Coverage](https://qlty.sh/badges/0b83095f-5fbb-441c-906f-60a51d064f5b/test_coverage.svg)](https://qlty.sh/gh/invokable/projects/laravel-amazon-product-api)
 
-## Active development is finished
+## End of active support (2020/06)
 The recent Amazon Product Advertising API has become more restrictive and difficult to use.  
 Although we support the latest Laravel/PHP, it is in maintenance mode with no other development work.
 
