@@ -1,5 +1,8 @@
 # Amazon Product Advertising API for Laravel
 
+[![Maintainability](https://qlty.sh/badges/0b83095f-5fbb-441c-906f-60a51d064f5b/maintainability.svg)](https://qlty.sh/gh/invokable/projects/laravel-amazon-product-api)
+[![Code Coverage](https://qlty.sh/badges/0b83095f-5fbb-441c-906f-60a51d064f5b/test_coverage.svg)](https://qlty.sh/gh/invokable/projects/laravel-amazon-product-api)
+
 ## End of active support (2020/06)
 My API account has been banned, so my active support is over. However, PR is accepted.
 
