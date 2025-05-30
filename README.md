@@ -3,17 +3,9 @@
 [![Maintainability](https://qlty.sh/badges/0b83095f-5fbb-441c-906f-60a51d064f5b/maintainability.svg)](https://qlty.sh/gh/invokable/projects/laravel-amazon-product-api)
 [![Code Coverage](https://qlty.sh/badges/0b83095f-5fbb-441c-906f-60a51d064f5b/test_coverage.svg)](https://qlty.sh/gh/invokable/projects/laravel-amazon-product-api)
 
-## End of active support (2020/06)
-My API account has been banned, so my active support is over. However, PR is accepted.
-
 ## Requirements
 - PHP >= 8.2
 - Laravel >= 11.0
-
-## Versioning
-- Basic : semver
-- Drop old PHP or Laravel version : `+0.1`. composer should handle it well.
-- Support only latest major version (`master` branch), but you can PR to old branches.
 
 ## Installation
 
