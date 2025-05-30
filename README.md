@@ -13,9 +13,13 @@ Although we support the latest Laravel/PHP, it is in maintenance mode with no ot
 
 ## Installation
 
-### Composer
 ```
 composer require revolution/laravel-amazon-product-api
+```
+
+### Uninstall
+```
+composer remove revolution/laravel-amazon-product-api
 ```
 
 ### Publishing config (Optional)
