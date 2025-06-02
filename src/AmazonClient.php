@@ -12,8 +12,8 @@ class AmazonClient implements Factory
     use Concerns\Item;
     use Concerns\Search;
     use Concerns\Variation;
-    use Macroable;
     use Hookable;
+    use Macroable;
 
     public function __construct(
         protected DefaultApi $api,
