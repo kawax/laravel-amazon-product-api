@@ -13,8 +13,6 @@ class AmazonProductServiceProvider extends ServiceProvider
 {
     /**
      * Register the application services.
-     *
-     * @return void
      */
     public function register(): void
     {
@@ -24,13 +22,13 @@ class AmazonProductServiceProvider extends ServiceProvider
         );
 
         $this->app->singleton(DefaultApi::class, function ($app) {
-            $config = (new Configuration())
+            $config = (new Configuration)
                 ->setAccessKey(config('amazon-product.api_key'))
                 ->setSecretKey(config('amazon-product.api_secret_key'))
                 ->setRegion(config('amazon-product.region'))
                 ->setHost(config('amazon-product.host'));
 
-            return new DefaultApi(new Client(), $config);
+            return new DefaultApi(new Client, $config);
         });
 
         $this->app->singleton(Factory::class, AmazonClient::class);
@@ -38,8 +36,6 @@ class AmazonProductServiceProvider extends ServiceProvider
 
     /**
      * Bootstrap the application services.
-     *
-     * @return void
      */
     public function boot(): void
     {

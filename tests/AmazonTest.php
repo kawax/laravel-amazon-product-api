@@ -14,21 +14,15 @@ use Revolution\Amazon\ProductAdvertising\Facades\AmazonProduct;
 
 class AmazonTest extends TestCase
 {
-    /**
-     * @var AmazonClient
-     */
     protected AmazonClient $amazon;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
 
         $this->setClientHandler('test');
     }
 
-    /**
-     * @param  string  $body
-     */
     public function setClientHandler(string $body)
     {
         $mock = new MockHandler(
@@ -40,7 +34,7 @@ class AmazonTest extends TestCase
         $handler = HandlerStack::create($mock);
         $client = new Client(['handler' => $handler]);
 
-        $config = new Configuration();
+        $config = new Configuration;
 
         $api = new DefaultApi($client, $config);
 
@@ -48,12 +42,12 @@ class AmazonTest extends TestCase
         $this->amazon->config($api);
     }
 
-    public function testAmazonInstance()
+    public function test_amazon_instance()
     {
         $this->assertInstanceOf(AmazonClient::class, $this->amazon);
     }
 
-    public function testBrowse()
+    public function test_browse()
     {
         $this->setClientHandler(file_get_contents(__DIR__.'/stubs/BrowseNodeResult.json'));
 
@@ -62,7 +56,7 @@ class AmazonTest extends TestCase
         $this->assertArrayHasKey('BrowseNodesResult', $response);
     }
 
-    public function testItem()
+    public function test_item()
     {
         $this->setClientHandler(file_get_contents(__DIR__.'/stubs/ItemsResult.json'));
 
@@ -71,7 +65,7 @@ class AmazonTest extends TestCase
         $this->assertArrayHasKey('ItemsResult', $response);
     }
 
-    public function testItems()
+    public function test_items()
     {
         $this->setClientHandler(file_get_contents(__DIR__.'/stubs/ItemsResult.json'));
 
@@ -80,7 +74,7 @@ class AmazonTest extends TestCase
         $this->assertArrayHasKey('ItemsResult', $response);
     }
 
-    public function testSearch()
+    public function test_search()
     {
         $this->setClientHandler(file_get_contents(__DIR__.'/stubs/SearchResult.json'));
 
@@ -89,7 +83,7 @@ class AmazonTest extends TestCase
         $this->assertArrayHasKey('SearchResult', $response);
     }
 
-    public function testVariations()
+    public function test_variations()
     {
         $this->setClientHandler(file_get_contents(__DIR__.'/stubs/VariationsResult.json'));
 
@@ -98,14 +92,14 @@ class AmazonTest extends TestCase
         $this->assertArrayHasKey('VariationsResult', $response);
     }
 
-    public function testIdType()
+    public function test_id_type()
     {
         $this->amazon->setIdType(idType: 'EAN');
 
         $this->assertEquals('EAN', $this->amazon->getIdType());
     }
 
-    public function testMacro()
+    public function test_macro()
     {
         AmazonClient::macro(
             'test',
@@ -118,7 +112,7 @@ class AmazonTest extends TestCase
         $this->assertTrue(is_callable([AmazonClient::class, 'test']));
     }
 
-    public function testHookable()
+    public function test_hookable()
     {
         $this->setClientHandler(file_get_contents(__DIR__.'/stubs/ItemsResult.json'));
 
@@ -134,21 +128,21 @@ class AmazonTest extends TestCase
         $this->assertTrue($this->amazon->hasHook('item'));
     }
 
-    public function testClient()
+    public function test_client()
     {
         $amazon = app(AmazonClient::class);
 
         $this->assertInstanceOf(AmazonClient::class, $amazon);
     }
 
-    public function testFactory()
+    public function test_factory()
     {
         $amazon = app(Factory::class);
 
         $this->assertInstanceOf(AmazonClient::class, $amazon);
     }
 
-    public function testApiUsing()
+    public function test_api_using()
     {
         $amazon = app(Factory::class);
 
@@ -161,7 +155,7 @@ class AmazonTest extends TestCase
         $this->assertInstanceOf(DefaultApi::class, $amazon->api());
     }
 
-    public function testFacade()
+    public function test_facade()
     {
         AmazonProduct::shouldReceive('browse')->andReturn([]);
 

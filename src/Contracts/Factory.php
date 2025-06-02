@@ -16,7 +16,7 @@ interface Factory
     /**
      * @throws ApiException
      */
-    public function search(string $category, string $keyword = null, int $page = 1): array;
+    public function search(string $category, ?string $keyword = null, int $page = 1): array;
 
     /**
      * @throws ApiException
